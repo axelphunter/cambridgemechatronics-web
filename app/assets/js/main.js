@@ -11,11 +11,11 @@ var app = {
 		closeMenu.on('tap', function(ev) {
 			wrapper.classList.remove('active');
 		});
-		body.on('panleft panright', function(ev) {
-			if(ev.type === 'panright' && !wrapper.classList.contains('active')) {
+		body.on('swipeleft swiperight', function(ev) {
+			if(ev.type === 'swiperight' && !wrapper.classList.contains('active')) {
 				wrapper.classList.add('active')
 			}
-			else if(ev.type === 'panleft' && wrapper.classList.contains('active')) {
+			else if(ev.type === 'swipeleft' && wrapper.classList.contains('active')) {
 				wrapper.classList.remove('active');
 			}
 		});
