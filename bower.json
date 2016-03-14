@@ -1,0 +1,21 @@
+{
+  "name": "adamsonberekoff",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Axel Hunter <axel@axelhunter.net>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "hammerjs": "^2.0.6"
+  }
+}

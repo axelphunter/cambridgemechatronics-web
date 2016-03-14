@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta charset="utf-8" />
+        <title>Adamson Berekoff - Hairdressers Cambridge</title>
+        <meta name="description" content="Situated on vibrant King Street in the heart of historic city centre, Adamson Berekoff is Cambridge’s new premier salon set up by two of the city’s most established and in demand stylists." />
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="https://twitter.com/adamsonberekoff">
+        <meta name="twitter:title" content="Adamson Berekoff - Hairdressers Cambridge">
+        <meta name="twitter:description" content="Situated on vibrant King Street in the heart of historic city centre, Adamson Berekoff is Cambridge’s new premier salon set up by two of the city’s most established and in demand stylists.">
+        <meta name="twitter:image:src" content="img/logo.png">
+
+        <meta property="og:title" content="Adamson Berekoff - Hairdressers Cambridge" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://www.adamsonberekoff.co.uk/" />
+        <meta property="og:image" content="img/logo.png" />
+        <meta property="og:description" content="" />
+        <meta property="og:site_name" content="Adamson Berekoff - Hairdressers Cambridge" />
+
+        <!-- Google verification
+        ================================================== -->
+        <meta name="google-site-verification" content="" />
+
+        <!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+        <!-- CSS
+        ================================================== -->
+
+        <!-- build:css /assets/css/styles.min.css -->
+        <link rel="stylesheet" type="text/css" href="/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/css/styles.css"/>
+        <!-- endbuild -->
+
+
+
+    </head>
+    <body>
+        <nav class="side-nav show">
+            <span class="close">Close</span>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/team">Team</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="wrap">
+            {{> header}}
+            <main>
+                {{{body}}}
+            </main>
+            {{> footer}}
+        </div>
+
+    <!-- Javascripts
+        ================================================== -->
+    <script type="text/javascript" src="/bower_components/hammerjs/hammer.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+        {{#if loadMap}}
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+            <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaoytIM5xZF0CmVv_m0c2tA44MhZ2gjB8&sensor=false"></script>-->
+            <script>google.maps.event.addDomListener(window, 'load', app.loadMap);</script>
+        {{/if}}
+
+    </body>
+</html>
