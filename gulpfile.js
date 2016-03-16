@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
 	useref = require('gulp-useref'),
 	uglify = require('gulp-uglify'),
-	cssnano = require('gulp-cssnano'),
+	cleanCSS = require('gulp-clean-css'),
 	gulpIf = require('gulp-if'),
 	imagemin = require('gulp-imagemin'),
 	cache = require('gulp-cache'),
@@ -25,8 +25,7 @@ gulp.task('process-views', function(){
 
 	return gulp.src('app/**/*.hbs')
 		.pipe(assets)
-		//.pipe(gulpIf('*.css', minifyCSS()))
-		.pipe(gulpIf('*.css', cssnano())) // consider nano options such as options.autoprefixer !!
+		.pipe(gulpIf('*.css', cleanCSS()))
 		.pipe(assets.restore())
 		.pipe(useref())
 		.pipe(gulpIf('*.js', uglify()))
