@@ -5,16 +5,20 @@ var gulp = require('gulp'),
 	gulpIf = require('gulp-if'),
 	imagemin = require('gulp-imagemin'),
 	cache = require('gulp-cache'),
+	minifyHTML = require('gulp-minify-html'),
 	del = require('del'),
 	runSequence = require('run-sequence'),
-	sass = require('gulp-sass');
-
-var config = {
-	appDir: 'app',
-	sassPath: '/scss',
-	bowerDir: 'app/bower_components',
-	distDir: 'dist'
-};
+	sass = require('gulp-sass'),
+	minHtmlOpts = {
+		conditionals: true, // do not remove conditional comments
+		quotes: true        // do not remove attribute quotes
+	},
+	config = {
+		appDir: 'app',
+		sassPath: '/scss',
+		bowerDir: 'app/bower_components',
+		distDir: 'dist'
+	};
 
 gulp.task('process-views', function(){
 
@@ -35,6 +39,13 @@ gulp.task('process-views', function(){
 gulp.task('fonts', function() {
 	return gulp.src(config.appDir + '/fonts/**/*')
 		.pipe(gulp.dest(config.distDir + '/fonts'));
+});
+
+gulp.task('minify-html', function(){
+
+	return gulp.src(['dist/**/*.hbs','!dist/**/md.hbs'])
+		.pipe(gulpIf('*.hbs', minifyHTML(minHtmlOpts)))
+		.pipe(gulp.dest('dist'));
 });
 
 gulp.task('sass', function(){
@@ -64,7 +75,12 @@ gulp.task('clean', function() {
 });
 
 gulp.task('bundle', function (callback) {
-	runSequence(['sass', 'images', 'fonts'], 'process-views',
+	runSequence(
+		'sass',
+		'images',
+		'fonts',
+		'process-views',
+		'minify-html',
 		callback
 	);
 });
