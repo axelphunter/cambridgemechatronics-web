@@ -31,13 +31,10 @@
 
         <!-- CSS
         ================================================== -->
-
-        <!-- build:css(app/assets) /css/styles.min.css -->
+        <!-- build:css /css/styles.min.css -->
         <link rel="stylesheet" type="text/css" href="/css/reset.css"/>
         <link rel="stylesheet" type="text/css" href="/css/styles.css"/>
         <!-- endbuild -->
-
-
 
     </head>
     <body>
@@ -59,10 +56,13 @@
             {{> footer}}
         </div>
 
-    <!-- Javascripts
+        <!-- Javascripts
         ================================================== -->
-    <script type="text/javascript" src="/bower_components/hammerjs/hammer.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
+        <!-- build:js /js/main.min.js -->
+        <script type="text/javascript" src="/bower_components/hammerjs/hammer.js"></script>
+        <script type="text/javascript" src="/js/main.js"></script>
+        <!-- endbuild -->
+
         {{#if loadMap}}
             <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
             <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaoytIM5xZF0CmVv_m0c2tA44MhZ2gjB8&sensor=false"></script>-->

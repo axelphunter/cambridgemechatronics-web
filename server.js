@@ -10,17 +10,32 @@ function Server(portNo, debugMode) {
 
 	portNo = portNo || 3000;
 
-	var workingDir = (debugMode) ? 'app':'dist';
+	var appDir = path.join(__dirname, debugMode ? '/app' : '/dist');
 
-	app.set('views', path.join(__dirname, workingDir, '/views'));
+	app.set('views', path.join(appDir, '/views'));
 	app.engine('.hbs', exphbs({
 		defaultLayout: 'main',
 		extname: '.hbs',
-		layoutsDir: path.join(__dirname, workingDir, '/views/layouts'),
-		partialsDir: path.join(__dirname, workingDir, '/views/partials')
+		layoutsDir: path.join(appDir, '/views/layouts'),
+		partialsDir: path.join(appDir, '/views/partials')
 	}));
 	app.set('view engine', '.hbs');
-	app.use(express.static(path.join(__dirname, workingDir, '/assets')));
+
+	var appPaths = {
+			//root : path.resolve(appDir),
+			js : path.resolve(appDir, 'js'),
+			css : path.resolve(appDir, 'css'),
+			img : path.resolve(appDir, 'img')
+		},
+		staticOpts = {
+			etag      : debugMode ? false : true,
+			lastModified  : debugMode ? false : true,
+			maxAge      : 0
+		};
+
+	app.use('/js', express.static(appPaths.js, staticOpts));
+	app.use('/css', express.static(appPaths.css, staticOpts));
+	app.use('/img', express.static(appPaths.img, staticOpts));
 
 	// routes
 	app.get('/', function (req, res) {

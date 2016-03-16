@@ -16,23 +16,32 @@ var config = {
 	distDir: 'dist'
 };
 
-gulp.task('useref', function(){
-	return gulp.src(config.appDir + '/views/**/*.hbs')
+gulp.task('process-views', function(){
+
+	var assets = useref.assets({
+		searchPath: './app/',
+		base: './dist/'
+	});
+
+	return gulp.src('app/**/*.hbs')
+		.pipe(assets)
+		//.pipe(gulpIf('*.css', minifyCSS()))
+		.pipe(gulpIf('*.css', cssnano())) // consider nano options such as options.autoprefixer !!
+		.pipe(assets.restore())
 		.pipe(useref())
-		.pipe(gulpIf('*.css', cssnano()))
 		.pipe(gulpIf('*.js', uglify()))
-		.pipe(gulp.dest(config.distDir));
+		.pipe(gulp.dest('dist'));
 });
 
 gulp.task('fonts', function() {
-	return gulp.src(config.appDir + '/assets/fonts/**/*')
-		.pipe(gulp.dest(config.distDir + '/assets/fonts'));
+	return gulp.src(config.appDir + '/fonts/**/*')
+		.pipe(gulp.dest(config.distDir + '/fonts'));
 });
 
 gulp.task('sass', function(){
 	return gulp.src(config.appDir + '/scss/*.scss')
 		.pipe(sass())
-		.pipe(gulp.dest(config.appDir + '/assets/css'));
+		.pipe(gulp.dest(config.appDir + '/css'));
 });
 
 gulp.task('watch', ['sass'], function(){
@@ -40,11 +49,11 @@ gulp.task('watch', ['sass'], function(){
 });
 
 gulp.task('images', function() {
-	return gulp.src(config.appDir + '/assets/img/*.+(png|jpg|jpeg|gif|svg)')
+	return gulp.src(config.appDir + '/img/*.+(png|jpg|jpeg|gif|svg)')
 		.pipe(imagemin({
 			interlaced: true
 		}))
-		.pipe(gulp.dest(config.distDir + '/assets/img'))
+		.pipe(gulp.dest(config.distDir + '/img'))
 });
 
 gulp.task('clean:dist', function(callback){
@@ -56,7 +65,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('bundle', function (callback) {
-	runSequence(['sass', 'images', 'fonts'], 'useref',
+	runSequence(['sass', 'images', 'fonts'], 'process-views',
 		callback
 	);
 });
