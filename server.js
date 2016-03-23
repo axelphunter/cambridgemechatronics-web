@@ -128,7 +128,10 @@ function Server(portNo, debugMode) {
 
 		var errors = req.validationErrors();
 		if (errors) {
-			res.render('contact', { errors: errors });
+			res.render('contact', {
+				errors: errors,
+				loadMap: true
+			});
 			return;
 		} else {
 			var message = {
