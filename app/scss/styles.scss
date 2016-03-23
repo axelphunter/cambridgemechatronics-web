@@ -8,6 +8,61 @@ html {
     background: #FCFCFC;
     color: #FCFCFC;
 
+    .reviews {
+      padding: 2rem 0;
+
+      li {
+        margin-bottom: 2rem;
+
+        p {
+          margin-top: 0.5rem;
+          width: 90%;
+          margin-left: 10%;
+          font-weight: 100;
+
+          &:before {
+            content: '';
+            display: inline-block;
+            background: url("/img/icons/quote.svg") center/contain no-repeat;
+            width: 10%;
+            height: 2rem;
+            margin-left: -10%;
+            vertical-align: top;
+          }
+        }
+
+        img {
+          height: 2rem;
+        }
+      }
+    }
+
+    .errors {
+      color: #a94442;
+      background-color: #f2dede;
+      border-color: #ebccd1;
+      padding: 1.5rem;
+      overflow: hidden;
+      -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -ms-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+
+      li {
+        font-weight: 200;
+
+        span {
+          font-weight: bold;
+        }
+      }
+
+      &.hide {
+        padding: 0rem 1.5rem;
+        height: 0;
+      }
+    }
+
     .side-nav {
       display: none;
     }
@@ -64,7 +119,16 @@ html {
       padding: 2rem 5rem;
 
       p {
+        font-weight: 500;
         text-align: center;
+
+        img {
+          height: 1rem;
+        }
+
+        a {
+          text-decoration: underline;
+        }
       }
 
       small {
@@ -236,6 +300,7 @@ html {
       margin-bottom: 1rem;
       line-height: 1.5rem;
       text-align: justify;
+      font-weight: 100;
     }
 
     #map {
@@ -334,6 +399,10 @@ html {
 
         h3 {
           margin-bottom: 0.5rem;
+        }
+
+        small {
+          font-weight: 500;
         }
 
         p {

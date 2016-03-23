@@ -19,6 +19,13 @@ var app = {
 				wrapper.classList.remove('active');
 			}
 		});
+
+		if(document.querySelector('.errors') !== null) {
+			setTimeout(function() {
+				document.querySelector('.errors').classList.add('hide');
+			}, 5000);
+		}
+
 	},
 
 	loadMap: function() {

@@ -1,7 +1,7 @@
 <section data-type="home">
     <img class="banner" src="/img/home-bg.jpg"/>
-    <h2>{{title}}</h2>
-    <h3>{{subTitle}}</h3>
+    <h2>REVOLUTIONISING HAIRDRESSING IN CAMBRIDGE</h2>
+    <h3>WELCOME TO ADAMSON BEREKOFF</h3>
     <hr/>
     <p>Situated on vibrant King Street in the heart of historic city centre, Adamson Berekoff is Cambridge’s new premier salon set up by two of the city’s most established and in demand stylists.</p>
     <p>The salon is the vision of directors Jamie Adamson and Ryan Berekoff whose mission is to offer outstanding hairdressing with exceptional customer service in contemporary and comfortable surroundings. They and their handpicked team offer the highest quality styling, colour and professional advice to create your individual look. Their personal approach means that every client gets their undivided attention during their full appointment.</p>
@@ -12,4 +12,14 @@
     <a href="/contact">
         <button class="btn btn-primary">Get in touch</button>
     </a>
+    {{#if places.result.reviews}}
+        <ul class="reviews">
+            {{#each places.result.reviews}}
+                <li>
+                    {{stars}}
+                    <p>{{this.text}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
 </section>

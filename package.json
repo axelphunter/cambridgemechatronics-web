@@ -23,11 +23,14 @@
     "run-sequence": "^1.1.5"
   },
   "dependencies": {
+    "body-parser": "^1.15.0",
     "commander": "^2.9.0",
     "emailjs": "^1.0.4",
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
+    "express-validator": "^2.20.3",
     "hammerjs": "^2.0.6",
-    "handlebars": "^4.0.5"
+    "handlebars": "^4.0.5",
+    "request-promise": "^2.0.1"
   }
 }
