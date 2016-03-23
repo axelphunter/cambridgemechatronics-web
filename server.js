@@ -123,7 +123,6 @@ function Server(portNo, debugMode) {
 
 	app.post('/contact', function (req, res) {
 
-		req.checkBody("name", "Enter your name").isAlpha();
 		req.checkBody("email", "Enter a valid email address.").isEmail();
 		req.checkBody("telephone", "Enter a valid telephone number.").optional().isNumeric();
 
@@ -158,12 +157,16 @@ function Server(portNo, debugMode) {
 
 			server.send(message, function(err, message) {
 				if(!err) {
-					res.render('contact', {email: true});
+					res.render('contact', {
+						email: true,
+						loadMap:true
+					});
 				}
 				else {
 					res.render('contact', {
 						errors: {
-							msg: "Whoops something went wrong. Wait a few minutes and try again."
+							msg: "Whoops something went wrong. Wait a few minutes and try again.",
+							loadMap: true
 						}
 					});
 				}
