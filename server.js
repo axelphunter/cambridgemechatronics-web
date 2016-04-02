@@ -26,7 +26,7 @@ var express = require('express'),
 
 function Server(portNo, debugMode) {
 
-	portNo = portNo || 8080;
+	portNo = portNo || 80;
 
 	var appDir = path.join(__dirname, debugMode ? '/app' : '/dist');
 
