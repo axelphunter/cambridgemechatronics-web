@@ -59,7 +59,7 @@ gulp.task('watch', ['sass'], function(){
 });
 
 gulp.task('images', function() {
-	return gulp.src(config.appDir + '/img/**/*.+(png|jpg|jpeg|gif|svg)')
+	return gulp.src(config.appDir + '/img/**/*.+(png|jpg|jpeg|gif|svg|ico)')
 		.pipe(imagemin({
 			interlaced: true
 		}))
