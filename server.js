@@ -13,8 +13,8 @@ var express = require('express'),
 
 	server  = email.server.connect({
 		user: "adamsonberekoff.co.uk",
-		password: "",
-		host: "smtp.hosts.com",
+		password: "bh%p-2w$a3%KDGnF",
+		host: "smtp.hosts.co.uk",
 		ssl: true
 	}),
 	googlePlaces = {
@@ -130,14 +130,16 @@ function Server(portNo, debugMode) {
 		if (errors) {
 			res.render('contact', {
 				errors: errors,
-				loadMap: true
+				loadMap: true,
+				places: googlePlaces.data
 			});
 			return;
 		} else {
 			var message = {
 				text:    "Contact from adamsonberekoff.co.uk",
-				from:    "Info info@adamsonberekoff.co.uk",
-				to:      "Info info@adamsonberekoff.co.uk, Jamie jamie@adamsonberekoff.co.uk",
+				from:    "info@adamsonberekoff.co.uk",
+				to:      "info@adamsonberekoff.co.uk, jamie@adamsonberekoff.co.uk",
+				// to: "03ahunter@googlemail.com",
 				subject: "Adamson Berekoff website contact form",
 				attachment:
 					[
@@ -162,14 +164,16 @@ function Server(portNo, debugMode) {
 				if(!err) {
 					res.render('contact', {
 						email: true,
-						loadMap:true
+						loadMap:true,
+						places: googlePlaces.data
 					});
 				}
 				else {
 					res.render('contact', {
 						errors: {
 							msg: "Whoops something went wrong. Wait a few minutes and try again.",
-							loadMap: true
+							loadMap: true,
+							places: googlePlaces.data
 						}
 					});
 				}
