@@ -42,7 +42,6 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('minify-html', function(){
-
 	return gulp.src(['dist/**/*.hbs','!dist/**/md.hbs'])
 		.pipe(gulpIf('*.hbs', minifyHTML(minHtmlOpts)))
 		.pipe(gulp.dest('dist'));
