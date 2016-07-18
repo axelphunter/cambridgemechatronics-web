@@ -1,25 +1,52 @@
-<section data-type="home">
-    <img class="banner" src="/img/home-bg.jpg"/>
-    <h2>REVOLUTIONISING HAIRDRESSING IN CAMBRIDGE</h2>
-    <h3>WELCOME TO ADAMSON BEREKOFF</h3>
-    <hr/>
-    <p>Situated on vibrant King Street in the heart of historic city centre, Adamson Berekoff is Cambridge’s new premier salon set up by two of the city’s most established and in demand stylists.</p>
-    <p>The salon is the vision of directors Jamie Adamson and Ryan Berekoff whose mission is to offer outstanding hairdressing with exceptional customer service in contemporary and comfortable surroundings. They and their handpicked team offer the highest quality styling, colour and professional advice to create your individual look. Their personal approach means that every client gets their undivided attention during their full appointment.</p>
-    <p>Jamie and Ryan have joined forces to bring their shared passion for creativity and professionalism to create a salon to match and one that is everything their loyal following, most of whom have been coming to them for many years, could want.</p>
-    <p>Jamie and Ryan already have a huge following in Cambridge and have been very selective in choosing staff members who they have personally trained and who share their passions.</p>
-    <p>Once you’ve experienced the level of excellence delivered by the staff, you’ll no longer have the worry of searching out another hairdresser again.</p>
-    <p>Feel free to come and have a complimentary consultation with one of our talented team members.</p>
-    <a href="/contact">
-        <button class="btn btn-primary">Get in touch</button>
-    </a>
-    {{#if places.result.reviews}}
-        <ul class="reviews">
-            {{#each places.result.reviews}}
-                <li>
-                    {{stars}}
-                    <p>{{this.text}}</p>
-                </li>
-            {{/each}}
-        </ul>
-    {{/if}}
+<section class="home-banner">
+  <div class="container">
+    <div class="row">
+      <img src="/img/giving-you-more.png" />
+    </div>
+    <div class="row">
+      <h3>Life changing business made simple</h3>
+      <button class="button-primary">Find out more</button>
+    </div>
+  </div>
+</section>
+<section class="income-calculator">
+  <div class="container">
+    <form>
+      <div class="row">
+        <div class="four columns">
+          <label>You earn (£)</label>
+          <input class="u-full-width" type="email" value="10">
+        </div>
+        <div class="four columns">
+          <label>Every</label>
+          <select class="u-full-width">
+            <option value="Option 1">Hour</option>
+            <option value="Option 2">Day</option>
+          </select>
+        </div>
+        <div class="four columns">
+          <label>And get paid</label>
+          <select class="u-full-width">
+            <option value="Option 1">Weekly</option>
+            <option value="Option 2">Monthly</option>
+          </select>
+        </div>
+      </div>
+      <input class="button-primary" type="submit" value="Submit">
+    </form>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <h4>Is Momentum for you?</h4>
+      <p>
+        Contracting isn’t like the average 9-5 job, so our support isn’t average either. Whether you choose our umbrella employment solution or our limited company accounting services with our sister company, ClearSky Contractor Accounting, you’ll enjoy unbeatable service provided by a team of contracting experts with over 15 years’ experience.
+      </p>
+      <p>
+        At Parasol, we understand that choosing the right contracting option is essential for your exciting new career. That’s why we’ll give you the best advice, tailored to your unique circumstances. Just like our sister company, ClearSky Contractor Accounting, we’ll be with you all the way whenever you need us.
+      </p>
+      <button class="button-primary">Sign up</button>
+    </div>
+  </div>
 </section>

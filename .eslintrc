@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "es6": true,
+    "mocha": true,
+    "node": true,
+    "browser": true
+  },
+  "globals": {
+    
+  },
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "new-cap": ["error", {"capIsNewExceptions": ["Router"]}],
+    "max-len": ["error", 150]
+  }
+}

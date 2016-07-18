@@ -1,203 +1,58 @@
-'use strict';
+const express = require('express');
+const exphbs = require('express-handlebars');
+// const handlebars = require('handlebars');
+const path = require('path');
+// const program = require('commander');
+const bodyParser = require('body-parser');
+const validator = require('express-validator');
+const request = require('request-promise');
+const app = express();
+const config = require('config');
+const port = process.env.PORT || config.port;
+const appDir = path.join(__dirname, config.debug ? '/app' : '/dist');
+const appPaths = {
+  js: path.resolve(appDir, 'js'),
+  css: path.resolve(appDir, 'css'),
+  img: path.resolve(appDir, 'img'),
+  bower: path.resolve(appDir, 'bower_components')
+};
+const staticOpts = {
+  etag: config.debug,
+  lastModified: config.debug,
+  maxAge: 0
+};
 
-var express = require('express'),
-	exphbs  = require('express-handlebars'),
-	handlebars = require('handlebars'),
-	path = require('path'),
-	program = require('commander'),
-	bodyParser = require('body-parser'),
-	validator = require('express-validator'),
-	email = require('emailjs'),
-	request = require('request-promise'),
-	app = express(),
+app.set('views', path.join(appDir, '/views'));
 
-	server  = email.server.connect({
-		user: "adamsonberekoff.co.uk",
-		password: "bh%p-2w$a3%KDGnF",
-		host: "smtp.hosts.co.uk",
-		ssl: true
-	}),
-	googlePlaces = {
-		url: "https://maps.googleapis.com/maps/api/place/details/json?",
-		key: "AIzaSyDkwhiEd4Vv4a_iaogXdtnVOdklk75VRWc",
-		placeid: "ChIJcdltBJRw2EcRs7ibwO4KaMM",
-		data: {}
-	};
+app.engine('.hbs', exphbs({
+  defaultLayout: 'main',
+  extname: '.hbs',
+  layoutsDir: path.join(appDir, '/views/layouts'),
+  partialsDir: path.join(appDir, '/views/partials'),
+  helpers: {
 
-function Server(portNo, debugMode) {
+  }
+}));
+app.set('view engine', '.hbs');
 
-	portNo = portNo || 1000;
+app.use('/js', express.static(appPaths.js, staticOpts));
+app.use('/css', express.static(appPaths.css, staticOpts));
+app.use('/img', express.static(appPaths.img, staticOpts));
+app.use('/bower_components', express.static(appPaths.bower, staticOpts));
 
-	var appDir = path.join(__dirname, debugMode ? '/app' : '/dist');
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
+app.use(validator());
 
-	app.set('views', path.join(appDir, '/views'));
+const appRoutes = express.Router();
 
-	app.engine('.hbs', exphbs({
-		defaultLayout: 'main',
-		extname: '.hbs',
-		layoutsDir: path.join(appDir, '/views/layouts'),
-		partialsDir: path.join(appDir, '/views/partials'),
-		helpers: {
-			stars: function() { return new handlebars.SafeString(Array(6).join("<img src='/img/icons/star.svg' />")); }
-		}
-	}));
-	app.set('view engine', '.hbs');
+// routes
+app.get('/', (req, res) => {
+  res.render('home', {});
+});
 
-	var appPaths = {
-			//root : path.resolve(appDir),
-			js : path.resolve(appDir, 'js'),
-			css : path.resolve(appDir, 'css'),
-			img : path.resolve(appDir, 'img'),
-			bower: path.resolve(appDir, 'bower_components')
-		},
-		staticOpts = {
-			etag      : debugMode ? false : true,
-			lastModified  : debugMode ? false : true,
-			maxAge      : 0
-		};
-
-	app.use('/js', express.static(appPaths.js, staticOpts));
-	app.use('/css', express.static(appPaths.css, staticOpts));
-	app.use('/img', express.static(appPaths.img, staticOpts));
-	app.use('/bower_components', express.static(appPaths.bower, staticOpts));
-
-	app.use(bodyParser.urlencoded({ extended: true }));
-	app.use(bodyParser.json());
-	app.use(validator());
-
-	// routes
-	app.get('/', function (req, res) {
-
-		var url = 'https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyDkwhiEd4Vv4a_iaogXdtnVOdklk75VRWc&placeid=ChIJcdltBJRw2EcRs7ibwO4KaMM';
-
-		request({uri: url, json: true}).then(function(data){
-				googlePlaces.data = data;
-				res.render('home', {
-					places: googlePlaces.data
-				});
-			})
-			.catch(function(){
-				res.render('home', {
-					places: googlePlaces.data
-				});
-			});
-	});
-
-	app.get('/services', function (req, res) {
-		res.render('services');
-	});
-
-	app.get('/team', function (req, res) {
-		res.render('team');
-	});
-
-	app.get('/gallery', function (req, res) {
-		res.render('gallery', {
-			title: 'Home'
-		});
-	});
-
-	app.get('/contact', function (req, res) {
-
-		var url = 'https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyDkwhiEd4Vv4a_iaogXdtnVOdklk75VRWc&placeid=ChIJcdltBJRw2EcRs7ibwO4KaMM';
-
-		request({uri: url, json: true}).then(function(data){
-				googlePlaces.data = data;
-				res.render('contact', {
-					places: googlePlaces.data,
-					loadMap:true,
-					helpers: {
-						stars: function(stars) {
-							return Array(stars + 1).join("<img src='/img/icons/star.svg' />");
-						}
-					}
-				});
-			})
-			.catch(function(){
-				res.render('contact', {
-					places: googlePlaces.data,
-					loadMap:true
-				});
-			});
-	});
-
-	app.post('/contact', function (req, res) {
-
-		req.checkBody("email", "Enter a valid email address.").isEmail();
-		req.checkBody("telephone", "Enter a valid telephone number.").optional().isNumeric();
-
-		var errors = req.validationErrors();
-		if (errors) {
-			res.render('contact', {
-				errors: errors,
-				loadMap: true,
-				places: googlePlaces.data
-			});
-			return;
-		} else {
-			var message = {
-				text:    "Contact from adamsonberekoff.co.uk",
-				from:    "info@adamsonberekoff.co.uk",
-				to:      "info@adamsonberekoff.co.uk, jamie@adamsonberekoff.co.uk",
-				// to: "03ahunter@googlemail.com",
-				subject: "Adamson Berekoff website contact form",
-				attachment:
-					[
-						{
-							data:"<html>" +
-							"<p>Contact from adamsonberekoff.co.uk</p>" +
-							"<ul>" +
-							"<li>Date - "+new Date()+"</li>" +
-							"<li>Name - "+req.body.name+"</li>" +
-							"<li>Email - "+req.body.email+"</li>" +
-							"<li>Telephone - "+req.body.telephone+"</li>" +
-							"</ul>" +
-							"<p>Message:</p>" +
-							"<p>"+req.body.message+"</p>" +
-							"</html>",
-							alternative:true
-						}
-					]
-			};
-
-			server.send(message, function(err, message) {
-				if(!err) {
-					res.render('contact', {
-						email: true,
-						loadMap:true,
-						places: googlePlaces.data
-					});
-				}
-				else {
-					res.render('contact', {
-						errors: {
-							msg: "Whoops something went wrong. Wait a few minutes and try again.",
-							loadMap: true,
-							places: googlePlaces.data
-						}
-					});
-				}
-			});
-		}
-	});
-
-	app.listen(portNo, function () {
-		console.log('Example app listening on port ' + portNo + '!');
-	});
-}
-
-// if running from the command line, pass in params
-if (!module.parent){
-
-	// setup command line args
-	program.version('0.0.1')
-		.option('-d, --debug', 'run the app in debug mode')
-		.option('-p, --port <integer>', 'http port number')
-		.parse(process.argv);
-
-
-	// start the server
-	new Server(program.port, program.debug);
-}
-
-module.exports = Server;
+app.use('/', appRoutes);
+app.listen(port);
+console.log(`Magic happens at http://localhost:${port}`);

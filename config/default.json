@@ -1,0 +1,9 @@
+{
+  "debug": true,
+  "port": 8080,
+  "mapsApiKey": "AIzaSyCBn8Da8NB_AHJgYRdT4Lj8HFtZNiC7BTg",
+  "secret": "ilovescotchyscotch",
+  "database": "mongodb://127.0.0.1:27017/inmotion-webservice",
+  "transportApiKey": "d9307fd91b0247c607e098d5effedc97",
+  "transportApiId": "03bf8009"
+}

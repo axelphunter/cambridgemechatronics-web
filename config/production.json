@@ -1,0 +1,4 @@
+{
+    "debug": false,
+    "database": "mongodb://admin:4PfGqavGApr7zq@ds017185.mlab.com:17185/whisky-neat"
+}

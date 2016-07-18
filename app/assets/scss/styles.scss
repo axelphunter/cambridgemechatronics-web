@@ -1,0 +1,156 @@
+$light-grey: #f2f2f2;
+$white: #fff;
+$black: #222;
+$primary: #33c3f0;
+
+.container {
+  // max-width: 1200px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+}
+
+img {
+  max-width: 100%;
+}
+
+section {
+  padding: 2rem 0;
+}
+
+nav {
+  .columns {
+    display: inline-block;
+    float: none;
+    margin-left: 0;
+    vertical-align: middle;
+  }
+
+  .top-bar {
+    background: $light-grey;
+    padding: 1rem 0;
+
+    button {
+      margin: 0;
+    }
+  }
+
+  .navbar {
+    padding: 1rem 0;
+  }
+
+  .logo {
+    background: url('/img/logo.svg') center / contain no-repeat;
+    margin: 0;
+    overflow: none;
+    text-indent: -99999999px;
+  }
+
+  .navbar-list {
+    list-style: none;
+    margin: 0;
+
+    .navbar-item {
+      display: inline-block;
+      margin: 0;
+      padding-left: 1.5rem;
+
+      &.icon {
+        overflow-y: hidden;
+        text-indent: -99999999px;
+
+        &.facebook {
+          background: url('/img/icons/facebook.png')  center / contain no-repeat;
+        }
+
+        &.twitter {
+          background: url('/img/icons/twitter.png')  center / contain no-repeat;
+        }
+
+        &.linkedin {
+          background: url('/img/icons/linkedin.png')  center / contain no-repeat;
+        }
+
+        &.email {
+          background: url('/img/icons/email.png')  center / contain no-repeat;
+        }
+
+        &.phone {
+          background: url('/img/icons/phone.png')  center / contain no-repeat;
+        }
+      }
+    }
+
+    .navbar-link {
+      color: inherit;
+      font-size: 1.8rem;
+      text-decoration: none;
+    }
+  }
+}
+
+.home-banner {
+  background: url('../img/shutterstock_367129712.jpg') center 20% / cover no-repeat;
+  padding: 15rem 0;
+  text-align: center;
+  width: 100%;
+
+  img {
+    margin: 2rem auto;
+    margin-top: 0;
+  }
+
+  h3 {
+    color: $white;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: $white;
+    font-size: 1.8rem;
+  }
+}
+
+.income-calculator {
+  background: $primary;
+
+  form {
+    margin: 0;
+
+    label {
+      color: $white;
+    }
+
+    input[type="submit"] {
+      background: $white;
+      color: $black;
+      margin: 0;
+    }
+  }
+}
+
+// Large Devices, Wide Screens
+@media only screen and (max-width : 1200px) {
+}
+
+// Medium Devices, Desktops
+@media only screen and (max-width : 992px) {
+}
+
+// Small Devices, Tablets
+@media only screen and (max-width : 768px) {
+}
+
+// Extra Small Devices, Phones
+@media only screen and (max-width : 480px) {
+}
+
+// Custom, iPhone Retina
+@media only screen and (max-width : 320px) {
+}
