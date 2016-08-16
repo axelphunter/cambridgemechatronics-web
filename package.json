@@ -1,5 +1,5 @@
 {
-  "name": "Blue Bulldog",
+  "name": "blue-bulldog",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,8 @@
     "build": "gulp build",
     "babel": "babel app/assets/scripts --out-dir app/js",
     "babel-watch": "babel app/assets/scripts --out-dir app/js --watch",
-    "postinstall": "npm run babel && npm run bower && npm run build"
+    "postinstall": "npm run babel && npm run bower && npm run build",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
