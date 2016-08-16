@@ -36,6 +36,7 @@
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
     "express-validator": "^2.20.3",
+    "gulp": "^3.9.1",
     "hammerjs": "^2.0.6",
     "handlebars": "^4.0.5",
     "request-promise": "^2.0.1"
