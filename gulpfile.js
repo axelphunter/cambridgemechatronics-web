@@ -8,14 +8,12 @@ var gulp = require('gulp'),
   minifyHTML = require('gulp-minify-html'),
   del = require('del'),
   runSequence = require('run-sequence'),
-  sass = require('gulp-sass'),
   minHtmlOpts = {
     conditionals: true, // do not remove conditional comments
     quotes: true         // do not remove attribute quotes
   },
   config = {
     appDir: 'app',
-    sassPath: '/scss',
     bowerDir: 'app/bower_components',
     distDir: 'dist'
   };
@@ -47,16 +45,6 @@ gulp.task('minify-html', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('sass', function() {
-  return gulp.src(config.appDir + '/assets/scss/*.scss')
-    .pipe(sass())
-    .pipe(gulp.dest(config.appDir + '/css'));
-});
-
-gulp.task('watch', ['sass'], function() {
-  return gulp.watch(config.appDir + '/assets/scss/*.scss', ['sass']);
-});
-
 gulp.task('images', function() {
   return gulp.src(config.appDir + '/img/**/*.+(png|jpg|jpeg|gif|svg|ico)')
     .pipe(imagemin({
@@ -75,7 +63,6 @@ gulp.task('clean', function() {
 
 gulp.task('bundle', function(callback) {
   runSequence(
-    'sass',
     'images',
     'fonts',
     'process-views',

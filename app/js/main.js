@@ -7,9 +7,10 @@ var app = {
   },
 
   menu: function menu() {
-    document.getElementById('nav').onclick = function () {
-      this.classList.toggle('open');
-    };
+    document.getElementById('nav')
+      .onclick = function() {
+        this.classList.toggle('open');
+      };
   }
 
 };

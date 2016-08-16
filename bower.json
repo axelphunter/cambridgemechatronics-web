@@ -1,7 +1,7 @@
 {
-  "name": "Momentum",
+  "name": "blue-bulldog",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "authors": [
     "Axel Hunter <axel@axelhunter.net>"
   ],
@@ -16,7 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "hammerjs": "^2.0.6",
     "skeleton": "^2.0.4"
   }
 }
