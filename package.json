@@ -1,8 +1,8 @@
 {
-  "name": "Momentum",
+  "name": "Blue Bulldog",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "bower": "bower install",
     "build": "gulp build",

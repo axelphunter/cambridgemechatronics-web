@@ -53,6 +53,10 @@ app.get('/', (req, res) => {
   res.render('home', {});
 });
 
+app.get('/about', (req, res) => {
+  res.render('about', {});
+});
+
 app.use('/', appRoutes);
 app.listen(port);
 console.log(`Magic happens at http://localhost:${port}`);
