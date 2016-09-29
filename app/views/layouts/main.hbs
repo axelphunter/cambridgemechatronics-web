@@ -2,11 +2,19 @@
 <html lang="en">
     {{> header}}
     <body>
-        {{> nav}}
-        <div class="content">
-            {{{body}}}
-            {{> footer}}
+      <div class="loading">
+        <div class="loader">
+          <h2 class="loading-text cd-headline clip is-full-width"> <span class="cd-words-wrapper"> <b class="is-visible">Hey please wait</b> <b>Still loading</b></span> </h2>
+          <div class="loading-image"><img src="images/loading.gif" alt="Image"></div>
         </div>
+        <!-- end loader -->
+        <div class="transition-overlay"></div>
+        <!-- end transition-overlay -->
+      </div>
+      <!-- end loading -->
+        {{> nav}}
+        {{{body}}}
+        {{> footer}}
+        {{> scripts}}
     </body>
-    {{> scripts}}
 </html>

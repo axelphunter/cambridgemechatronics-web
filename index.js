@@ -13,7 +13,8 @@ const appDir = path.join(__dirname, config.debug ? '/app' : '/dist');
 const appPaths = {
   js: path.resolve(appDir, 'js'),
   css: path.resolve(appDir, 'css'),
-  img: path.resolve(appDir, 'img'),
+  images: path.resolve(appDir, 'images'),
+  fonts: path.resolve(appDir, 'fonts'),
   bower: path.resolve(appDir, 'bower_components')
 };
 const staticOpts = {
@@ -37,7 +38,8 @@ app.set('view engine', '.hbs');
 
 app.use('/js', express.static(appPaths.js, staticOpts));
 app.use('/css', express.static(appPaths.css, staticOpts));
-app.use('/img', express.static(appPaths.img, staticOpts));
+app.use('/images', express.static(appPaths.images, staticOpts));
+app.use('/fonts', express.static(appPaths.fonts, staticOpts));
 app.use('/bower_components', express.static(appPaths.bower, staticOpts));
 
 app.use(bodyParser.urlencoded({
@@ -53,8 +55,29 @@ app.get('/', (req, res) => {
   res.render('home', {});
 });
 
+app.get('/showcase', (req, res) => {
+  res.render('showcase', {});
+});
+
 app.get('/about', (req, res) => {
   res.render('about', {});
+});
+
+app.get('/services', (req, res) => {
+  res.render('services', {});
+});
+
+app.get('/careers', (req, res) => {
+  res.render('careers', {});
+});
+
+app.get('/contact', (req, res) => {
+  res.render('contact', {});
+});
+
+
+app.get('/404', (req, res) => {
+  res.render('404', {});
 });
 
 app.use('/', appRoutes);
