@@ -46,15 +46,15 @@ gulp.task('minify-html', function() {
 });
 
 gulp.task('images', function() {
-  return gulp.src(config.appDir + '/img/**/*.+(png|jpg|jpeg|gif|svg|ico)')
+  return gulp.src(config.appDir + '/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
     .pipe(imagemin({
       interlaced: true
     }))
-    .pipe(gulp.dest(config.distDir + '/img'))
+    .pipe(gulp.dest(config.distDir + '/images'))
 });
 
 gulp.task('clean:dist', function(callback) {
-  return del([config.distDir + '/**/*', '!' + config.distDir + '/img', '!' + config.distDir + '/img/**/*'], callback);
+  return del([config.distDir + '/**/*', '!' + config.distDir + '/images', '!' + config.distDir + '/images/**/*'], callback);
 });
 
 gulp.task('clean', function() {
