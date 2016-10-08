@@ -151,8 +151,8 @@ website:   	http://www.themepunch.com
 										border-top: 40px solid #00A8FF;
 										position: absolute;right:0px;top:0px;
 									}
-									
-.tp-layer-inner-rotation			{	position: relative !important;}		
+
+.tp-layer-inner-rotation			{	position: relative !important;}
 
 
 /***********************************************
@@ -162,7 +162,7 @@ website:   	http://www.themepunch.com
 img.tp-slider-alternative-image	{	width:100%; height:auto;}
 
 
-							
+
 
 /******************************
 	-	WRAPPER STYLES		-
@@ -324,7 +324,7 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 								margin-left: -28px;
 								text-align: center;
 								cursor: pointer;
-								
+
 							}
 .tp-caption:hover .tp-video-play-button	{	opacity: 1;}
 .html5vid .tp-revstop							{	width:15px;height:20px; border-left:5px solid #fff; border-right:5px solid #fff; position: relative;margin:10px 20px; box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
@@ -362,7 +362,7 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 		color-stop(0.13, rgb(0,0,0)),
 		color-stop(1, rgb(50,50,50))
 	);
-	
+
 	display:table;max-width:100%; overflow:hidden;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;
 }
 
@@ -679,7 +679,7 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 .tp-leftarrow.default									{	z-index:100;cursor:pointer; position:relative;	cursor:url("../images/left-arrow.png"), auto;  width:20%;	height:100%;
 
 														}
-.tp-rightarrow.default									{	z-index:100;cursor:pointer; position:relative;	cursor: url("../images/right-arrow.png"), auto; width:20%;	height:100%; 
+.tp-rightarrow.default									{	z-index:100;cursor:pointer; position:relative;	cursor: url("../images/right-arrow.png"), auto; width:20%;	height:100%;
 
 														}
 

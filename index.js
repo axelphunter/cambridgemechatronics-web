@@ -55,16 +55,12 @@ app.get('/', (req, res) => {
   res.render('home', {});
 });
 
-app.get('/showcase', (req, res) => {
-  res.render('showcase', {});
+app.get('/portfolio', (req, res) => {
+  res.render('portfolio', {});
 });
 
 app.get('/about', (req, res) => {
   res.render('about', {});
-});
-
-app.get('/services', (req, res) => {
-  res.render('services', {});
 });
 
 app.get('/careers', (req, res) => {
