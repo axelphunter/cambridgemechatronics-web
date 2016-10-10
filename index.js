@@ -6,6 +6,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const validator = require('express-validator');
 const request = require('request-promise');
+const nodemailer = require('nodemailer');
 const app = express();
 const config = require('config');
 const port = process.env.PORT || config.port;
@@ -87,6 +88,36 @@ app.get('/careers', (req, res) => {
 app.get('/contact', (req, res) => {
   res.render('contact', {
     metaData
+  });
+});
+
+app.post('/contact', (req, res) => {
+  const smtpTrans = nodemailer.createTransport('SMTP', {
+    service: 'Gmail',
+    auth: {
+      user: 'me@gmail.com',
+      pass: 'application-specific-password'
+    }
+  });
+
+  const mailOpts = {
+    from: `${req.body.name} &lt;${req.body.email}&gt;`,
+    to: 'me@gmail.com',
+    subject: 'Website contact form',
+    text: req.body.message
+  };
+  smtpTrans.sendMail(mailOpts, (error, response) => {
+    if (error) {
+      res.render('contact', {
+        msg: 'Error occured, message not sent.',
+        err: true
+      })
+      return;
+    }
+    res.render('contact', {
+      msg: 'Message sent! Thank you.',
+      err: false
+    });
   });
 });
 
