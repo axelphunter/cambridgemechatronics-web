@@ -1,60 +1,33 @@
 <main class="no-header">
-  <section class="contact-info">
+  <section class="light">
     <div class="container">
       <div class="row">
-        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.05s">
+        <div class="six columns wow fadeInUp" data-wow-delay="0.05s">
           <h5>CONTACT INFO</h5>
           <p>
             We're a friendly bunch, and we are just a phone call away. If you are in need of any of our services, pop in your details below or better still, give us a call.
           </p>
         </div>
-        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.05s">
-          <h5>PHONE</h5>
+        <div class="six columns wow fadeInUp" data-wow-delay="0.05s">
+          <h5>Details</h5>
           <span>t: +44 (0) 800 0119031<br />
-          m: +44 (0) 7403 243457<br />
-          m: +44 (0) 7597 749800</span>
-        </div>
-        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.05s">
-          <h5>EMAIL</h5>
-          <span>support: <a href="mailto:support@bluebulldog.net">support@bluebulldog.net</a><br />
-          info: <a href="mailto:info@bluebulldog.net">info@bluebulldog.net</a><br />
-          careers: <a href="mailto:careers@bluebulldog.net">careers@bluebulldog.net</a></span>
+            support: <a href="mailto:support@bluebulldog.net">support@bluebulldog.net</a><br />
+            info: <a href="mailto:info@bluebulldog.net">info@bluebulldog.net</a><br />
+            careers: <a href="mailto:careers@bluebulldog.net">careers@bluebulldog.net</a></span>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="text-center contact-info">
-    <div class="container">
-      <div class="row">
-      <div class="col-xs-12">
-          <div class="title-box">
-            <h2 class="wow fadeInUp" data-wow-delay="0.05s">get in touch</h2>
-          </div>
-        </div>
-        <div class="col-xs-12 wow fadeInUp" data-wow-delay="0.15s">
-          <form id="contact" name="contact" method="post">
-            <div class="form-group">
-              <label>Your name</label>
-               <input type="text" name="name" id="name" required>
-            </div>
-            <div class="form-group">
-              <label>Your e-mail</label>
-               <input type="text" name="email" id="email" required>
-            </div>
-            <div class="form-group">
-              <label>Subject</label>
-              <input type="text" name="subject" id="subject" required>
-            </div>
-            <div class="form-group">
-              <label>Your message</label>
-              <textarea name="message" id="message" required></textarea>
-            </div>
-            <div class="form-group">
-              <button id="submit" type="submit" name="submit">SEND NOW</button>
-            </div>
-          </form>
-        </div>
-      </div>
+      <h2 class="wow fadeInUp" data-wow-delay="0.05s">get in touch</h2>
+        <form id="contact" name="contact" method="post">
+          <label for="nameInput">Your name</label>
+          <input class="u-full-width" type="text" placeholder="John Doe" id="nameInput">
+          <label for="emailInput">Your email</label>
+          <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="emailInput">
+          <label for="subjectInput">Your email</label>
+          <input class="u-full-width" type="text" id="subjectInput">
+          <label for="message">Message</label>
+          <textarea class="u-full-width" placeholder="Hi Dave ..." id="message"></textarea>
+          <input class="button-primary" type="submit" value="Submit">
+        </form>
     </div>
   </section>
 </main>

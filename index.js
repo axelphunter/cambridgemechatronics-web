@@ -71,9 +71,11 @@ app.get('/contact', (req, res) => {
   res.render('contact', {});
 });
 
-
-app.get('/404', (req, res) => {
-  res.render('404', {});
+app.use(function(req, res, next) {
+  res.status(404);
+  res.render('404', {
+    url: req.url
+  });
 });
 
 app.use('/', appRoutes);

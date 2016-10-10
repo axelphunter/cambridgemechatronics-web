@@ -1,0 +1,220 @@
+/* GOOGLE FOTNS */
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900&subset=latin,latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic&subset=latin,latin-ext");
+
+@font-face {
+    font-family: 'jaapokki';
+    src: url('../fonts/jaapokkienchance-regular-webfont.eot');
+    src: url('../fonts/jaapokkienchance-regular-webfont-.eot#iefix') format('embedded-opentype'),
+         url('../fonts/jaapokkienchance-regular-webfont.woff2') format('woff2'),
+         url('../fonts/jaapokkienchance-regular-webfont.woff') format('woff'),
+         url('../fonts/jaapokkienchance-regular-webfont.ttf') format('truetype'),
+         url('../fonts/jaapokkienchance-regular-webfont.svg#jaapokki_enchanceregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+  outline:none;
+  box-sizing: border-box;
+}
+
+body {
+  margin:0;
+  padding:0;
+  background: #1d1d1d;
+  color: #cbcbc9;
+  font-family: 'Lato',
+  sans-serif; -webkit-font-smoothing: antialiased;
+}
+
+body,
+html {
+  height:100%;
+}
+
+.no-header {
+  margin-top: 100px;
+}
+
+a:hover {
+  color: inherit;
+}
+
+h2 {
+  font-size: 90px;
+  font-family: jaapokki;
+  margin-left: -8px;
+}
+
+h3 {
+  font-size: 14px;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+}
+
+h4 {
+  font-weight: 800;
+  position: relative;
+  letter-spacing: 3px;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+h4:after {
+  content: '';
+  height: 1px;
+  background: #ee3643;
+  bottom: -22px;
+  left: 0;
+  width: 50px;
+  position: absolute;
+}
+
+h5 {
+  font-family: 'Playfair Display',serif;
+  margin: 10px 0 0;
+  font-size: 22px;
+}
+
+p {
+  line-height: 24px;
+  opacity: .6;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+section ul {
+  list-style: none
+}
+
+section ul li:before {
+  content: "- ";
+  color: #ee3643;
+}
+
+section img {
+  display: block;
+  margin: 0 auto;
+}
+
+.fourOhFour {
+  background: #69AF9A;
+}
+
+.sub-title {
+  margin-bottom: 40px;
+}
+
+.numbers {
+  font-size: 50px;
+  color: #fff;
+  float: left;
+  font-family: jaapokki;
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1px dotted #666;
+}
+
+.text-center {
+  text-align: center;
+}
+
+nav {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  height: 80px;
+}
+
+nav .logo {
+  background: url(/images/logo-light-simple.png) center left / contain no-repeat;
+  text-indent: -99999px;
+  display: inline-block;
+  height: 60px;
+  margin: 10px 0;
+  width: 30%;
+  float: left;
+}
+
+nav ul {
+  margin: 0;
+  display: inline-block;
+  text-align: right;
+  list-style: none;
+  width: 70%;
+  height: 80px;
+  float: left;
+  font-size: 14px;
+  padding: 26px 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+nav ul li a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+section {
+  padding: 5rem;
+}
+
+section.light {
+  background: #FFFFFF;
+  color: #000;
+}
+
+section.parallax {
+  height: 400px;
+  width: 100%;
+}
+
+.parallax.office-bg {
+  background: url('../images/space-desk-workspace-coworking.jpg') center / cover no-repeat;
+  background-attachment: fixed;
+}
+
+.home-banner {
+  background: #2CB7D6;
+  padding-top: calc(80px + 25rem);
+  padding-bottom: 25rem;
+}
+
+.home-banner img {
+  display: block;
+  margin: 4rem auto;
+}
+
+footer {
+  padding: 5rem;
+}
+
+footer .logo {
+  background: url(/images/logo-light.png) center / contain no-repeat;
+  height: 200px;
+  text-indent: -99999px;
+}
+
+footer ul {
+  margin: 1rem 0;
+}
+
+footer ul li {
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: inherit;
+}
