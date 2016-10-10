@@ -78,6 +78,10 @@ h5 {
   font-size: 22px;
 }
 
+.error {
+  color: #ee3643;
+}
+
 p {
   line-height: 24px;
   opacity: .6;

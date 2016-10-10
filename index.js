@@ -92,28 +92,26 @@ app.get('/contact', (req, res) => {
 });
 
 app.post('/contact', (req, res) => {
-  const smtpTrans = nodemailer.createTransport('SMTP', {
-    service: 'Gmail',
-    auth: {
-      user: 'me@gmail.com',
-      pass: 'application-specific-password'
-    }
-  });
+  const transporter = nodemailer.createTransport('smtps://axel.hunter@bluebulldog.co.uk:delta1234@smtp.gmail.com');
 
   const mailOpts = {
-    from: `${req.body.name} &lt;${req.body.email}&gt;`,
-    to: 'me@gmail.com',
-    subject: 'Website contact form',
-    text: req.body.message
+    from: 'Axel Hunter <axel.hunter@bluebulldog.co.uk>',
+    to: 'axel.hunter@bluebulldog.co.uk, axel.hunter@bluebulldog.co.uk',
+    subject: `Contact form - ${req.body.subject}`,
+    text: `Name: ${req.body.name} - Email: ${req.body.email} Message: ${req.body.message}`,
+    html: `Name: ${req.body.name}<br/> - Email: ${req.body.email}<br/> Message: ${req.body.message}`
   };
-  smtpTrans.sendMail(mailOpts, (error, response) => {
+  transporter.sendMail(mailOpts, (error, response) => {
     if (error) {
+      console.log(error);
       res.render('contact', {
         msg: 'Error occured, message not sent.',
         err: true
-      })
+      });
       return;
     }
+    console.log(response);
+
     res.render('contact', {
       msg: 'Message sent! Thank you.',
       err: false

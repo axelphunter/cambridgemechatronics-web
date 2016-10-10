@@ -11,21 +11,27 @@
         <div class="six columns wow fadeInUp" data-wow-delay="0.05s">
           <h5>Details</h5>
           <span>t: +44 (0) 800 0119031<br />
-            support: <a href="mailto:support@bluebulldog.net">support@bluebulldog.net</a><br />
             info: <a href="mailto:info@bluebulldog.net">info@bluebulldog.net</a><br />
-            careers: <a href="mailto:careers@bluebulldog.net">careers@bluebulldog.net</a></span>
+          </span>
         </div>
       </div>
       <h2 class="wow fadeInUp" data-wow-delay="0.05s">get in touch</h2>
-        <form id="contact" name="contact" method="post">
+      {{#if msg}}
+        {{#if err}}
+          <h4 class="wow rubberBand error" data-wow-delay="0.05s">{{msg}}</h4>
+        {{else}}
+          <h4 class="wow rubberBand" data-wow-delay="0.05s">{{msg}}</h4>
+        {{/if}}
+      {{/if}}
+        <form id="contact" action="/contact" name="contact" method="post">
           <label for="nameInput">Your name</label>
-          <input class="u-full-width" type="text" placeholder="John Doe" id="nameInput">
+          <input class="u-full-width" type="text" name="name" placeholder="John Doe" id="nameInput">
           <label for="emailInput">Your email</label>
-          <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="emailInput">
-          <label for="subjectInput">Your email</label>
-          <input class="u-full-width" type="text" id="subjectInput">
+          <input class="u-full-width" type="email" name="email" placeholder="test@mailbox.com" id="emailInput">
+          <label for="subjectInput">Subject</label>
+          <input class="u-full-width" type="text" name="subject" id="subjectInput">
           <label for="message">Message</label>
-          <textarea class="u-full-width" placeholder="Hi Dave ..." id="message"></textarea>
+          <textarea class="u-full-width" name="message" placeholder="Hi Dave ..." id="message"></textarea>
           <input class="button-primary" type="submit" value="Submit">
         </form>
     </div>
