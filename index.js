@@ -50,9 +50,22 @@ app.use(validator());
 
 const appRoutes = express.Router();
 
+// Meta tag content
+const metaData = {
+  title: 'Blue Bulldog - A creative web and app studio',
+  description: 'A website and mobile application, design and development company based in Cambridge, UK.',
+  website: 'http://www.bluebulldog.co.uk/',
+  socialImage: 'http://www.bluebulldog.co.uk/images/main-bg.jpg',
+  company: 'Ragnarok IT Solutions Ltd.',
+  companyReg: '8919183',
+  companyVat: 'GB 181 992 863'
+};
+
 // routes
 app.get('/', (req, res) => {
-  res.render('home', {});
+  res.render('home', {
+    metaData
+  });
 });
 
 // app.get('/portfolio', (req, res) => {
@@ -60,21 +73,27 @@ app.get('/', (req, res) => {
 // });
 
 app.get('/about', (req, res) => {
-  res.render('about', {});
+  res.render('about', {
+    metaData
+  });
 });
 
 app.get('/careers', (req, res) => {
-  res.render('careers', {});
+  res.render('careers', {
+    metaData
+  });
 });
 
 app.get('/contact', (req, res) => {
-  res.render('contact', {});
+  res.render('contact', {
+    metaData
+  });
 });
 
-app.use(function(req, res, next) {
+app.use((req, res) => {
   res.status(404);
   res.render('404', {
-    url: req.url
+    metaData
   });
 });
 
