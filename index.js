@@ -99,8 +99,8 @@ app.get('/contact', (req, res) => {
 app.post('/contact', (req, res) => {
   const helper = require('sendgrid')
     .mail;
-  const fromEmail = new helper.Email('info@bluebulldog.com');
-  const toEmail = new helper.Email('info@bluebulldog.com');
+  const fromEmail = new helper.Email('info@bluebulldog.co.uk');
+  const toEmail = new helper.Email('info@bluebulldog.co.uk');
   const subject = `Contact form - ${req.body.subject}`;
   const content = new helper.Content('text/plain', `Name: ${req.body.name} - Email: ${req.body.email} Message: ${req.body.message}`);
   const mail = new helper.Mail(fromEmail, subject, toEmail, content);
