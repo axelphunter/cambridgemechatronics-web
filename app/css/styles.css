@@ -236,6 +236,10 @@ footer ul li a {
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
   h2 {
     font-size: 40px;
     margin-bottom: 1rem
