@@ -1,0 +1,127 @@
+<main class="no-header">
+  <section class="light">
+    <div class="container">
+      <h2 class="wow fadeInUp" data-wow-delay="0.05s">our project planner</h2>
+      <p>
+        Already have something in mind for your next project? Fill out the form below and we will be in touch with you as soon as possible.
+      </p>
+      {{#if msg}}
+        {{#if err}}
+          <h4 class="wow rubberBand error" data-wow-delay="0.05s">{{msg}}</h4>
+        {{else}}
+          <h4 class="wow rubberBand" data-wow-delay="0.05s">{{msg}}</h4>
+        {{/if}}
+      {{/if}}
+        <form id="contact" action="/contact" name="contact" method="post">
+          <h4>Your details</h4>
+          <div class="row">
+            <div class="four columns">
+              <label for="nameInput">Your name</label>
+              <input class="u-full-width" type="text" name="name" placeholder="John Doe" id="nameInput">
+            </div>
+            <div class="four columns">
+              <label for="emailInput">Your email</label>
+              <input class="u-full-width" type="email" name="email" placeholder="test@mailbox.com" id="emailInput">
+            </div>
+            <div class="four columns">
+              <label for="telephoneInput">Telephone number</label>
+              <input class="u-full-width" type="tel" name="telephone" id="telephoneInput">
+            </div>
+          </div>
+          <h4>Type of project</h4>
+          <div class="row">
+            <div class="four columns">
+              <label>
+                <input name="projectType" value="Website" type="radio">
+                <span class="label-body">Website</span>
+              </label>
+            </div>
+            <div class="four columns">
+              <label>
+                <input name="projectType" value="Mobile App" type="radio">
+                <span class="label-body">Mobile App</span>
+              </label>
+            </div>
+            <div class="four columns">
+              <label>
+                <input name="projectType" value="Something else" type="radio">
+                <span class="label-body">Something else</span>
+              </label>
+            </div>
+          </div>
+          <h4>Project description</h4>
+          <textarea class="u-full-width" name="description" id="descriptionInput"></textarea>
+          <h4>What do you need?</h4>
+          <div class="row">
+            <div class="four columns">
+              <label>
+                <input name="workFeatures" value="Strategy" type="checkbox">
+                <span class="label-body">Strategy</span>
+              </label>
+            </div>
+            <div class="four columns">
+              <label>
+                <input name="workFeatures" value="UX" type="checkbox">
+                <span class="label-body">UX</span>
+              </label>
+            </div>
+            <div class="four columns">
+              <label>
+                <input name="workFeatures" value="Design" type="checkbox">
+                <span class="label-body">Design</span>
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="four columns">
+              <label>
+                <input name="workFeatures" value="Development" type="checkbox">
+                <span class="label-body">Development</span>
+              </label>
+            </div>
+            <div class="four columns">
+              <label>
+                <input name="workFeatures" value="CMS implementation" type="checkbox">
+                <span class="label-body">CMS implementation</span>
+              </label>
+            </div>
+            <div class="four columns">
+              <label>
+                <input name="workFeatures" value="Not sure" type="checkbox">
+                <span class="label-body">Not sure</span>
+              </label>
+            </div>
+          </div>
+          <h4>Likely budget</h4>
+          <div class="row">
+            <div class="three columns">
+              <label>
+                <input name="budget" value="Less than £5,000" type="radio">
+                <span class="label-body">Less than £5,000</span>
+              </label>
+            </div>
+            <div class="three columns">
+              <label>
+                <input name="budget" value="£5,0000 - £10,000" type="radio">
+                <span class="label-body">£5,0000 - £10,000</span>
+              </label>
+            </div>
+            <div class="three columns">
+              <label>
+                <input name="budget" value="£10,000 - £20,000" type="radio">
+                <span class="label-body">£10,000 - £20,000</span>
+              </label>
+            </div>
+            <div class="three columns">
+              <label>
+                <input name="budget" value="Over £20,000" type="radio">
+                <span class="label-body">Over £20,000</span>
+              </label>
+            </div>
+          </div>
+          <h4>All done?</h4>
+          <input class="button-primary" type="submit" value="Finished!">
+        </form>
+    </div>
+  </section>
+</main>

@@ -34,6 +34,10 @@ html {
   height:100%;
 }
 
+textarea {
+  height: 150px;
+}
+
 .no-header {
   margin-top: 100px;
 }
@@ -239,7 +243,7 @@ footer ul li a {
   * {
     -webkit-overflow-scrolling: touch;
   }
-  
+
   h2 {
     font-size: 40px;
     margin-bottom: 1rem

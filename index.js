@@ -85,6 +85,12 @@ app.get('/careers', (req, res) => {
   });
 });
 
+app.get('/planner', (req, res) => {
+  res.render('planner', {
+    metaData
+  });
+});
+
 app.get('/contact', (req, res) => {
   res.render('contact', {
     metaData
