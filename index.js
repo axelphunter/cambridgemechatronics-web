@@ -1,8 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-// const handlebars = require('handlebars');
+const morgan = require('morgan');
 const path = require('path');
-// const program = require('commander');
 const bodyParser = require('body-parser');
 const validator = require('express-validator');
 const request = require('request-promise');
@@ -22,6 +21,8 @@ const staticOpts = {
   lastModified: config.debug,
   maxAge: 0
 };
+
+app.use(morgan('dev'));
 
 app.set('views', path.join(appDir, '/views'));
 
