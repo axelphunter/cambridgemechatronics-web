@@ -193,7 +193,12 @@ section.parallax {
 }
 
 .parallax.projectPlanner {
-  background: url('../images/project-planning.jpg') center / cover no-repeat;
+  background: url('../images/project-planning.jpg') center bottom / cover no-repeat;
+  background-attachment: fixed;
+}
+
+.parallax.contact {
+  background: url('../images/contact-bg.jpg') center / cover no-repeat;
   background-attachment: fixed;
 }
 
@@ -279,7 +284,7 @@ footer ul li a {
     font-size: 10px
   }
 
-  .parallax.office-bg {
+  .parallax.office-bg, .parallax.projectPlanner, .parallax.contact {
     background-attachment: initial;
   }
 
