@@ -6,7 +6,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const validator = require('express-validator');
 const request = require('request-promise');
-const nodemailer = require('nodemailer');
 const app = express();
 const config = require('config');
 const port = process.env.PORT || config.port;
@@ -98,25 +97,32 @@ app.get('/contact', (req, res) => {
 });
 
 app.post('/contact', (req, res) => {
-  const transporter = nodemailer.createTransport('smtps://axel.hunter@bluebulldog.co.uk:delta1234@smtp.gmail.com');
+  const helper = require('sendgrid')
+    .mail;
+  const fromEmail = new helper.Email('info@bluebulldog.com');
+  const toEmail = new helper.Email('info@bluebulldog.com');
+  const subject = `Contact form - ${req.body.subject}`;
+  const content = new helper.Content('text/plain', `Name: ${req.body.name} - Email: ${req.body.email} Message: ${req.body.message}`);
+  const mail = new helper.Mail(fromEmail, subject, toEmail, content);
 
-  const mailOpts = {
-    from: 'Axel Hunter <axel.hunter@bluebulldog.co.uk>',
-    to: 'axel.hunter@bluebulldog.co.uk, axel.hunter@bluebulldog.co.uk',
-    subject: `Contact form - ${req.body.subject}`,
-    text: `Name: ${req.body.name} - Email: ${req.body.email} Message: ${req.body.message}`,
-    html: `Name: ${req.body.name}<br/> - Email: ${req.body.email}<br/> Message: ${req.body.message}`
-  };
-  transporter.sendMail(mailOpts, (error, response) => {
+  const sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+  const sgRequest = sg.emptyRequest({
+    method: 'POST',
+    path: '/v3/mail/send',
+    body: mail.toJSON()
+  });
+
+  sg.API(sgRequest, (error, response) => {
+    console.log(response.statusCode);
+    console.log(response.body);
+    console.log(response.headers);
     if (error) {
-      console.log(error);
       res.render('contact', {
         msg: 'Error occured, message not sent.',
         err: true
       });
       return;
     }
-    console.log(response);
 
     res.render('contact', {
       msg: 'Message sent! Thank you.',

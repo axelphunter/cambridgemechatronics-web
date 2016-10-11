@@ -192,6 +192,11 @@ section.parallax {
   background-attachment: fixed;
 }
 
+.parallax.projectPlanner {
+  background: url('../images/project-planning.jpg') center / cover no-repeat;
+  background-attachment: fixed;
+}
+
 .home-banner {
   background: #2CB7D6;
   padding-top: calc(80px + 25rem);
