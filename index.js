@@ -98,38 +98,46 @@ app.get('/contact', (req, res) => {
 });
 
 app.post('/contact', (req, res) => {
-  const helper = require('sendgrid')
-    .mail;
-  const fromEmail = new helper.Email('info@bluebulldog.co.uk');
-  const toEmail = new helper.Email('info@bluebulldog.co.uk');
-  const subject = `Contact form - ${req.body.subject}`;
-  const content = new helper.Content('text/plain', `Name: ${req.body.name} - Email: ${req.body.email} Message: ${req.body.message}`);
-  const mail = new helper.Mail(fromEmail, subject, toEmail, content);
-
   const sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
-  const sgRequest = sg.emptyRequest({
+  const request = sg.emptyRequest({
     method: 'POST',
     path: '/v3/mail/send',
-    body: mail.toJSON()
+    body: {
+      personalizations: [{
+        to: [{
+          email: 'axel.hunter@bluebulldog.co.uk',
+        }, {
+          email: 'eik.hunter@bluebulldog.co.uk',
+        }, ],
+        subject: `Contact form - ${req.body.subject}`,
+      }, ],
+      from: {
+        email: 'info@bluebulldog.co.uk',
+      },
+      content: [{
+        type: 'text/plain',
+        value: `Name: ${req.body.name} - Email: ${req.body.email} Message: ${req.body.message}`
+      }]
+    }
   });
-
-  sg.API(sgRequest, (error, response) => {
-    console.log(response.statusCode);
-    console.log(response.body);
-    console.log(response.headers);
-    if (error) {
+  sg.API(request)
+    .then(response => {
+      console.log(response.statusCode);
+      console.log(response.body);
+      console.log(response.headers);
+      res.render('contact', {
+        msg: 'Message sent! Thank you.',
+        err: false
+      });
+    })
+    .catch(error => {
+      console.log(error.response.statusCode);
       res.render('contact', {
         msg: 'Error occured, message not sent.',
         err: true
       });
       return;
-    }
-
-    res.render('contact', {
-      msg: 'Message sent! Thank you.',
-      err: false
     });
-  });
 });
 
 app.use((req, res) => {
