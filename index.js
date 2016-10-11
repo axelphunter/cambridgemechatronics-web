@@ -140,6 +140,30 @@ app.post('/contact', (req, res) => {
     });
 });
 
+app.get('/privacy-policy', (req, res) => {
+  res.render('privacy-policy', {
+    metaData
+  });
+});
+
+app.get('/cookie-policy', (req, res) => {
+  res.render('cookie-policy', {
+    metaData
+  });
+});
+
+app.get('/website-terms', (req, res) => {
+  res.render('website-terms', {
+    metaData
+  });
+});
+
+app.get('/agency-terms', (req, res) => {
+  res.render('agency-terms', {
+    metaData
+  });
+});
+
 app.use((req, res) => {
   res.status(404);
   res.render('404', {
