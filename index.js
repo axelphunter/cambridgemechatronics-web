@@ -69,7 +69,7 @@ const appRoutes = express.Router();
 
 // Meta tag content
 const metaData = {
-  title: 'Blue Bulldog - A creative web and app studio',
+  title: 'Blue Bulldog - A creative web and app studio. Cambridge, UK',
   description: 'A website and mobile application, design and development company based in Cambridge, UK.',
   website: 'http://www.bluebulldog.co.uk/',
   socialImage: 'http://www.bluebulldog.co.uk/images/main-bg.jpg',
