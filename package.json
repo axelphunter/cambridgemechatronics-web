@@ -36,6 +36,7 @@
     "morgan": "^1.7.0",
     "request-promise": "^2.0.1",
     "run-sequence": "^1.1.5",
-    "sendgrid": "^4.5.0"
+    "sendgrid": "^4.5.0",
+    "sitemap-generator": "^4.1.1"
   }
 }

@@ -5,6 +5,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const validator = require('express-validator');
 const request = require('request-promise');
+const SitemapGenerator = require('sitemap-generator');
+const fs = require('fs');
 const app = express();
 const config = require('config');
 const port = process.env.PORT || config.port;
@@ -14,13 +16,26 @@ const appPaths = {
   css: path.resolve(appDir, 'css'),
   images: path.resolve(appDir, 'images'),
   fonts: path.resolve(appDir, 'fonts'),
-  bower: path.resolve(appDir, 'bower_components')
+  bower: path.resolve(appDir, 'bower_components'),
+  siteMap: path.resolve(appDir, 'sitemap.xml')
 };
 const staticOpts = {
   etag: config.debug,
   lastModified: config.debug,
   maxAge: 0
 };
+
+const generator = new SitemapGenerator('http://www.bluebulldog.co.uk');
+
+generator.on('done', (sitemap) => {
+  fs.writeFile(path.join(appDir, '/sitemap.xml'), sitemap, (err) => {
+    if (!err) {
+      console.log('The sitemap was saved!');
+    }
+    return console.log(err);
+  });
+});
+generator.start();
 
 app.use(morgan('dev'));
 
@@ -42,6 +57,7 @@ app.use('/css', express.static(appPaths.css, staticOpts));
 app.use('/images', express.static(appPaths.images, staticOpts));
 app.use('/fonts', express.static(appPaths.fonts, staticOpts));
 app.use('/bower_components', express.static(appPaths.bower, staticOpts));
+app.use('/sitemap.xml', express.static(appPaths.siteMap, staticOpts));
 
 app.use(bodyParser.urlencoded({
   extended: true
