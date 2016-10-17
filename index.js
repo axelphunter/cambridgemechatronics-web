@@ -20,6 +20,6 @@ require('./services/sitemap');
 require('./settings/routing')(app, config);
 
 // server
-app.listen(settings.port, () => {
+app.listen(process.env.PORT || settings.port, () => {
   console.log(`${process.env.NODE_ENV} - NodeJS Server listening on port TCP/${settings.port}...`);
 });
