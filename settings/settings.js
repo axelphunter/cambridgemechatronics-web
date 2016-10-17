@@ -5,7 +5,7 @@ var debugMode = false;
 
 // environment
 const env = process.env.NODE_ENV || 'development';
-const port = process.env.NODE_PORT || 3000;
+const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
 if (env === 'development') debugMode = true;
 
