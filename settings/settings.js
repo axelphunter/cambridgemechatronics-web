@@ -1,7 +1,7 @@
 // dependencies
 const appRoot = require('app-root-path');
 const path = require('path');
-let debugMode = false;
+var debugMode = false;
 
 // environment
 const env = process.env.NODE_ENV || 'development';
