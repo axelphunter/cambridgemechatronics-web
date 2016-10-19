@@ -37,6 +37,7 @@ module.exports = (app, settings) => {
     css: path.resolve(settings.rootPath, 'css'),
     images: path.resolve(settings.rootPath, 'images'),
     fonts: path.resolve(settings.rootPath, 'fonts'),
+    sitemap: path.resolve(settings.rootPath, 'sitemap.xml'),
     bower_components: path.resolve(settings.rootPath, 'bower_components')
   };
   const staticOpts = {
@@ -49,5 +50,6 @@ module.exports = (app, settings) => {
   app.use('/css', express.static(appPaths.css, staticOpts));
   app.use('/images', express.static(appPaths.images, staticOpts));
   app.use('/fonts', express.static(appPaths.fonts, staticOpts));
+  app.use('/sitemap.xml', express.static(appPaths.sitemap, staticOpts));
   app.use('/bower_components', express.static(appPaths.bower_components, staticOpts));
 };
