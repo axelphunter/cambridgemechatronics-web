@@ -1,4 +1,5 @@
 const config = require('config');
+const contentful = require('../services/contentful');
 
 // */ controllers
 const getHome = (req, res) => {
@@ -12,6 +13,38 @@ const getAbout = (req, res) => {
   res.render('about', {
     metaData: config.metaData
   });
+};
+
+// */blog controllers
+const getBlogList = (req, res) => {
+  contentful.getBlogEntries()
+    .then((response) => {
+      res.render('blog-listing', {
+        blogPosts: response,
+        metaData: config.metaData
+      });
+    })
+    .catch(() => {
+      res.render('404', {
+        metaData: config.metaData
+      });
+    });
+};
+
+const getBlogPost = (req, res) => {
+  const blogId = req.params.id;
+  contentful.getEntry(blogId)
+    .then((response) => {
+      res.render('blog-post', {
+        blogPost: response,
+        metaData: config.metaData
+      });
+    })
+    .catch(() => {
+      res.render('404', {
+        metaData: config.metaData
+      });
+    });
 };
 
 // */careers controllers
@@ -109,6 +142,8 @@ const getAgencyTerms = (req, res) => {
 module.exports = {
   getHome,
   getAbout,
+  getBlogList,
+  getBlogPost,
   getCareers,
   getPlanner,
   getContact,

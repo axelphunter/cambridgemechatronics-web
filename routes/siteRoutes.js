@@ -5,6 +5,8 @@ const siteController = require('../controllers/siteController');
 module.exports = (app) => {
   app.get('/', siteController.getHome);
   app.get('/about', siteController.getAbout);
+  app.get('/blog', siteController.getBlogList);
+  app.get('/blog/post/:id', siteController.getBlogPost);
   app.get('/careers', siteController.getCareers);
   app.get('/planner', siteController.getPlanner);
   app.get('/contact', siteController.getContact);

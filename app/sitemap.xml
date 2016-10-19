@@ -1,1 +1,27 @@
-null
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://www.bluebulldog.co.uk/</loc>
+  </url>
+  <url>
+    <loc>http://www.bluebulldog.co.uk/about</loc>
+  </url>
+  <url>
+    <loc>http://www.bluebulldog.co.uk/careers</loc>
+  </url>
+  <url>
+    <loc>http://www.bluebulldog.co.uk/contact</loc>
+  </url>
+  <url>
+    <loc>http://www.bluebulldog.co.uk/privacy-policy</loc>
+  </url>
+  <url>
+    <loc>http://www.bluebulldog.co.uk/cookie-policy</loc>
+  </url>
+  <url>
+    <loc>http://www.bluebulldog.co.uk/website-terms</loc>
+  </url>
+  <url>
+    <loc>http://www.bluebulldog.co.uk/agency-terms</loc>
+  </url>
+</urlset>

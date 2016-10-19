@@ -1,0 +1,22 @@
+<main class="no-header">
+  <section  class="parallax blog"></section>
+  <section class="light blog">
+    <div class="container">
+      <h2 class="wow fadeInUp" data-wow-delay="0.05s">blog</h2>
+      <h5 class="sub-title wow fadeInUp" data-wow-delay="0.10s">this is our way of keeping you up-to-date of what's happening at Blue Bulldog.</h5>
+      {{#each blogPosts.items}}
+      <div class="row">
+        <small>{{dateFormat fields.dateCreated}}</small>
+        <h4>{{fields.title}}</h4>
+        {{#if subTitle}}
+          <h5>{{fields.title}}</h5>
+        {{/if}}
+        <p>
+          {{fields.shortContent}}
+        </p>
+        <a class="button button-primary" href="/blog/post/{{sys.id}}">Read more</a>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+</main>

@@ -2,6 +2,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const moment = require('moment');
 const path = require('path');
 
 // exports
@@ -14,7 +15,12 @@ module.exports = (app, settings) => {
     extname: '.hbs',
     layoutsDir: path.join(settings.rootPath, '/views/layouts'),
     partialsDir: path.join(settings.rootPath, '/views/partials'),
-    helpers: {}
+    helpers: {
+      dateFormat(date) {
+        return moment(date)
+          .format('dddd, MMMM Do YYYY, h:mm:ss a');
+      }
+    }
   }));
   app.set('view engine', '.hbs');
 

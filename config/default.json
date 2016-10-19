@@ -14,5 +14,9 @@
     "company": "Ragnarok IT Solutions Ltd.",
     "companyReg": "8919183",
     "companyVat": "GB 181 992 863"
+  },
+  "contentful": {
+    "spaceId": "5pxvs4xozkny",
+    "accessToken": "3aa195283f58a0949764603035475e4f184bf2838547f3492e2a34d842ed6c77"
   }
 }
