@@ -6,8 +6,8 @@
   "scripts": {
     "bower": "bower install",
     "build": "gulp build",
-    "sitemap": "node sitemap.js",
-    "postinstall": "npm run bower && npm run build && npm run sitemap",
+    "sitemap": "node ./servicessitemap.js",
+    "postinstall": "npm run bower && npm run build",
     "start": "node index.js"
   },
   "author": "",
