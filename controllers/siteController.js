@@ -32,7 +32,7 @@ const getBlogPost = (req, res) => {
     .getEntryBySlug(slug)
     .then((response) => {
       res.render('blog-post', {
-        blogPost: response.items[0],
+        fields: response.items[0].fields,
         metaData: config.metaData
       });
     })

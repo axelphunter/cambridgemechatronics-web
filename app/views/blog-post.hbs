@@ -1,13 +1,14 @@
 <main class="no-header">
   <section class="light">
     <div class="container">
-      <small>{{dateFormat blogPost.fields.dateCreated}}</small>
-      <h1 class="wow fadeInUp" data-wow-delay="0.05s">{{blogPost.fields.title}}</h1>
-      {{#if blogPost.fields.subTitle}}
-      <h4 class="sub-title wow fadeInUp" data-wow-delay="0.10s">{{blogPost.fields.subTitle}}</h4>
+      <small>{{dateFormat fields.dateCreated}}</small>
+      <h1 class="wow fadeInUp" data-wow-delay="0.05s">{{fields.title}}</h1>
+      {{#if fields.subTitle}}
+      <h4 class="sub-title wow fadeInUp" data-wow-delay="0.10s">{{fields.subTitle}}</h4>
       {{/if}}
-      {{markdown blogPost.fields.content}}
+      {{markdown fields.content}}
       <h3>/The team at Blue Bulldog</h3>
+      {{> socialSharer}}
     </div>
   </section>
 </main>

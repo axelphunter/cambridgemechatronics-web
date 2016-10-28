@@ -9,10 +9,11 @@
         <small>{{dateFormat fields.dateCreated}}</small>
         <h1>{{fields.title}}</h1>
         {{#if subTitle}}
-          <h5>{{fields.title}}</h5>
+          <h5>{{fields.subTitle}}</h5>
         {{/if}}
         {{markdown fields.shortContent}}
         <a class="button button-primary" href="/blog/post/{{fields.slug}}">Read more</a>
+        {{> socialSharer}}
       </div>
       {{/each}}
     </div>

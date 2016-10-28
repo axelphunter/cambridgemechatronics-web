@@ -87,7 +87,61 @@ input[type="button"].button-primary:hover {
   border-color: #ff7983;
 }
 
+.social-btn {
+  color: #fff;
+  font-size: 20px;
+  line-height: 34px;
+  padding: 0 20px;
+  transition: all 0.5s ease;
+}
 
+.social-btn:hover {
+  color: #fff;
+  animation-name: tada;
+  -webkit-animation: tada 1s;
+  animation: tada 1s;
+  border: 1px solid rgba(255,255,255,0);
+}
+
+.button-google-plus {
+  background-color: #C13C31;
+  border-color: #C13C31;
+}
+
+.button-twitter {
+  background-color: #55ACEE;
+  border-color: #55ACEE;
+}
+
+.button-facebook {
+  background-color: #3B5998;
+  border-color: #3B5998;
+}
+
+.button-linkedin {
+  background-color: #0077B5;
+  border-color: #0077B5;
+}
+
+.button-reddit {
+  background-color: #FF4500;
+  border-color: #FF4500;
+}
+
+.button-pinterest {
+  background-color: #BB0F23;
+  border-color: #BB0F23;
+}
+
+.button-email {
+  background-color: #0077B5;
+  border-color: #0077B5;
+}
+
+.button-tumblr {
+  background-color: #36465D;
+  border-color: #36465D;
+}
 
 h2 {
   font-size: 90px;
