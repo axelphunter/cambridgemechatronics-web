@@ -1,7 +1,4 @@
 {
   "debug": false,
-  "database": "mongodb://admin:4PfGqavGApr7zq@ds017185.mlab.com:17185/whisky-neat",
-  "contentful": {
-    "accessToken": "3aa195283f58a0949764603035475e4f184bf2838547f3492e2a34d842ed6c77"
-  }
+  "database": "mongodb://admin:4PfGqavGApr7zq@ds017185.mlab.com:17185/whisky-neat"
 }

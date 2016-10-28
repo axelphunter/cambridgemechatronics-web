@@ -2,14 +2,11 @@
   <section class="light">
     <div class="container">
       <small>{{dateFormat blogPost.fields.dateCreated}}</small>
-      <h5 class="wow fadeInUp" data-wow-delay="0.05s">{{blogPost.fields.title}}</h5>
+      <h1 class="wow fadeInUp" data-wow-delay="0.05s">{{blogPost.fields.title}}</h1>
       {{#if blogPost.fields.subTitle}}
       <h4 class="sub-title wow fadeInUp" data-wow-delay="0.10s">{{blogPost.fields.subTitle}}</h4>
       {{/if}}
-      <p class="wow fadeInUp" data-wow-delay="0.05s">
-        {{blogPost.fields.content}}
-      </p>
-
+      {{markdown blogPost.fields.content}}
       <h3>/The team at Blue Bulldog</h3>
     </div>
   </section>

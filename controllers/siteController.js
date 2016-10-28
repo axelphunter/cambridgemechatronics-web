@@ -3,21 +3,18 @@ const contentful = require('../services/contentful');
 
 // */ controllers
 const getHome = (req, res) => {
-  res.render('home', {
-    metaData: config.metaData
-  });
+  res.render('home', {metaData: config.metaData});
 };
 
 // */about controllers
 const getAbout = (req, res) => {
-  res.render('about', {
-    metaData: config.metaData
-  });
+  res.render('about', {metaData: config.metaData});
 };
 
 // */blog controllers
 const getBlogList = (req, res) => {
-  contentful.getBlogEntries()
+  contentful
+    .getBlogEntries()
     .then((response) => {
       res.render('blog-listing', {
         blogPosts: response,
@@ -25,47 +22,39 @@ const getBlogList = (req, res) => {
       });
     })
     .catch(() => {
-      res.render('404', {
-        metaData: config.metaData
-      });
+      res.render('404', {metaData: config.metaData});
     });
 };
 
 const getBlogPost = (req, res) => {
-  const blogId = req.params.id;
-  contentful.getEntry(blogId)
+  const slug = req.params.slug;
+  contentful
+    .getEntryBySlug(slug)
     .then((response) => {
       res.render('blog-post', {
-        blogPost: response,
+        blogPost: response.items[0],
         metaData: config.metaData
       });
     })
-    .catch(() => {
-      res.render('404', {
-        metaData: config.metaData
-      });
+    .catch((err) => {
+      console.log(err);
+      res.render('404', {metaData: config.metaData});
     });
 };
 
 // */careers controllers
 const getCareers = (req, res) => {
-  res.render('careers', {
-    metaData: config.metaData
-  });
+  res.render('careers', {metaData: config.metaData});
 };
 
 // */planner controllers
 const getPlanner = (req, res) => {
-  res.render('planner', {
-    metaData: config.metaData
-  });
+  res.render('planner', {metaData: config.metaData});
 };
 
 // */contact controllers
 const getContact = (req, res) => {
-  res.render('contact', {
-    metaData: config.metaData
-  });
+  res.render('contact', {metaData: config.metaData});
 };
 
 const postContact = (req, res) => {
@@ -74,24 +63,31 @@ const postContact = (req, res) => {
     method: 'POST',
     path: '/v3/mail/send',
     body: {
-      personalizations: [{
-        to: [{
-          email: 'axel.hunter@bluebulldog.co.uk'
-        }, {
-          email: 'eik.hunter@bluebulldog.co.uk'
-        }],
-        subject: `Contact form - ${req.body.subject}`
-      }],
+      personalizations: [
+        {
+          to: [
+            {
+              email: 'axel.hunter@bluebulldog.co.uk'
+            }, {
+              email: 'eik.hunter@bluebulldog.co.uk'
+            }
+          ],
+          subject: `Contact form - ${req.body.subject}`
+        }
+      ],
       from: {
         email: 'info@bluebulldog.co.uk'
       },
-      content: [{
-        type: 'text/plain',
-        value: `Name: ${req.body.name} - Email: ${req.body.email} Message: ${req.body.message}`
-      }]
+      content: [
+        {
+          type: 'text/plain',
+          value: `Name: ${req.body.name} - Email: ${req.body.email} Message: ${req.body.message}`
+        }
+      ]
     }
   });
-  sg.API(request)
+  sg
+    .API(request)
     .then(response => {
       console.log(response.statusCode);
       console.log(response.body);
@@ -113,30 +109,22 @@ const postContact = (req, res) => {
 
 // */privacy-policy controllers
 const getPrivacyPolicy = (req, res) => {
-  res.render('privacy-policy', {
-    metaData: config.metaData
-  });
+  res.render('privacy-policy', {metaData: config.metaData});
 };
 
 // */privacy-policy controllers
 const getCookiePolicy = (req, res) => {
-  res.render('cookie-policy', {
-    metaData: config.metaData
-  });
+  res.render('cookie-policy', {metaData: config.metaData});
 };
 
 // */website-terms controllers
 const getWebsiteTerms = (req, res) => {
-  res.render('website-terms', {
-    metaData: config.metaData
-  });
+  res.render('website-terms', {metaData: config.metaData});
 };
 
 // */website-terms controllers
 const getAgencyTerms = (req, res) => {
-  res.render('agency-terms', {
-    metaData: config.metaData
-  });
+  res.render('agency-terms', {metaData: config.metaData});
 };
 
 module.exports = {

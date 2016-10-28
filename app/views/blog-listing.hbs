@@ -7,14 +7,12 @@
       {{#each blogPosts.items}}
       <div class="row">
         <small>{{dateFormat fields.dateCreated}}</small>
-        <h4>{{fields.title}}</h4>
+        <h1>{{fields.title}}</h1>
         {{#if subTitle}}
           <h5>{{fields.title}}</h5>
         {{/if}}
-        <p>
-          {{fields.shortContent}}
-        </p>
-        <a class="button button-primary" href="/blog/post/{{sys.id}}">Read more</a>
+        {{markdown fields.shortContent}}
+        <a class="button button-primary" href="/blog/post/{{fields.slug}}">Read more</a>
       </div>
       {{/each}}
     </div>

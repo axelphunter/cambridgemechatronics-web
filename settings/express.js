@@ -1,9 +1,11 @@
 // dependencies
 const express = require('express');
 const exphbs = require('express-handlebars');
+const Handlebars = require('handlebars');
 const bodyParser = require('body-parser');
 const moment = require('moment');
 const path = require('path');
+const markdown = require("markdown").markdown;
 
 // exports
 module.exports = (app, settings) => {
@@ -17,17 +19,17 @@ module.exports = (app, settings) => {
     partialsDir: path.join(settings.rootPath, '/views/partials'),
     helpers: {
       dateFormat(date) {
-        return moment(date)
-          .format('dddd, MMMM Do YYYY, h:mm:ss a');
+        return moment(date).format('dddd, MMMM Do YYYY, h:mm:ss a');
+      },
+      markdown(content) {
+        return new Handlebars.SafeString(markdown.toHTML(content));
       }
     }
   }));
   app.set('view engine', '.hbs');
 
   // body parser configuration
-  app.use(bodyParser.urlencoded({
-    extended: true
-  }));
+  app.use(bodyParser.urlencoded({extended: true}));
 
   app.use(bodyParser.json());
 

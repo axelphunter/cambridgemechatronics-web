@@ -1,16 +1,14 @@
 // dependencies
 const contentful = require('contentful');
 const config = require('config');
-const client = contentful.createClient({
-  space: config.contentful.spaceId,
-  accessToken: config.contentful.accessToken
-});
+const client = contentful.createClient({space: config.contentful.spaceId, accessToken: config.contentful.accessToken});
 
-const getEntry = (id) => {
+const getEntryBySlug = (slug) => {
   const promise = new Promise((resolve, reject) => {
-    client.getEntry(id)
-      .then((entry) => {
-        resolve(entry);
+    client
+      .getEntries({'content_type': 'blogPost', 'fields.slug': slug})
+      .then((response) => {
+        resolve(response);
       })
       .catch((err) => {
         reject(err);
@@ -21,11 +19,10 @@ const getEntry = (id) => {
 
 const getBlogEntries = () => {
   const promise = new Promise((resolve, reject) => {
-    client.getEntries({
-        'content_type': 'blogPost'
-      })
-      .then((entry) => {
-        resolve(entry);
+    client
+      .getEntries({'content_type': 'blogPost'})
+      .then((response) => {
+        resolve(response);
       })
       .catch((err) => {
         reject(err);
@@ -35,6 +32,6 @@ const getBlogEntries = () => {
 };
 
 module.exports = {
-  getEntry,
+  getEntryBySlug,
   getBlogEntries
 };
