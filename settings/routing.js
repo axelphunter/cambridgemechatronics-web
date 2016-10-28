@@ -6,6 +6,7 @@ module.exports = (app, config) => {
   app.use((req, res) => {
     res.status(404);
     res.render('404', {
+      pageName: '404',
       metaData: config.metaData
     });
   });

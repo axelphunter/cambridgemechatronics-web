@@ -8,7 +8,6 @@ module.exports = (app) => {
   app.get('/blog', siteController.getBlogList);
   app.get('/blog/post/:slug', siteController.getBlogPost);
   app.get('/careers', siteController.getCareers);
-  app.get('/planner', siteController.getPlanner);
   app.get('/contact', siteController.getContact);
   app.post('/contact', siteController.postContact);
   app.get('/privacy-policy', siteController.getPrivacyPolicy);
