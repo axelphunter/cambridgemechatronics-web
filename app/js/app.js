@@ -4,25 +4,25 @@ var app = {
   },
 
   socialShare: {
-    twitter(url) {
+    twitter: function(url) {
       window.open('https://twitter.com/home?status=' + url);
     },
-    facebook(url) {
+    facebook: function(url) {
       window.open('https://www.facebook.com/sharer/sharer.php?u=' + url);
     },
-    googlePlus(url) {
+    googlePlus: function(url) {
       window.open('https://plus.google.com/share?url=' + url);
     },
-    linkedin(url, title, text) {
+    linkedin: function(url, title, text) {
       window.open('https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' + title + '&summary=' + text);
     },
-    pinterest(url, image, text) {
+    pinterest: function(url, image, text) {
       window.open('https://pinterest.com/pin/create/button/?url=' + image + '&media=' + url + '&description=' + text);
     },
-    reddit(title, url) {
+    reddit: function(title, url) {
       window.open('http://www.reddit.com/submit?url=' + url + '&title=' + title);
     },
-    email(title, url) {
+    email: function(title, url) {
       window.open('mailto:?&subject=' + title + '&body=' + title + ': ' + url);
     }
   }
