@@ -2,8 +2,7 @@
 const SitemapGenerator = require('sitemap-generator');
 const fs = require('fs');
 const path = require('path');
-const CronJob = require('cron')
-  .CronJob;
+const CronJob = require('cron').CronJob;
 
 const generator = new SitemapGenerator('http://www.bluebulldog.co.uk');
 
@@ -15,8 +14,6 @@ generator.on('done', (sitemap) => {
     return console.log(err);
   });
 });
-
-generator.start();
 
 new CronJob('* * * 1 * *', () => {
   generator.start();
