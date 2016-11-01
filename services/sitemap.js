@@ -15,6 +15,6 @@ generator.on('done', (sitemap) => {
   });
 });
 
-new CronJob('* * * 1 * *', () => {
+new CronJob('0 0 0 1 * *', () => {
   generator.start();
 }, null, true, 'America/Los_Angeles');

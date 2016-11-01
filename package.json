@@ -6,7 +6,6 @@
   "scripts": {
     "bower": "bower install",
     "build": "gulp build",
-    "sitemap": "node ./servicessitemap.js",
     "postinstall": "npm run bower && npm run build",
     "start": "node index.js"
   },
