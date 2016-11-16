@@ -22,6 +22,7 @@ body {
   color: #cbcbc9;
   font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
+  min-width: 320px;
 }
 
 body, html {
@@ -173,6 +174,7 @@ p {
   opacity: .6;
   font-weight: 300;
   letter-spacing: 1px;
+  text-align: justify;
 }
 
 section ul {
@@ -315,7 +317,7 @@ footer ul {
 }
 
 footer ul li {
-  padding: 0 1rem;
+  padding: 0 0.8rem;
   margin-bottom: 1rem;
   display: inline-block;
 }
@@ -324,7 +326,9 @@ footer ul li a {
   text-decoration: none;
   color: inherit;
 }
-
+.seven.columns.wow.fadeInUp {
+  width: 100% !important;
+}
 
 /* Large Devices, Wide Screens */
 
@@ -387,7 +391,7 @@ footer ul li a {
   }
   nav ul li {
     font-size: 10px;
-    padding: 0 10px;
+    padding: 0 0.8rem;
   }
   .home-banner {
     padding-top: calc(80px + 2rem);
