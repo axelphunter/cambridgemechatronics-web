@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
   useref = require('gulp-useref'),
   uglify = require('gulp-uglify'),
@@ -10,7 +12,7 @@ var gulp = require('gulp'),
   runSequence = require('run-sequence'),
   minHtmlOpts = {
     conditionals: true, // do not remove conditional comments
-    quotes: true         // do not remove attribute quotes
+    quotes: true // do not remove attribute quotes
   },
   config = {
     appDir: 'app',
@@ -20,12 +22,10 @@ var gulp = require('gulp'),
 
 gulp.task('process-views', function() {
 
-  var assets = useref.assets({
-    searchPath: './app/',
-    base: './dist/'
-  });
+  var assets = useref.assets({searchPath: './app/', base: './dist/'});
 
-  return gulp.src('app/**/*.hbs')
+  return gulp
+    .src('app/**/*.hbs')
     .pipe(assets)
     .pipe(gulpIf('*.css', cleanCSS()))
     .pipe(assets.restore())
@@ -35,26 +35,31 @@ gulp.task('process-views', function() {
 });
 
 gulp.task('fonts', function() {
-  return gulp.src(config.appDir + '/fonts/**/*')
+  return gulp
+    .src(config.appDir + '/fonts/**/*')
     .pipe(gulp.dest(config.distDir + '/fonts'));
 });
 
 gulp.task('minify-html', function() {
-  return gulp.src(['dist/**/*.hbs', '!dist/**/md.hbs'])
+  return gulp
+    .src(['dist/**/*.hbs', '!dist/**/md.hbs'])
     .pipe(gulpIf('*.hbs', minifyHTML(minHtmlOpts)))
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('images', function() {
-  return gulp.src(config.appDir + '/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
-    .pipe(imagemin({
-      interlaced: true
-    }))
+  return gulp
+    .src(config.appDir + '/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
+    .pipe(imagemin({interlaced: true}))
     .pipe(gulp.dest(config.distDir + '/images'))
 });
 
 gulp.task('clean:dist', function(callback) {
-  return del([config.distDir + '/**/*', '!' + config.distDir + '/images', '!' + config.distDir + '/images/**/*'], callback);
+  return del([
+    config.distDir + '/**/*',
+    '!' + config.distDir + '/images',
+    '!' + config.distDir + '/images/**/*'
+  ], callback);
 });
 
 gulp.task('clean', function() {
@@ -62,17 +67,9 @@ gulp.task('clean', function() {
 });
 
 gulp.task('bundle', function(callback) {
-  runSequence(
-    'images',
-    'fonts',
-    'process-views',
-    'minify-html',
-    callback
-  );
+  runSequence('images', 'fonts', 'process-views', 'minify-html', callback);
 });
 
 gulp.task('build', function(callback) {
-  return runSequence('clean', ['bundle'],
-    callback
-  );
+  return runSequence('clean', ['bundle'], callback);
 });

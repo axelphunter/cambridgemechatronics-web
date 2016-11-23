@@ -1,3 +1,5 @@
+'use strict';
+
 // dependencies
 const express = require('express');
 const exphbs = require('express-handlebars');
@@ -5,10 +7,12 @@ const Handlebars = require('handlebars');
 const bodyParser = require('body-parser');
 const moment = require('moment');
 const path = require('path');
-const markdown = require("markdown").markdown;
+const compression = require('compression');
+const markdown = require('markdown').markdown;
 
 // exports
 module.exports = (app, settings) => {
+  app.use(compression());
   // view engine configuration
   app.set('views', path.join(settings.rootPath, '/views'));
 

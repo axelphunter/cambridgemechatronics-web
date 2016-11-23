@@ -1,3 +1,5 @@
+'use strict';
+
 // dependencies
 const SitemapGenerator = require('sitemap-generator');
 const fs = require('fs');

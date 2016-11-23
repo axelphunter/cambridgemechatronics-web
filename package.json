@@ -16,6 +16,7 @@
     "body-parser": "^1.15.0",
     "bower": "^1.7.9",
     "commander": "^2.9.0",
+    "compression": "^1.6.2",
     "config": "^1.21.0",
     "contentful": "^3.7.0",
     "cron": "^1.1.1",

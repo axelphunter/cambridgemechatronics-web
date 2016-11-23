@@ -1,3 +1,5 @@
+'use strict';
+
 // dependencies
 const morgan = require('morgan');
 

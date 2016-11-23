@@ -1,3 +1,5 @@
+'use strict';
+
 // exports
 module.exports = (app, config) => {
   // server-side routing dependencies

@@ -1,3 +1,5 @@
+'use strict';
+
 const config = require('config');
 const contentful = require('../services/contentful');
 
@@ -29,9 +31,7 @@ const getBlogList = (req, res) => {
       });
     })
     .catch(() => {
-      res.render('404', {
-        metaData: config.metaData
-      });
+      res.render('404', {metaData: config.metaData});
     });
 };
 
@@ -82,21 +82,27 @@ const postContact = (req, res) => {
     method: 'POST',
     path: '/v3/mail/send',
     body: {
-      personalizations: [{
-        to: [{
-          email: 'axel.hunter@bluebulldog.co.uk'
-        }, {
-          email: 'eik.hunter@bluebulldog.co.uk'
-        }],
-        subject: `Contact form - ${req.body.subject}`
-      }],
+      personalizations: [
+        {
+          to: [
+            {
+              email: 'axel.hunter@bluebulldog.co.uk'
+            }, {
+              email: 'eik.hunter@bluebulldog.co.uk'
+            }
+          ],
+          subject: `Contact form - ${req.body.subject}`
+        }
+      ],
       from: {
         email: 'info@bluebulldog.co.uk'
       },
-      content: [{
-        type: 'text/plain',
-        value: `Name: ${req.body.name} - Email: ${req.body.email} Message: ${req.body.message}`
-      }]
+      content: [
+        {
+          type: 'text/plain',
+          value: `Name: ${req.body.name} - Email: ${req.body.email} Message: ${req.body.message}`
+        }
+      ]
     }
   });
   sg
