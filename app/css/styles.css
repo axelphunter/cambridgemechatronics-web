@@ -8,6 +8,9 @@ body {
   text-indent: -99999px;
   margin: 0; }
 
+img {
+  max-width: 100%; }
+
 .button,
 button,
 input[type="submit"],
@@ -127,6 +130,55 @@ nav {
 
 .home .technology-bg {
   background: url("/images/gemini_exploded.jpg") center/contain no-repeat; }
+
+.about .milestones {
+  padding: 20px;
+  color: #262261; }
+  .about .milestones .row {
+    display: table;
+    height: 220px;
+    overflow: hidden; }
+    .about .milestones .row .columns {
+      display: table-cell;
+      vertical-align: middle; }
+  .about .milestones img {
+    width: 80%; }
+  .about .milestones p, .about .milestones h5 {
+    margin-bottom: 0; }
+
+.hero {
+  text-align: center;
+  background: #c4bfb6;
+  background: -moz-linear-gradient(top, #c4bfb6 0%, #9d968d 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #c4bfb6), color-stop(100%, #9d968d));
+  background: -webkit-linear-gradient(top, #c4bfb6 0%, #9d968d 100%);
+  background: -o-linear-gradient(top, #c4bfb6 0%, #9d968d 100%);
+  background: -ms-linear-gradient(top, #c4bfb6 0%, #9d968d 100%);
+  background: linear-gradient(to bottom, #c4bfb6 0%, #9d968d 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c4bfb6', endColorstr='#9d968d', GradientType=0 );
+  color: #fff;
+  display: table;
+  min-height: 350px;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 20px; }
+  .hero .inner {
+    display: table-cell;
+    vertical-align: middle; }
+  .hero.about {
+    background: url("/images/slides/AdobeStock_81366261_WM_edit.jpg") center/cover no-repeat; }
+
+footer {
+  padding: 40px 0;
+  background: #484C56;
+  color: #fff; }
+  footer ul {
+    list-style: none; }
+  footer a {
+    color: inherit;
+    text-decoration: none; }
+    footer a:hover {
+      color: inherit; }
 
 /* Large Devices, Wide Screens */
 /* Medium Devices, Desktops */

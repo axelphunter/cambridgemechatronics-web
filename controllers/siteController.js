@@ -12,5 +12,11 @@ module.exports = {
       slides,
       metaData: config.metaData
     });
+  },
+  getAbout(req, res) {
+    res.render('about', {
+      pageName: 'About',
+      metaData: config.metaData
+    });
   }
 };
