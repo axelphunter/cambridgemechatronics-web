@@ -1,5 +1,6 @@
 /app/bower_components
 /app/sitemap.xml
+/app/css
 /dist
 /node_modules
 ### Example user template template

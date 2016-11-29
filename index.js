@@ -1,27 +1,31 @@
-'use strict';
-
 // dependencies
 const express = require('express');
 
 // environment config
 const config = require('config');
-const env = process.env.NODE_ENV || 'development';
-const settings = require('./settings/settings')[env];
+const appRoot = require('app-root-path');
+const path = require('path');
+
+config.rootPath = path.join(appRoot.path, config.debug
+  ? '/app'
+  : '/dist');
 
 // express config
 const app = express();
-require('./settings/express')(app, settings);
+require('./configuration/express')(app, config);
 
 // logger configuration
-require('./settings/logger')(app);
+require('./configuration/logger')(app);
 
 // sitemap service run
 require('./services/sitemap');
 
 // routing configuration
-require('./settings/routing')(app, config);
+require('./configuration/routing')(app, config);
+
+const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
 // server
-app.listen(settings.port, () => {
-  console.log(`${process.env.NODE_ENV || 'development'} - NodeJS Server listening on port TCP/${settings.port}...`);
+app.listen(port, () => {
+  console.log(`${process.env.NODE_ENV} - NodeJS Server listening on port TCP/${port}...`);
 });

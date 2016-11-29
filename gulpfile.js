@@ -10,6 +10,7 @@ var gulp = require('gulp'),
   minifyHTML = require('gulp-minify-html'),
   del = require('del'),
   runSequence = require('run-sequence'),
+  sass = require('gulp-sass'),
   minHtmlOpts = {
     conditionals: true, // do not remove conditional comments
     quotes: true // do not remove attribute quotes
@@ -60,6 +61,17 @@ gulp.task('clean:dist', function(callback) {
     '!' + config.distDir + '/images',
     '!' + config.distDir + '/images/**/*'
   ], callback);
+});
+
+gulp.task('sass', function() {
+  return gulp
+    .src(config.appDir + '/scss/*.scss')
+    .pipe(sass())
+    .pipe(gulp.dest(config.appDir + '/css'));
+});
+
+gulp.task('watch', ['sass'], function() {
+  return gulp.watch(config.appDir + '/scss/*.scss', ['sass']);
 });
 
 gulp.task('clean', function() {

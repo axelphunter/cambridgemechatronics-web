@@ -1,22 +1,12 @@
 {
   "debug": true,
   "port": 8080,
-  "mapsApiKey": "AIzaSyCBn8Da8NB_AHJgYRdT4Lj8HFtZNiC7BTg",
-  "secret": "ilovescotchyscotch",
-  "database": "mongodb://127.0.0.1:27017/inmotion-webservice",
-  "transportApiKey": "d9307fd91b0247c607e098d5effedc97",
-  "transportApiId": "03bf8009",
   "metaData": {
-    "title": "Blue Bulldog: A creative web and app studio. Cambridge, UK",
-    "description": "A website and mobile application, design and development company based in Cambridge, UK.",
-    "website": "http://www.bluebulldog.co.uk/",
-    "socialImage": "http://www.bluebulldog.co.uk/images/main-bg.jpg",
-    "company": "Ragnarok IT Solutions Ltd.",
-    "companyReg": "8919183",
-    "companyVat": "GB 181 992 863"
-  },
-  "contentful": {
-    "spaceId": "5pxvs4xozkny",
-    "accessToken": "3aa195283f58a0949764603035475e4f184bf2838547f3492e2a34d842ed6c77"
+    "title": "Cambridge Mechatronics",
+    "description": "Cambridge Mechatronics is a high technology design and engineering company based in Cambridge, UK. We specialise in mechatronic systems - combining the complementary disciplines of mechanical, electronic, control and software engineering.",
+    "website": "http://www.cambridgemechatronics.com/",
+    "socialImage": "http://www.cambridgemechatronics.com/images/main-bg.jpg",
+    "company": "Cambridge Mechatronics Ltd",
+    "companyReg": "3071231"
   }
 }

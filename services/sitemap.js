@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const CronJob = require('cron').CronJob;
 
-const generator = new SitemapGenerator('http://www.bluebulldog.co.uk');
+const generator = new SitemapGenerator('http://www.cambridgemechatronics.com/');
 
 generator.on('done', (sitemap) => {
   fs.writeFile(path.join('dist/sitemap.xml'), sitemap, (err) => {

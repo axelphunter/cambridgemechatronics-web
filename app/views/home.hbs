@@ -1,19 +1,54 @@
-<section class="home-banner text-center wow bounceInUp">
-  <img src="/images/logo-light.png" alt="Image" class="wow bounceInUp" />
-  <img src="images/icon-mouse.png" alt="Image" class="wow tada mouseScroll" data-wow-delay="2s"/>
-</section>
-<main>
-  <section class="light">
-    <div class="container">
-      <div class="row">
-        <div class="seven columns wow fadeInUp" data-wow-delay="0.5s">
-          <h2>Blue Bulldog</h2>
-          <h3>{{metaData.description}}</h3>
-          <p>
-            We believe in our people and inspiring them to be the best that they can be. We hold customer-centricity at our very core. With pace and agility, we will excite and energise. With the development of disruptive technologies, we will reduce friction for our clients and the sectors in which they operate.
-          </p>
-        </div>
+<div class="container">
+  <div class="slider js_percentage percentage">
+    <div class="frame js_frame">
+      <ul class="slides js_slides">
+        {{#each slides}}
+        <li style="background: url('/images/slides/{{this}}') center / cover no-repeat"></li>
+        {{/each}}
+      </ul>
+    </div>
+    <span class="js_prev prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5"><g><path fill="#2E435A" d="M302.67 90.877l55.77 55.508L254.575 250.75 358.44 355.116l-55.77 55.506L143.56 250.75z"/></g></svg>
+    </span>
+    <span class="js_next next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5"><g><path fill="#2E435A" d="M199.33 410.622l-55.77-55.508L247.425 250.75 143.56 146.384l55.77-55.507L358.44 250.75z"/></g></svg>
+    </span>
+  </div>
+</div>
+<main class="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <h2>High Technology Design</h2>
+        <p>
+          Cambridge Mechatronics is a high technology design and engineering company based in Cambridge, UK. We specialise in mechatronic systems – combining the complementary disciplines of mechanical, electronic, control and software engineering.
+        </p>
+        <p>
+          We develop products from concept through to mass production either through technology licensing or direct partnerships with manufacturing organisations. Our innovation is protected by an extensive intellectual property portfolio of over 100 granted patents.
+        </p>
+        <a class="link" href="/about">About ></a>
+      </div>
+      <div class="col-2 about-bg"></div>
+    </div>
+    <div class="row">
+      <div class="col-2 team-bg"></div>
+      <div class="col-2 bg-darkgrey">
+        <h2>Complementary Skills</h2>
+        <p>
+          At Cambridge Mechatronics, our team is truly multidisciplinary made up of experts in mechanical, electronic, control and software engineering. By combining the unique skills of our engineers, we have the ability understand technology systems holistically and the interconnected nature of them. This enables us to not only develop optimised whole system solutions and products but also ensure their commercial success.
+        </p>
+        <a class="link" href="/about">Team ></a>
       </div>
     </div>
-  </section>
+    <div class="row">
+      <div class="col-2 bg-beige">
+        <h2>Innovative Materials</h2>
+        <p>
+          Technology has advanced rapidly over the years. Cambridge Mechatronics’ goal is to continue optimising and improving technology, however we identified that more imagination is required to do this effectively. Our approach focuses on the use of smarter materials and have successfully developed a key platform technology that will enable us to innovate in high value industry applications in diverse ways.
+        </p>
+        <a class="link" href="/technology">Technology ></a>
+      </div>
+      <div class="col-2 technology-bg"></div>
+    </div>
+  </div>
 </main>

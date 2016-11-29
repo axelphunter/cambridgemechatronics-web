@@ -16,8 +16,8 @@
 
   <!-- TWITTER META -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@bluebulldogstudio">
-  <meta name="twitter:creator" content="@bluebulldogstudio">
+  <meta name="twitter:site" content="@{{metaData.twitter}}">
+  <meta name="twitter:creator" content="@{{metaData.twitter}}">
   <meta name="twitter:title" content="{{pageName}} - {{metaData.title}}">
   <meta name="twitter:description" content="{{pageName}} - {{metaData.title}}">
   <meta name="twitter:image" content="{{metaData.website}}">
@@ -29,31 +29,8 @@
   <link href="/images/ico/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon-precomposed">
   <link href="/images/ico/favicon.png" rel="shortcut icon">
 
-  <meta name="google-site-verification" content="Caqf5dE8hW_6t68juLHqnPA7crJ2sCCL_ysdsmZ3O_4" />
-  <link rel="alternate" href="http://www.bluebulldog.co.uk/" hreflang="en-gb" />
+  <link rel="alternate" href="{{metaData.website}}" hreflang="en-gb" />
 
-  <!-- CSS
-  ================================================== -->
-  <!-- build:css /css/styles.min.css -->
-  <link rel="stylesheet" href="/bower_components/skeleton/css/normalize.css">
-  <link rel="stylesheet" href="/bower_components/skeleton/css/skeleton.css">
-  <link rel="stylesheet" href="/bower_components/wow/css/libs/animate.css">
-  <link rel="stylesheet" href="/css/styles.css">
-  <!-- endbuild -->
+  {{> styles}}
 
-  <!-- Facebook Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-  document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '698327456984391');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=698327456984391&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- DO NOT MODIFY -->
-  <!-- End Facebook Pixel Code -->
 </head>

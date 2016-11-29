@@ -1,5 +1,5 @@
 {
-  "name": "blue-bulldog",
+  "name": "cambridgemechatronics",
   "description": "",
   "main": "index.js",
   "authors": [
@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "skeleton": "^2.0.4",
-    "wow": "^1.1.2"
+    "wow": "^1.1.2",
+    "lory": "^2.2.1"
   }
 }
