@@ -48,5 +48,11 @@ module.exports = {
       pageName: 'Virtual',
       metaData: config.metaData
     });
+  },
+  getContact(req, res) {
+    res.render('contact', {
+      pageName: 'Contact',
+      metaData: config.metaData
+    });
   }
 };

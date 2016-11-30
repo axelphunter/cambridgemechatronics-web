@@ -201,6 +201,8 @@ nav {
 
   .drone-bg {
     background: url("/images/slides/AdobeStock_110279921_WM.jpeg") right center/cover no-repeat; }
+    .drone .drone-bg {
+      background-position: top center;}
 
   .virtual-bg {
     background: url("/images/slides/AdobeStock_104480446_WM.jpeg") center/cover no-repeat; }
@@ -256,9 +258,49 @@ nav {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: #C4BFB6;
   display: block;
+  background-color: #C4BFB6;
 }
+
+.contact-image {
+  background: url("/images/slides/AdobeStock_28914493_WM.jpeg") center/cover no-repeat; }
+
+.google-link {
+  text-decoration: underline;
+  color: #262261; }
+
+#camera {
+  background: url(/images/icons/camera.png) #C4BFB6 right bottom/contain no-repeat;
+  background-size: 70px; }
+
+#email {
+  background: url("/images/icons/email.png") #C4BFB6 center/contain no-repeat;
+  background-size: 35px; }
+
+#location {
+  background: url("/images/icons/location.png") #C4BFB6 center/contain no-repeat;
+  background-size: 35px; }
+
+#magnet {
+  background: url("/images/icons/magnet.png") #C4BFB6 center/contain no-repeat;
+  background-size: 35px; }
+
+#perfomance {
+  background: url("/images/icons/perfomance.png") #C4BFB6 center/contain no-repeat;
+  background-size: 50px; }
+
+#phone {
+  background: url("/images/icons/phone.png") #C4BFB6 center/contain no-repeat;
+  background-size: 35px; }
+
+#size {
+  background: url("/images/icons/size.png") #C4BFB6 center/contain no-repeat;
+  background-size: 50px; }
+
+#tel {
+  background: url("/images/icons/tel.png") #C4BFB6 center/contain no-repeat;
+  background-size: 35px; }
+
 footer {
   padding: 40px 0;
   background: #484C56;

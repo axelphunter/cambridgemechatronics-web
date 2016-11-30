@@ -12,4 +12,5 @@ module.exports = (app) => {
   app.get('/ois', siteController.getOis);
   app.get('/drones', siteController.getDrones);
   app.get('/virtual', siteController.getVirtual);
+  app.get('/contact', siteController.getContact);
 };
