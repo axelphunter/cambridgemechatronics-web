@@ -9,7 +9,7 @@ body {
 }
 
 .logo {
-  background: url('/images/logo.png') center left / contain no-repeat;
+  background: url('/images/logo.svg') center left / contain no-repeat;
   text-indent: -99999px;
   margin: 0;
 }
@@ -140,7 +140,7 @@ nav {
 }
 
 .col-2 {
-  padding: 20px;
+  padding: 60px 20px;
   width: 50%;
   float: left;
   box-sizing: border-box;
