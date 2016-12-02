@@ -2,6 +2,8 @@
 
 const config = require('config');
 const fs = require('fs');
+const prismicConfig = require('../configuration/prismic');
+const prismic = require('prismic.io');
 
 // */ controllers
 module.exports = {
@@ -63,11 +65,58 @@ module.exports = {
     });
   },
   getNews(req, res) {
-    res.render('news', {
-      pageName: 'News',
-      active_news: true,
-      metaData: config.metaData
-    });
+    const page = parseInt(req.query.q, 10) + 1 || 1;
+    console.log(page);
+    prismicConfig
+      .api(req, res)
+      .then((api) => {
+        return api.query(prismic.Predicates.at('document.type', 'news'), {
+          pageSize: 9 * page,
+          orderings: '[my.blog-post.post-date desc]'
+        });
+      })
+      .then((pageContent) => {
+        res.render('news', {
+          pageName: 'News',
+          active_news: true,
+          pageContent,
+          page,
+          metaData: config.metaData
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+  getNewsByUid(req, res) {
+    const uid = req.params.uid;
+    prismicConfig
+      .api(req, res)
+      .then((api) => {
+        return api.getByUID('news', uid);
+      })
+      .then((pageContent) => {
+        if (pageContent) {
+          return res.render('news-item', {
+            pageName: 'News',
+            active_news: true,
+            pageContent,
+            metaData: config.metaData
+          });
+        }
+        res.status(404);
+        res.render('404', {
+          pageName: '404',
+          metaData: config.metaData
+        });
+      })
+      .catch((err) => {
+        res.status(404);
+        res.render('404', {
+          pageName: '404',
+          metaData: config.metaData
+        });
+      });
   },
   getCareers(req, res) {
     res.render('careers', {

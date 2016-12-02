@@ -1,0 +1,35 @@
+<main class="news-item">
+  <div class="container">
+    <div class="hero">
+      <div class="inner">
+        <h2>News</h2>
+      </div>
+    </div>
+    <div class="padded">
+      {{#if pageContent.data.[news.post-image]}}
+      <div class="row">
+        <div class="six columns">
+          <h2 class="wow fadeInDown">{{pageContent.data.[news.title].value.[0].text}}</h2>
+          <p class="date">
+            {{dateFormat pageContent.data.[news.post-date].value}}
+          </p>
+          <div class="wow fadeInUp">
+            {{structuredText pageContent.data.[news.body]}}
+          </div>
+        </div>
+        <div class="six columns">
+          <img src="{{pageContent.data.[news.post-image].value.main.url}}" alt="{{pageContent.data.[news.post-image].value.main.alt}}" />
+        </div>
+      </div>
+      {{else}}
+      <h2 class="wow fadeInDown">{{pageContent.data.[news.title].value.[0].text}}</h2>
+      <p class="date">
+        {{dateFormat pageContent.data.[news.post-date].value}}
+      </p>
+      <div class="wow fadeInUp">
+        {{structuredText pageContent.data.[news.body]}}
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</main>

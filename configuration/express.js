@@ -3,12 +3,10 @@
 // dependencies
 const express = require('express');
 const exphbs = require('express-handlebars');
-const Handlebars = require('handlebars');
 const bodyParser = require('body-parser');
-const moment = require('moment');
 const path = require('path');
 const compression = require('compression');
-const markdown = require('markdown').markdown;
+const handlebarsHelpers = require('../services/handlebarsHelpers');
 
 // exports
 module.exports = (app, config) => {
@@ -21,14 +19,7 @@ module.exports = (app, config) => {
     extname: '.hbs',
     layoutsDir: path.join(config.rootPath, '/views/layouts'),
     partialsDir: path.join(config.rootPath, '/views/partials'),
-    helpers: {
-      dateFormat(date) {
-        return moment(date).format('dddd, MMMM Do YYYY, h:mm:ss a');
-      },
-      markdown(content) {
-        return new Handlebars.SafeString(markdown.toHTML(content));
-      }
-    }
+    helpers: handlebarsHelpers
   }));
   app.set('view engine', '.hbs');
 

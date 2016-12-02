@@ -6,60 +6,22 @@
       </div>
     </div>
     <div class="row padded">
-      <div class="news-item">
-
+      {{#each pageContent.results}}
+      <div class="news-item wow fadeInUp">
+        <a class="image" style="background: url('{{data.[news.post-image].value.main.url}}');" href="/news/{{uid}}"></a>
+        <h2>{{data.[news.title].value.[0].text}}</h2>
+        <p class="date">
+          {{data.[news.post-date].value}}
+        </p>
+        <p class="body">
+          {{data.[news.body].value.[0].text}}
+        </p>
+        <a class="link" href="/about">Read more +</a>
       </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
-      <div class="news-item">
-
-      </div>
+      {{/each}}
+      {{#if pageContent.next_page}}
+      <a class="link larger" href="/news?q={{page}}">Load More +</a>
+      {{/if}}
     </div>
   </div>
 </main>

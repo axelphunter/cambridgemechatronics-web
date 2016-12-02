@@ -18,6 +18,14 @@ img {
   max-width: 100%;
 }
 
+.larger {
+  font-size: 120%;
+}
+
+h2 {
+  letter-spacing: 0.2px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -487,6 +495,29 @@ footer {
     float: left;
     border: 5px solid #fff;
     box-sizing: border-box;
+    padding: 20px;
+    color: #fff;
+    position: relative;
+
+    .image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0.3;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    .body, .link {
+      display: none;
+    }
 
     &:nth-child(1n+2) {
       background: #484C56;
@@ -502,12 +533,20 @@ footer {
 
     &:nth-child(9n+1) {
       width: 66.33333%;
+      color: #484C56;
       height: 560px;
       background: #BBBDBF;
+
+      .body, .link {
+        display: block;
+      }
     }
   }
+}
 
-
+.date {
+  margin-bottom: 0;
+  font-weight: bold;
 }
 
 /* Large Devices, Wide Screens */
