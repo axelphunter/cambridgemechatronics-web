@@ -5,6 +5,15 @@ var app = {
     var percentage = document.querySelector('.js_percentage');
 
     lory(percentage, {infinite: 1});
+
+    if (document.querySelector('.js_next')) {
+      window
+        .setInterval(function() {
+          document
+            .querySelector('.js_next')
+            .click();
+        }, 5000);
+    }
   }
 };
 

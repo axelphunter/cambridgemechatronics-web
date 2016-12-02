@@ -1,26 +1,25 @@
 <nav>
   <div class="container">
-    <h1 class="logo">{{metaData.title}}</h1>
+    <a href="/">
+      <h1 class="logo">{{metaData.title}}</h1>
+    </a>
     <ul class="pull-right">
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
+      <li class="{{#if active_about}}active{{/if}}">
         <a href="/about">About</a>
       </li>
-      <li>
+      <li class="{{#if active_team}}active{{/if}}">
         <a href="/team">Team</a>
       </li>
-      <li>
+      <li class="{{#if active_tech}}active{{/if}}">
         <a href="/technology">Technology</a>
       </li>
-      <li>
+      <li class="{{#if active_news}}active{{/if}}">
         <a href="/news">News</a>
       </li>
-      <li>
+      <li class="{{#if active_contact}}active{{/if}}">
         <a href="/contact">Contact</a>
       </li>
-      <li>
+      <li class="{{#if active_careers}}active{{/if}}">
         <a href="/careers">Careers</a>
       </li>
       <li>

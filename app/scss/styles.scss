@@ -18,13 +18,13 @@ img {
   max-width: 100%;
 }
 
-h2 {
-  margin-top: 2rem;
-}
-
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.padded {
+  padding: 20px 0;
 }
 
 .button,
@@ -114,7 +114,10 @@ nav {
     list-style: none;
 
     li {
+      cursor: pointer;
       margin-left: 20px;
+      margin-bottom: 0;
+      line-height: 30px;
       display: inline-block;
       color: $primary-color;
       font-weight: bold;
@@ -153,14 +156,6 @@ nav {
   &.soft-padding {
     padding: 20px;
   }
-}
-
-.col-3 {
-  width: 33.2333%;
-  padding: 20px;
-  float: left;
-  box-sizing: border-box;
-  flex: 1;
 }
 
 .link {
@@ -202,6 +197,13 @@ nav {
   }
 }
 
+.careers {
+  h4 {
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+}
+
 .about {
   .milestones {
     padding: 20px;
@@ -218,6 +220,50 @@ nav {
       }
     }
 
+    .logo {
+      width: 80%;
+      height: 70px;
+
+      &.infocus {
+        background: url('/images/logos/infocus.png') center / contain no-repeat;
+      }
+
+      &.foxconn {
+        background: url('/images/logos/foxconn.png') center / contain no-repeat;
+      }
+
+      &.hutchinson-technology {
+        background: url('/images/logos/hutchinson-technology.png') center / contain no-repeat;
+      }
+
+      &.yamaha {
+        background: url('/images/logos/yamaha.png') center / contain no-repeat;
+      }
+
+      &.princeton-university {
+        background: url('/images/logos/princeton-university.png') center / contain no-repeat;
+      }
+
+      &.panasonic {
+        background: url('/images/logos/panasonic.png') center / contain no-repeat;
+      }
+
+      &.sh {
+        background: url('/images/logos/sh.png') center / contain no-repeat;
+      }
+
+      &.mitsubishi {
+        background: url('/images/logos/mitsubishi.png') center / contain no-repeat;
+      }
+
+      &.loewe {
+        background: url('/images/logos/loewe.png') center / contain no-repeat;
+      }
+
+      &.pioneer {
+        background: url('/images/logos/pioneer.png') center / contain no-repeat;
+      }
+    }
     img {
       width: 80%;
     }
@@ -279,7 +325,7 @@ footer {
   }
 }
 
-.technlogy .col-2 {
+.technology .col-2 {
   min-height: 400px
 }
 
@@ -370,6 +416,7 @@ footer {
   height: 80px;
   border-radius: 50%;
   display: block;
+  margin-bottom: 1rem;
   background-color: #C4BFB6;
 }
 
@@ -383,43 +430,84 @@ footer {
 }
 
 #camera {
-  background: url(/images/icons/camera.png) #C4BFB6 right bottom/contain no-repeat;
+  background: url("/images/icons/camera.svg") #C4BFB6 right bottom/contain no-repeat;
   background-size: 70px;
 }
 
 #email {
-  background: url("/images/icons/email.png") #C4BFB6 center/contain no-repeat;
-  background-size: 35px;
+  background: url("/images/icons/email.svg") #C4BFB6 center/contain no-repeat;
+  background-size: 50%;
 }
 
 #location {
-  background: url("/images/icons/location.png") #C4BFB6 center/contain no-repeat;
-  background-size: 35px;
+  background: url("/images/icons/location.svg") #C4BFB6 center/contain no-repeat;
+  background-size: 40%;
+}
+
+#battery {
+  background: url("/images/icons/battery.svg") #C4BFB6 center/contain no-repeat;
+  background-size: 60%;
 }
 
 #magnet {
-  background: url("/images/icons/magnet.png") #C4BFB6 center/contain no-repeat;
-  background-size: 35px;
+  background: url("/images/icons/magnet.svg") #C4BFB6 center/contain no-repeat;
+  background-size: 60%;
 }
 
-#perfomance {
-  background: url("/images/icons/perfomance.png") #C4BFB6 center/contain no-repeat;
+#performance {
+  background: url("/images/icons/performance.svg") #C4BFB6 center/contain no-repeat;
   background-size: 50px;
 }
 
 #phone {
-  background: url("/images/icons/phone.png") #C4BFB6 center/contain no-repeat;
+  background: url("/images/icons/phone.svg") #C4BFB6 center/contain no-repeat;
   background-size: 35px;
 }
 
 #size {
-  background: url("/images/icons/size.png") #C4BFB6 center/contain no-repeat;
-  background-size: 50px;
+  background: url("/images/icons/size.svg") #C4BFB6 center/contain no-repeat;
+  background-size: 90%;
 }
 
 #tel {
-  background: url("/images/icons/tel.png") #C4BFB6 center/contain no-repeat;
-  background-size: 35px;
+  background: url("/images/icons/tel.svg") #C4BFB6 center/contain no-repeat;
+  background-size: 50%;
+}
+
+.news {
+  .row {
+    display: block;
+  }
+
+  .news-item {
+    width: 33.33333%;
+    min-height: 280px;
+    background: #BBBDBF;
+    display: inline-block;
+    float: left;
+    border: 5px solid #fff;
+    box-sizing: border-box;
+
+    &:nth-child(1n+2) {
+      background: #484C56;
+    }
+
+    &:nth-child(2n+3) {
+      background: #9088A9;
+    }
+
+    &:nth-child(9n + 9) {
+      background: #262261;
+    }
+
+    &:nth-child(9n+1) {
+      width: 66.33333%;
+      height: 560px;
+      background: #BBBDBF;
+    }
+  }
+
+
 }
 
 /* Large Devices, Wide Screens */

@@ -11,12 +11,12 @@ body {
 img {
   max-width: 100%; }
 
-h2 {
-  margin-top: 2rem; }
-
 a {
   text-decoration: none;
   color: inherit; }
+
+.padded {
+  padding: 20px 0; }
 
 .button,
 button,
@@ -87,7 +87,10 @@ nav {
     display: inline-block;
     list-style: none; }
     nav ul li {
+      cursor: pointer;
       margin-left: 20px;
+      margin-bottom: 0;
+      line-height: 30px;
       display: inline-block;
       color: #262261;
       font-weight: bold; }
@@ -112,13 +115,6 @@ nav {
   flex: 1; }
   .col-2.soft-padding {
     padding: 20px; }
-
-.col-3 {
-  width: 33.2333%;
-  padding: 20px;
-  float: left;
-  box-sizing: border-box;
-  flex: 1; }
 
 .link {
   font-weight: bold;
@@ -146,6 +142,10 @@ nav {
 .home .technology-bg {
   background: url("/images/gemini_exploded.jpg") center/contain no-repeat; }
 
+.careers h4 {
+  font-size: 24px;
+  margin-bottom: 0; }
+
 .about .milestones {
   padding: 20px;
   color: #262261; }
@@ -156,6 +156,29 @@ nav {
     .about .milestones .row .columns {
       display: table-cell;
       vertical-align: middle; }
+  .about .milestones .logo {
+    width: 80%;
+    height: 70px; }
+    .about .milestones .logo.infocus {
+      background: url("/images/logos/infocus.png") center/contain no-repeat; }
+    .about .milestones .logo.foxconn {
+      background: url("/images/logos/foxconn.png") center/contain no-repeat; }
+    .about .milestones .logo.hutchinson-technology {
+      background: url("/images/logos/hutchinson-technology.png") center/contain no-repeat; }
+    .about .milestones .logo.yamaha {
+      background: url("/images/logos/yamaha.png") center/contain no-repeat; }
+    .about .milestones .logo.princeton-university {
+      background: url("/images/logos/princeton-university.png") center/contain no-repeat; }
+    .about .milestones .logo.panasonic {
+      background: url("/images/logos/panasonic.png") center/contain no-repeat; }
+    .about .milestones .logo.sh {
+      background: url("/images/logos/sh.png") center/contain no-repeat; }
+    .about .milestones .logo.mitsubishi {
+      background: url("/images/logos/mitsubishi.png") center/contain no-repeat; }
+    .about .milestones .logo.loewe {
+      background: url("/images/logos/loewe.png") center/contain no-repeat; }
+    .about .milestones .logo.pioneer {
+      background: url("/images/logos/pioneer.png") center/contain no-repeat; }
   .about .milestones img {
     width: 80%; }
   .about .milestones p, .about .milestones h5 {
@@ -198,7 +221,7 @@ footer {
     footer a:hover {
       color: inherit; }
 
-.technlogy .col-2 {
+.technology .col-2 {
   min-height: 400px; }
 
 .technology-slide-one {
@@ -268,6 +291,7 @@ footer {
   height: 80px;
   border-radius: 50%;
   display: block;
+  margin-bottom: 1rem;
   background-color: #C4BFB6; }
 
 .contact-image {
@@ -278,36 +302,62 @@ footer {
   color: #262261; }
 
 #camera {
-  background: url(/images/icons/camera.png) #C4BFB6 right bottom/contain no-repeat;
+  background: url("/images/icons/camera.svg") #C4BFB6 right bottom/contain no-repeat;
   background-size: 70px; }
 
 #email {
-  background: url("/images/icons/email.png") #C4BFB6 center/contain no-repeat;
-  background-size: 35px; }
+  background: url("/images/icons/email.svg") #C4BFB6 center/contain no-repeat;
+  background-size: 50%; }
 
 #location {
-  background: url("/images/icons/location.png") #C4BFB6 center/contain no-repeat;
-  background-size: 35px; }
+  background: url("/images/icons/location.svg") #C4BFB6 center/contain no-repeat;
+  background-size: 40%; }
+
+#battery {
+  background: url("/images/icons/battery.svg") #C4BFB6 center/contain no-repeat;
+  background-size: 60%; }
 
 #magnet {
-  background: url("/images/icons/magnet.png") #C4BFB6 center/contain no-repeat;
-  background-size: 35px; }
+  background: url("/images/icons/magnet.svg") #C4BFB6 center/contain no-repeat;
+  background-size: 60%; }
 
-#perfomance {
-  background: url("/images/icons/perfomance.png") #C4BFB6 center/contain no-repeat;
+#performance {
+  background: url("/images/icons/performance.svg") #C4BFB6 center/contain no-repeat;
   background-size: 50px; }
 
 #phone {
-  background: url("/images/icons/phone.png") #C4BFB6 center/contain no-repeat;
+  background: url("/images/icons/phone.svg") #C4BFB6 center/contain no-repeat;
   background-size: 35px; }
 
 #size {
-  background: url("/images/icons/size.png") #C4BFB6 center/contain no-repeat;
-  background-size: 50px; }
+  background: url("/images/icons/size.svg") #C4BFB6 center/contain no-repeat;
+  background-size: 90%; }
 
 #tel {
-  background: url("/images/icons/tel.png") #C4BFB6 center/contain no-repeat;
-  background-size: 35px; }
+  background: url("/images/icons/tel.svg") #C4BFB6 center/contain no-repeat;
+  background-size: 50%; }
+
+.news .row {
+  display: block; }
+
+.news .news-item {
+  width: 33.33333%;
+  min-height: 280px;
+  background: #BBBDBF;
+  display: inline-block;
+  float: left;
+  border: 5px solid #fff;
+  box-sizing: border-box; }
+  .news .news-item:nth-child(1n+2) {
+    background: #484C56; }
+  .news .news-item:nth-child(2n+3) {
+    background: #9088A9; }
+  .news .news-item:nth-child(9n + 9) {
+    background: #262261; }
+  .news .news-item:nth-child(9n+1) {
+    width: 66.33333%;
+    height: 560px;
+    background: #BBBDBF; }
 
 /* Large Devices, Wide Screens */
 /* Medium Devices, Desktops */
