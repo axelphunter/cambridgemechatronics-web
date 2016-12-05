@@ -1,3 +1,23 @@
+/* assistant-regular - latin */
+@font-face {
+  font-family: 'Assistant';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/assistant-v1-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local("Assistant"), local("Assistant-Regular"), url("/fonts/assistant-v1-latin-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/assistant-v1-latin-regular.woff2") format("woff2"), url("/fonts/assistant-v1-latin-regular.woff") format("woff"), url("/fonts/assistant-v1-latin-regular.ttf") format("truetype"), url("/fonts/assistant-v1-latin-regular.svg#Assistant") format("svg");
+  /* Legacy iOS */ }
+
+/* assistant-700 - latin */
+@font-face {
+  font-family: 'Assistant';
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/assistant-v1-latin-700.eot");
+  /* IE9 Compat Modes */
+  src: local("Assistant Bold"), local("Assistant-Bold"), url("/fonts/assistant-v1-latin-700.eot?#iefix") format("embedded-opentype"), url("/fonts/assistant-v1-latin-700.woff2") format("woff2"), url("/fonts/assistant-v1-latin-700.woff") format("woff"), url("/fonts/assistant-v1-latin-700.ttf") format("truetype"), url("/fonts/assistant-v1-latin-700.svg#Assistant") format("svg");
+  /* Legacy iOS */ }
+
 body {
   font-family: 'Assistant', sans-serif;
   padding-top: 80px;
@@ -427,7 +447,7 @@ footer {
     width: 72%;
     vertical-align: top; }
     .team .infographic .text h2 {
-      font-size: 28px; }
+      font-size: 26px; }
     .team .infographic .text p {
       margin-bottom: 0; }
 
