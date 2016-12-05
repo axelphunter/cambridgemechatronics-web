@@ -14,6 +14,19 @@ body {
   margin: 0;
 }
 
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.indigo {
+  color: $primary-color;
+}
+
+.margin {
+  margin-bottom: 20px;
+}
+
 img {
   max-width: 100%;
 }
@@ -170,6 +183,7 @@ nav {
   font-weight: bold;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 .bg-darkgrey {
@@ -201,7 +215,7 @@ nav {
   }
 
   .technology-bg {
-    background: url('/images/gemini_exploded.jpg') center / contain no-repeat;
+    background: url('/images/slides/innovative-materials.jpg') center / cover no-repeat;
   }
 }
 
@@ -297,6 +311,8 @@ nav {
   min-height: 350px;
   overflow: hidden;
   width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 
   .inner {
     display: table-cell;
@@ -305,6 +321,14 @@ nav {
 
   &.about {
     background: url('/images/slides/AdobeStock_81366261_WM_edit.jpg') center / cover no-repeat;
+  }
+
+  &.our-platform-technology {
+    background: url('/images/slides/innovative-materials.jpg') center top / cover no-repeat;
+  }
+
+  &.careers {
+    background: url('/images/slides/AdobeStock_106790617_WM.jpeg') center top / cover no-repeat;
   }
 
   .bg-grey {
@@ -346,14 +370,14 @@ footer {
 }
 
 .drone-bg {
-  background: url("/images/slides/AdobeStock_110279921_WM.jpeg") right center/cover no-repeat;
+  background: url("/images/slides/AdobeStock_110279921_WM.jpeg") center/cover no-repeat;
 
 .drone-bg {
     background-position: top center;}
 }
 
 .virtual-bg {
-  background: url("/images/slides/AdobeStock_104480446_WM.jpeg") center/cover no-repeat;
+  background: url("/images/slides/AdobeStock_115376743_WM.jpeg") center/cover no-repeat;
 }
 
 .self-driving-bg {
@@ -361,11 +385,11 @@ footer {
 }
 
 .robotics-bg {
-  background: url("/images/slides/AdobeStock_121019897_WM.jpeg") center/cover no-repeat;
+  background: url("/images/slides/AdobeStock_48590563_WM_edit.jpg") center/cover no-repeat;
 }
 
 .medical-devices-bg {
-  background: url("/images/slides/AdobeStock_105379599_WM.jpeg") right center/cover no-repeat;
+  background: url("/images/slides/CA36C204-D9D3-470C-9A84-2B3D26CF864E@Home.jpeg") right center/cover no-repeat;
 }
 
 .haptics-bg {
@@ -375,13 +399,8 @@ footer {
 .pull-txt-left {
   max-width: 400px;
   text-align: left;
-  margin-left: 20px;
-  color: inherit;
-
-  &.indigo {
-    color: #262261;
-  }
-
+  font-size: 28px;
+  margin-bottom: 0;
 
   &.white {
     color: #fff;
@@ -547,6 +566,80 @@ footer {
 .date {
   margin-bottom: 0;
   font-weight: bold;
+}
+
+.team {
+
+  .infographic {
+    padding: 20px;
+    background: $dark-grey-color;
+    color: #fff;
+
+    .icon {
+      width: 15%;
+      margin-right: 2%;
+      height: 100%;
+      display: inline-block;
+
+      &.users {
+        background: url('/images/icons/user-circle.svg') center top / contain no-repeat;
+      }
+
+      &.globe {
+        background: url('/images/icons/globe.svg') center top / contain no-repeat;
+      }
+
+      &.grad {
+        background: url('/images/icons/grad-circle.svg') center top / contain no-repeat;
+      }
+
+      &.badge {
+        background: url('/images/icons/badge.svg') center top / contain no-repeat;
+      }
+    }
+
+    .text {
+      display: inline-block;
+      width: 72%;
+      vertical-align: top;
+
+      h2 {
+        font-size: 28px;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .team-member {
+    display: inline-block;
+    width: 33%;
+    box-sizing: border-box;
+    padding: 0 10px 20px 10px;
+    vertical-align: top;
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      background: $beige-color url('/images/icons/user.svg') center bottom / 64% no-repeat;
+      border-radius: 100%;
+    }
+
+    h4 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .text {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
 }
 
 /* Large Devices, Wide Screens */

@@ -29,9 +29,9 @@ module.exports = {
       metaData: config.metaData
     });
   },
-  getSmallLightweightPrecisePowerful(req, res) {
-    res.render('powerful', {
-      pageName: 'Powerful',
+  getOurPlatformTechnology(req, res) {
+    res.render('our-platform-technology', {
+      pageName: 'Our Platform Technology',
       active_tech: true,
       metaData: config.metaData
     });

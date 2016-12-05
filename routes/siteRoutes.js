@@ -8,7 +8,7 @@ module.exports = (app) => {
   app.get('/', siteController.getHome);
   app.get('/about', siteController.getAbout);
   app.get('/technology', siteController.getTechnology);
-  app.get('/powerful', siteController.getSmallLightweightPrecisePowerful);
+  app.get('/our-platform-technology', siteController.getOurPlatformTechnology);
   app.get('/ois', siteController.getOis);
   app.get('/drones', siteController.getDrones);
   app.get('/virtual-reality', siteController.getVirtualReality);

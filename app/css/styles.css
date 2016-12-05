@@ -8,6 +8,16 @@ body {
   text-indent: -99999px;
   margin: 0; }
 
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+.indigo {
+  color: #262261; }
+
+.margin {
+  margin-bottom: 20px; }
+
 img {
   max-width: 100%; }
 
@@ -125,7 +135,8 @@ nav {
 .link {
   font-weight: bold;
   text-decoration: none;
-  color: inherit; }
+  color: inherit;
+  cursor: pointer; }
 
 .bg-darkgrey {
   background: #484C56;
@@ -146,7 +157,7 @@ nav {
   background: url("/images/slides/AdobeStock_90921925_WM.jpeg") center/cover no-repeat; }
 
 .home .technology-bg {
-  background: url("/images/gemini_exploded.jpg") center/contain no-repeat; }
+  background: url("/images/slides/innovative-materials.jpg") center/cover no-repeat; }
 
 .careers h4 {
   font-size: 24px;
@@ -204,12 +215,18 @@ nav {
   display: table;
   min-height: 350px;
   overflow: hidden;
-  width: 100%; }
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box; }
   .hero .inner {
     display: table-cell;
     vertical-align: middle; }
   .hero.about {
     background: url("/images/slides/AdobeStock_81366261_WM_edit.jpg") center/cover no-repeat; }
+  .hero.our-platform-technology {
+    background: url("/images/slides/innovative-materials.jpg") center top/cover no-repeat; }
+  .hero.careers {
+    background: url("/images/slides/AdobeStock_106790617_WM.jpeg") center top/cover no-repeat; }
   .hero .bg-grey {
     background: #484C56; }
   .hero p {
@@ -237,21 +254,21 @@ footer {
   background: url("/images/slides/AdobeStock_116043567_WM.jpeg") center/cover no-repeat; }
 
 .drone-bg {
-  background: url("/images/slides/AdobeStock_110279921_WM.jpeg") right center/cover no-repeat; }
+  background: url("/images/slides/AdobeStock_110279921_WM.jpeg") center/cover no-repeat; }
   .drone-bg .drone-bg {
     background-position: top center; }
 
 .virtual-bg {
-  background: url("/images/slides/AdobeStock_104480446_WM.jpeg") center/cover no-repeat; }
+  background: url("/images/slides/AdobeStock_115376743_WM.jpeg") center/cover no-repeat; }
 
 .self-driving-bg {
   background: url("/images/slides/AdobeStock_104381152_WM.jpeg") center/cover no-repeat; }
 
 .robotics-bg {
-  background: url("/images/slides/AdobeStock_121019897_WM.jpeg") center/cover no-repeat; }
+  background: url("/images/slides/AdobeStock_48590563_WM_edit.jpg") center/cover no-repeat; }
 
 .medical-devices-bg {
-  background: url("/images/slides/AdobeStock_105379599_WM.jpeg") right center/cover no-repeat; }
+  background: url("/images/slides/CA36C204-D9D3-470C-9A84-2B3D26CF864E@Home.jpeg") right center/cover no-repeat; }
 
 .haptics-bg {
   background: url("/images/slides/AdobeStock_107985748_WM.jpeg") center/cover no-repeat; }
@@ -259,10 +276,8 @@ footer {
 .pull-txt-left {
   max-width: 400px;
   text-align: left;
-  margin-left: 20px;
-  color: inherit; }
-  .pull-txt-left.indigo {
-    color: #262261; }
+  font-size: 28px;
+  margin-bottom: 0; }
   .pull-txt-left.white {
     color: #fff; }
 
@@ -388,6 +403,51 @@ footer {
 .date {
   margin-bottom: 0;
   font-weight: bold; }
+
+.team .infographic {
+  padding: 20px;
+  background: #484C56;
+  color: #fff; }
+  .team .infographic .icon {
+    width: 15%;
+    margin-right: 2%;
+    height: 100%;
+    display: inline-block; }
+    .team .infographic .icon.users {
+      background: url("/images/icons/user-circle.svg") center top/contain no-repeat; }
+    .team .infographic .icon.globe {
+      background: url("/images/icons/globe.svg") center top/contain no-repeat; }
+    .team .infographic .icon.grad {
+      background: url("/images/icons/grad-circle.svg") center top/contain no-repeat; }
+    .team .infographic .icon.badge {
+      background: url("/images/icons/badge.svg") center top/contain no-repeat; }
+  .team .infographic .text {
+    display: inline-block;
+    width: 72%;
+    vertical-align: top; }
+    .team .infographic .text h2 {
+      font-size: 28px; }
+    .team .infographic .text p {
+      margin-bottom: 0; }
+
+.team .team-member {
+  display: inline-block;
+  width: 33%;
+  box-sizing: border-box;
+  padding: 0 10px 20px 10px;
+  vertical-align: top; }
+  .team .team-member .avatar {
+    width: 80px;
+    height: 80px;
+    background: #C4BFB6 url("/images/icons/user.svg") center bottom/64% no-repeat;
+    border-radius: 100%; }
+  .team .team-member h4 {
+    margin: 0;
+    font-size: 22px; }
+  .team .team-member .text {
+    display: none; }
+    .team .team-member .text.active {
+      display: block; }
 
 /* Large Devices, Wide Screens */
 /* Medium Devices, Desktops */
