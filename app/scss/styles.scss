@@ -370,10 +370,7 @@ footer {
 }
 
 .drone-bg {
-  background: url("/images/slides/AdobeStock_110279921_WM.jpeg") center/cover no-repeat;
-
-.drone-bg {
-    background-position: top center;}
+  background: url("/images/slides/AdobeStock_110279921_WM.jpeg") center right /cover no-repeat;
 }
 
 .virtual-bg {
@@ -579,6 +576,7 @@ footer {
       width: 15%;
       margin-right: 2%;
       height: 100%;
+      min-height: 100px;
       display: inline-block;
 
       &.users {
@@ -594,7 +592,7 @@ footer {
       }
 
       &.badge {
-        background: url('/images/icons/badge.svg') center top / contain no-repeat;
+        background: url('/images/icons/badge.svg') center top / 100% no-repeat;
       }
     }
 

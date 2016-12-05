@@ -254,9 +254,7 @@ footer {
   background: url("/images/slides/AdobeStock_116043567_WM.jpeg") center/cover no-repeat; }
 
 .drone-bg {
-  background: url("/images/slides/AdobeStock_110279921_WM.jpeg") center/cover no-repeat; }
-  .drone-bg .drone-bg {
-    background-position: top center; }
+  background: url("/images/slides/AdobeStock_110279921_WM.jpeg") center right/cover no-repeat; }
 
 .virtual-bg {
   background: url("/images/slides/AdobeStock_115376743_WM.jpeg") center/cover no-repeat; }
@@ -412,6 +410,7 @@ footer {
     width: 15%;
     margin-right: 2%;
     height: 100%;
+    min-height: 100px;
     display: inline-block; }
     .team .infographic .icon.users {
       background: url("/images/icons/user-circle.svg") center top/contain no-repeat; }
@@ -420,7 +419,7 @@ footer {
     .team .infographic .icon.grad {
       background: url("/images/icons/grad-circle.svg") center top/contain no-repeat; }
     .team .infographic .icon.badge {
-      background: url("/images/icons/badge.svg") center top/contain no-repeat; }
+      background: url("/images/icons/badge.svg") center top/100% no-repeat; }
   .team .infographic .text {
     display: inline-block;
     width: 72%;
