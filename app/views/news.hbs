@@ -8,7 +8,7 @@
     <div class="row padded">
       {{#each pageContent.results}}
       <div class="news-item wow fadeInUp">
-        <a class="image" style="background: url('{{data.[news.post-image].value.main.url}}');" href="/news/{{uid}}"></a>
+        <a class="image" style="background-image: url('{{data.[news.post-image].value.main.url}}');" href="/news/{{uid}}"></a>
         <h2>{{data.[news.title].value.[0].text}}</h2>
         <p class="date">
           {{data.[news.post-date].value}}
