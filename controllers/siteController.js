@@ -15,6 +15,7 @@ module.exports = {
       metaData: config.metaData
     });
   },
+
   getAbout(req, res) {
     res.render('about', {
       pageName: 'About',
@@ -22,6 +23,7 @@ module.exports = {
       metaData: config.metaData
     });
   },
+
   getTechnology(req, res) {
     res.render('technology', {
       pageName: 'Technology',
@@ -29,6 +31,7 @@ module.exports = {
       metaData: config.metaData
     });
   },
+
   getOurPlatformTechnology(req, res) {
     res.render('our-platform-technology', {
       pageName: 'Our Platform Technology',
@@ -36,6 +39,7 @@ module.exports = {
       metaData: config.metaData
     });
   },
+
   getOis(req, res) {
     res.render('ois', {
       pageName: 'OIS',
@@ -43,20 +47,7 @@ module.exports = {
       metaData: config.metaData
     });
   },
-  getDrones(req, res) {
-    res.render('drones', {
-      pageName: 'Drones',
-      active_tech: true,
-      metaData: config.metaData
-    });
-  },
-  getVirtualReality(req, res) {
-    res.render('virtual-reality', {
-      pageName: 'Virtual Reality',
-      active_tech: true,
-      metaData: config.metaData
-    });
-  },
+
   getContact(req, res) {
     res.render('contact', {
       pageName: 'Contact',
@@ -64,6 +55,7 @@ module.exports = {
       metaData: config.metaData
     });
   },
+
   getNews(req, res) {
     prismicConfig
       .api(req, res)
@@ -82,6 +74,7 @@ module.exports = {
         console.log(err);
       });
   },
+
   getNewsByUid(req, res) {
     const uid = req.params.uid;
     prismicConfig
@@ -112,6 +105,7 @@ module.exports = {
         });
       });
   },
+
   getCareers(req, res) {
     res.render('careers', {
       pageName: 'Careers',
@@ -119,6 +113,7 @@ module.exports = {
       metaData: config.metaData
     });
   },
+
   getTeam(req, res) {
     res.render('team', {
       pageName: 'Team',
