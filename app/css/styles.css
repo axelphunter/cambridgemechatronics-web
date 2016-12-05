@@ -26,6 +26,7 @@ body {
 .logo {
   background: url("/images/logo.svg") center left/contain no-repeat;
   text-indent: -99999px;
+  cursor: pointer;
   margin: 0; }
 
 hr {
@@ -40,6 +41,9 @@ hr {
 
 img {
   max-width: 100%; }
+
+p {
+  color: #484C56; }
 
 .larger {
   font-size: 120%; }
@@ -161,6 +165,8 @@ nav {
 .bg-darkgrey {
   background: #484C56;
   color: #fff; }
+  .bg-darkgrey p {
+    color: #fff; }
 
 .bg-beige {
   background: #C4BFB6;
@@ -250,12 +256,15 @@ nav {
   .hero .bg-grey {
     background: #484C56; }
   .hero p {
-    padding: 0 50px 0 50px; }
+    padding: 0 50px 0 50px;
+    color: #fff; }
 
 footer {
   padding: 40px 0;
   background: #484C56;
   color: #fff; }
+  footer p {
+    color: #fff; }
   footer ul {
     list-style: none; }
   footer a {
@@ -449,7 +458,8 @@ footer {
     .team .infographic .text h2 {
       font-size: 26px; }
     .team .infographic .text p {
-      margin-bottom: 0; }
+      margin-bottom: 0;
+      color: #fff; }
 
 .team .team-member {
   display: inline-block;
@@ -466,7 +476,8 @@ footer {
     margin: 0;
     font-size: 22px; }
   .team .team-member .text {
-    display: none; }
+    display: none;
+    color: #484C56; }
     .team .team-member .text.active {
       display: block; }
 

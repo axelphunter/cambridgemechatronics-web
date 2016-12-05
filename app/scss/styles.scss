@@ -38,6 +38,7 @@ body {
 .logo {
   background: url('/images/logo.svg') center left / contain no-repeat;
   text-indent: -99999px;
+  cursor: pointer;
   margin: 0;
 }
 
@@ -56,6 +57,10 @@ hr {
 
 img {
   max-width: 100%;
+}
+
+p {
+  color: $dark-grey-color;
 }
 
 .larger {
@@ -216,6 +221,10 @@ nav {
 .bg-darkgrey {
   background: $dark-grey-color;
   color: #fff;
+
+  p {
+    color: #fff;
+  }
 }
 
 .bg-beige {
@@ -362,13 +371,19 @@ nav {
     background: #484C56; }
 
   p {
-    padding: 0 50px 0 50px; }
+    padding: 0 50px 0 50px;
+    color: #fff;
+  }
 }
 
 footer {
   padding: 40px 0;
   background: $dark-grey-color;
   color: #fff;
+
+  p {
+    color: #fff;
+  }
 
   ul {
     list-style: none;
@@ -639,6 +654,7 @@ footer {
 
       p {
         margin-bottom: 0;
+        color: #fff;
       }
     }
   }
@@ -664,6 +680,7 @@ footer {
 
     .text {
       display: none;
+      color: $dark-grey-color;
 
       &.active {
         display: block;
