@@ -65,22 +65,16 @@ module.exports = {
     });
   },
   getNews(req, res) {
-    const page = parseInt(req.query.q, 10) + 1 || 1;
-    console.log(page);
     prismicConfig
       .api(req, res)
       .then((api) => {
-        return api.query(prismic.Predicates.at('document.type', 'news'), {
-          pageSize: 9 * page,
-          orderings: '[my.blog-post.post-date desc]'
-        });
+        return api.query(prismic.Predicates.at('document.type', 'news'), {orderings: '[my.blog-post.post-date desc]'});
       })
       .then((pageContent) => {
         res.render('news', {
           pageName: 'News',
           active_news: true,
           pageContent,
-          page,
           metaData: config.metaData
         });
       })

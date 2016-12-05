@@ -12,6 +12,42 @@ var app = {
       }, 1);
     }
 
+    if (document.querySelector('.news-item')) {
+      var newsItems = document.querySelectorAll('.news-item'),
+        loadMoreBtn = document.querySelector('#load-more-articles'),
+        maxItems = 9
+      hiddenClass = "visually-hidden";
+      []
+        .forEach
+        .call(newsItems, function(item, idx) {
+          if (idx > maxItems - 1) {
+            item
+              .classList
+              .add(hiddenClass);
+          }
+        });
+
+      loadMoreBtn.addEventListener('click', function() {
+
+        []
+          .forEach
+          .call(document.querySelectorAll('.' + hiddenClass), function(item, idx) {
+            console.log(item);
+            if (idx < maxItems) {
+              item
+                .classList
+                .remove(hiddenClass);
+            }
+
+            if (document.querySelectorAll('.' + hiddenClass).length === 0) {
+              loadMoreBtn.style.display = 'none';
+            }
+
+          });
+
+      });
+    }
+
     new WOW().init();
 
     var textToggle = document.querySelectorAll('.toggle-text');

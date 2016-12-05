@@ -515,6 +515,11 @@ footer {
     color: #fff;
     position: relative;
 
+
+    &.visually-hidden {
+      display: none;
+    }
+
     .image {
       position: absolute;
       top: 0;

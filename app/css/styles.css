@@ -370,6 +370,8 @@ footer {
   padding: 20px;
   color: #fff;
   position: relative; }
+  .news .news-item.visually-hidden {
+    display: none; }
   .news .news-item .image {
     position: absolute;
     top: 0;
