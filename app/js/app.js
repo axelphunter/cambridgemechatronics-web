@@ -15,8 +15,8 @@ var app = {
     if (document.querySelector('.news-item')) {
       var newsItems = document.querySelectorAll('.news-item'),
         loadMoreBtn = document.querySelector('#load-more-articles'),
-        maxItems = 9
-      hiddenClass = "visually-hidden";
+        maxItems = 9,
+        hiddenClass = 'visually-hidden';
       []
         .forEach
         .call(newsItems, function(item, idx) {
