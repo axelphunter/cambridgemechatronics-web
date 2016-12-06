@@ -21,7 +21,8 @@
 body {
   font-family: 'Assistant', sans-serif;
   padding-top: 80px;
-  color: #262261; }
+  color: #262261;
+  min-width: 320px; }
 
 .logo {
   background: url("/images/logo.svg") center left/contain no-repeat;
@@ -127,7 +128,7 @@ nav {
   background-color: #fff;
   padding: 10px 20px; }
   nav .logo {
-    font-size: 60px;
+    font-size: 35px;
     line-height: 60px;
     display: inline-block; }
   nav ul {
@@ -521,7 +522,8 @@ footer {
   p {
     padding: 10px; }
   .hamburger {
-    display: block; }
+    display: block;
+    float: right; }
   .contact-email,
   .logo,
   .technology a,
