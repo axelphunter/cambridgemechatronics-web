@@ -66,6 +66,11 @@ hr {
   margin-bottom: 20px;
 }
 
+.container {
+  width: 100%;
+  padding: 0;
+}
+
 img {
   max-width: 100%;
 }
@@ -76,6 +81,10 @@ p {
 
 .larger {
   font-size: 120%;
+}
+
+.hamburger {
+  display: none;
 }
 
 h2 {
@@ -749,6 +758,10 @@ footer {
     padding: 10px;
   }
 
+  .hamburger {
+    display: block;
+  }
+
   .contact-email,
   .logo,
   .technology a,
@@ -765,7 +778,16 @@ footer {
 
   .sitenavigation {
     background: #fff;
+    display: none;
 
+    &.active {
+      display: block;
+      width: 100%;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 60px;
+    }
   }
 
   .sitenavigation a,

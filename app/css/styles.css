@@ -39,6 +39,10 @@ hr {
 .margin {
   margin-bottom: 20px; }
 
+.container {
+  width: 100%;
+  padding: 0; }
+
 img {
   max-width: 100%; }
 
@@ -47,6 +51,9 @@ p {
 
 .larger {
   font-size: 120%; }
+
+.hamburger {
+  display: none; }
 
 h2 {
   letter-spacing: 0.2px; }
@@ -513,6 +520,8 @@ footer {
   li,
   p {
     padding: 10px; }
+  .hamburger {
+    display: block; }
   .contact-email,
   .logo,
   .technology a,
@@ -523,7 +532,15 @@ footer {
   .link.toggle-text {
     margin-left: 10px; }
   .sitenavigation {
-    background: #fff; }
+    background: #fff;
+    display: none; }
+    .sitenavigation.active {
+      display: block;
+      width: 100%;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 60px; }
   .sitenavigation a,
   .sitenavigation li {
     padding: 0; }

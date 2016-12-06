@@ -18,6 +18,7 @@
   "dependencies": {
     "skeleton": "^2.0.4",
     "wow": "^1.1.2",
-    "lory": "^2.2.1"
+    "lory": "^2.2.1",
+    "css-hamburgers": "^0.7.0"
   }
 }

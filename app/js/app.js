@@ -95,8 +95,23 @@ var app = {
             .click();
         }, 5000);
     }
+
+    document.querySelector('.hamburger').onclick=function () {
+      this.classList.toggle('is-active');
+      var sitenavigation = document.querySelector('.sitenavigation');
+       if (sitenavigation.classList.contains('fadeInDown')) {
+         sitenavigation.classList.remove('fadeInDown');
+         sitenavigation.classList.add('fadeOutUp');
+         window.setTimeout(function(){
+             sitenavigation.classList.remove('active');
+         }, 500);
+         return;
+       }
+       sitenavigation.classList.add('active')
+       sitenavigation.classList.remove('fadeOutUp');
+       sitenavigation.classList.add('fadeInDown')
+    }
   }
 };
 
 app.init();
-nit();
