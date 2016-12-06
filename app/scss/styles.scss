@@ -9,12 +9,13 @@ $beige-color: #C4BFB6;
   font-weight: 400;
   src: url('/fonts/assistant-v1-latin-regular.eot'); /* IE9 Compat Modes */
   src: local('Assistant'), local('Assistant-Regular'),
-       url('/fonts/assistant-v1-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/assistant-v1-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/assistant-v1-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/assistant-v1-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/assistant-v1-latin-regular.svg#Assistant') format('svg'); /* Legacy iOS */
+  url('/fonts/assistant-v1-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/fonts/assistant-v1-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+  url('/fonts/assistant-v1-latin-regular.woff') format('woff'), /* Modern Browsers */
+  url('/fonts/assistant-v1-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('/fonts/assistant-v1-latin-regular.svg#Assistant') format('svg'); /* Legacy iOS */
 }
+
 /* assistant-700 - latin */
 @font-face {
   font-family: 'Assistant';
@@ -22,11 +23,11 @@ $beige-color: #C4BFB6;
   font-weight: 700;
   src: url('/fonts/assistant-v1-latin-700.eot'); /* IE9 Compat Modes */
   src: local('Assistant Bold'), local('Assistant-Bold'),
-       url('/fonts/assistant-v1-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/assistant-v1-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/fonts/assistant-v1-latin-700.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/assistant-v1-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/assistant-v1-latin-700.svg#Assistant') format('svg'); /* Legacy iOS */
+  url('/fonts/assistant-v1-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/fonts/assistant-v1-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+  url('/fonts/assistant-v1-latin-700.woff') format('woff'), /* Modern Browsers */
+  url('/fonts/assistant-v1-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('/fonts/assistant-v1-latin-700.svg#Assistant') format('svg'); /* Legacy iOS */
 }
 
 body {
@@ -175,21 +176,21 @@ nav {
       color: $primary-color;
       font-weight: bold;
 
-    &:first-child {
-      margin-left: 0;
-    }
+      &:first-child {
+        margin-left: 0;
+      }
 
-    &:last-child:hover, &.active:last-child {
-      border-bottom: none;
-    }
+      &:last-child:hover, &.active:last-child {
+        border-bottom: none;
+      }
 
-    &.active, &:hover {
-      color: inherit;
-      border-bottom: 2px solid $primary-color;
-    }
+      &.active, &:hover {
+        color: inherit;
+        border-bottom: 2px solid $primary-color;
+      }
 
-    &:hover {
-      color: inherit;
+      &:hover {
+        color: inherit;
       }
     }
   }
@@ -239,7 +240,6 @@ nav {
     color: #fff
   }
 }
-
 
 .home {
   .about-bg {
@@ -334,14 +334,14 @@ nav {
 
 .hero {
   text-align: center;
-  background: rgba(196,191,182,1);
-  background: -moz-linear-gradient(top, rgba(196,191,182,1) 0%, rgba(157,150,141,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(196,191,182,1)), color-stop(100%, rgba(157,150,141,1)));
-  background: -webkit-linear-gradient(top, rgba(196,191,182,1) 0%, rgba(157,150,141,1) 100%);
-  background: -o-linear-gradient(top, rgba(196,191,182,1) 0%, rgba(157,150,141,1) 100%);
-  background: -ms-linear-gradient(top, rgba(196,191,182,1) 0%, rgba(157,150,141,1) 100%);
-  background: linear-gradient(to bottom, rgba(196,191,182,1) 0%, rgba(157,150,141,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c4bfb6', endColorstr='#9d968d', GradientType=0 );
+  background: rgba(196, 191, 182, 1);
+  background: -moz-linear-gradient(top, rgba(196, 191, 182, 1) 0%, rgba(157, 150, 141, 1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(196, 191, 182, 1)), color-stop(100%, rgba(157, 150, 141, 1)));
+  background: -webkit-linear-gradient(top, rgba(196, 191, 182, 1) 0%, rgba(157, 150, 141, 1) 100%);
+  background: -o-linear-gradient(top, rgba(196, 191, 182, 1) 0%, rgba(157, 150, 141, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(196, 191, 182, 1) 0%, rgba(157, 150, 141, 1) 100%);
+  background: linear-gradient(to bottom, rgba(196, 191, 182, 1) 0%, rgba(157, 150, 141, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c4bfb6', endColorstr='#9d968d', GradientType=0);
   color: #fff;
   display: table;
   min-height: 350px;
@@ -372,7 +372,8 @@ nav {
   }
 
   .bg-grey {
-    background: #484C56; }
+    background: #484C56;
+  }
 
   p {
     padding: 0 50px 0 50px;
@@ -566,7 +567,6 @@ footer {
     color: #fff;
     position: relative;
 
-
     &.visually-hidden {
       display: none;
     }
@@ -709,24 +709,130 @@ footer {
 
 /* Large Devices, Wide Screens */
 
-@media only screen and (max-width: 1200px) {}
+@media only screen and (max-width: 1200px) {
+}
 
+    /* Medium Devices, Desktops */
+  
 
-/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+   
+  footer {
+      padding: 40px 10px;
+     
+  }
+}
 
-@media only screen and (max-width: 992px) {}
+    /* Small Devices, Tablets */   
 
+@media only screen and (max-width: 768px) {
+    h1, h2, h3, h4, h5, li, p, a {
+      padding: 10px;
+  }
 
-/* Small Devices, Tablets */
+     footer a,
+     .technology a,
+     .contact-email,
+     .logo  {
+      padding: 0;
+    }
 
-@media only screen and (max-width: 768px) {}
+     .beige-circle,   .avatar,   .link.toggle-text {
+      margin-left: 10px;
+     
+  }
+     .sitenavigation {
+      background: #fff;
+     
+  }
+     .sitenavigation a,   .sitenavigation li {
+      padding: 0;
+     
+  }
+     .sitenavigation .button {
+      padding: 0 30px;
+     
+  }
+     nav ul li {
+      width: 100%;
+      text-align: center;
+      margin-left: 0;
+     
+  }
+     .slider .slides li {
+      height: 250px;
+     
+  }
+     .col-2 {
+      width: 100%;
+      min-height: 200px;
+      padding: 0;
+     
+  }
+     .home .col-2 {
+      padding: 20px 10px;
+     
+  }
+     .row {
+      display: block;
+     
+  }
+     .three.columns {
+      width: 50%;
+     
+  }
+     .columns {
+      margin-left: 0;
+     
+  }
+     .three.columns:nth-child(3),   .three.columns:nth-child(4) {
+      width: 50%;
+     
+  }
+     .technology .col-2 {
+      min-height: 200px;
+     
+  }
+     .hero {
+      min-height: 280px;
+     
+  }
+     .four.columns {
+      width: 50%;
+     
+  }
+     .news .news-item {
+      width: 50%;
+     
+  }
+     .team .infographic .text {
+      width: 100%;
+      text-align: center;
+     
+  }
+     .news .news-item:nth-child(9n+1) {
+      width: 100%;
+     
+  }
+     .team .team-member {
+      width: 50%;
+      padding: 0;
+     
+  }
+   
+}
 
+    /* Extra Small Devices, Phones */   
 
-/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+    .three.columns,   .four.columns,   .news .news-item,   .team .team-member {
+      width: 100%;
+       }
+     }
 
-@media only screen and (max-width: 480px) {}
+    /* Custom, iPhone Retina */   
 
+@media only screen and (max-width: 320px) {
+}
 
-/* Custom, iPhone Retina */
-
-@media only screen and (max-width: 320px) {}
+ 
