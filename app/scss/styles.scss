@@ -359,6 +359,10 @@ nav {
     background: url('/images/slides/AdobeStock_81366261_WM_edit.jpg') center / cover no-repeat;
   }
 
+  &.team-bg {
+    background: url('/images/slides/AdobeStock_90921925_WM.jpeg') center / cover no-repeat;
+  }
+
   &.our-platform-technology {
     background: url('/images/slides/innovative-materials.jpg') center top / cover no-repeat;
   }
@@ -372,7 +376,12 @@ nav {
 
   p {
     padding: 0 50px 0 50px;
-    color: #fff;
+    // color: #fff;
+  }
+
+  a {
+    font-weight: bold;
+    text-decoration: underline;
   }
 }
 
@@ -584,6 +593,11 @@ footer {
 
     &:nth-child(1n+2) {
       background: #484C56;
+      color: #fff;
+
+      p {
+        color: #fff;
+      }
     }
 
     &:nth-child(2n+3) {
@@ -599,6 +613,10 @@ footer {
       color: #484C56;
       height: 560px;
       background: #BBBDBF;
+
+      p {
+        color: $dark-grey-color;
+      }
 
       .body, .link {
         display: block;

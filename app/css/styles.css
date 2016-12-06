@@ -249,6 +249,8 @@ nav {
     vertical-align: middle; }
   .hero.about {
     background: url("/images/slides/AdobeStock_81366261_WM_edit.jpg") center/cover no-repeat; }
+  .hero.team-bg {
+    background: url("/images/slides/AdobeStock_90921925_WM.jpeg") center/cover no-repeat; }
   .hero.our-platform-technology {
     background: url("/images/slides/innovative-materials.jpg") center top/cover no-repeat; }
   .hero.careers {
@@ -256,8 +258,10 @@ nav {
   .hero .bg-grey {
     background: #484C56; }
   .hero p {
-    padding: 0 50px 0 50px;
-    color: #fff; }
+    padding: 0 50px 0 50px; }
+  .hero a {
+    font-weight: bold;
+    text-decoration: underline; }
 
 footer {
   padding: 40px 0;
@@ -416,7 +420,10 @@ footer {
   .news .news-item .body, .news .news-item .link {
     display: none; }
   .news .news-item:nth-child(1n+2) {
-    background: #484C56; }
+    background: #484C56;
+    color: #fff; }
+    .news .news-item:nth-child(1n+2) p {
+      color: #fff; }
   .news .news-item:nth-child(2n+3) {
     background: #9088A9; }
   .news .news-item:nth-child(9n + 9) {
@@ -426,6 +433,8 @@ footer {
     color: #484C56;
     height: 560px;
     background: #BBBDBF; }
+    .news .news-item:nth-child(9n+1) p {
+      color: #484C56; }
     .news .news-item:nth-child(9n+1) .body, .news .news-item:nth-child(9n+1) .link {
       display: block; }
 

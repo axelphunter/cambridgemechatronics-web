@@ -60,9 +60,19 @@ module.exports = {
     prismicConfig
       .api(req, res)
       .then((api) => {
-        return api.query(prismic.Predicates.at('document.type', 'news'), {orderings: '[my.blog-post.post-date desc]'});
+        return api.query(prismic.Predicates.at('document.type', 'news'));
       })
       .then((pageContent) => {
+        pageContent
+          .results
+          .sort((a, b) => {
+            // Turn your strings into dates, and then subtract them
+            // to get a value that is either negative, positive, or zero.
+            return new Date(a.data['news.post-date'].value) - new Date(b.data['news.post-date'].value);
+          });
+        pageContent
+          .results
+          .reverse();
         res.render('news', {
           pageName: 'News',
           active_news: true,

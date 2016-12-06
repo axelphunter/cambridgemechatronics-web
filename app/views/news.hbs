@@ -11,7 +11,7 @@
         <a class="image" style="background-image: url('{{data.[news.post-image].value.main.url}}');" href="/news/{{uid}}"></a>
         <h2>{{data.[news.title].value.[0].text}}</h2>
         <p class="date">
-          {{data.[news.post-date].value}}
+          {{dateFormat data.[news.post-date].value}}
         </p>
         <p class="body">
           {{data.[news.body].value.[0].text}}
