@@ -268,7 +268,7 @@ nav {
   .hero.about {
     background: url("/images/slides/AdobeStock_81366261_WM_edit.jpg") center/cover no-repeat; }
   .hero.team-bg {
-    background: url("/images/slides/AdobeStock_90921925_WM.jpeg") center/cover no-repeat; }
+    background: url("/images/slides/AdobeStock_90921925_WM.jpeg") center 25%/cover no-repeat; }
   .hero.our-platform-technology {
     background: url("/images/slides/AdobeStock_64334196_WM_edit_headerCrop.jpg") center top/cover no-repeat;
     margin-bottom: 0; }
