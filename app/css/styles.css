@@ -255,7 +255,7 @@ nav {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#c4bfb6', endColorstr='#9d968d', GradientType=0);
   color: #fff;
   display: table;
-  height: 350px;
+  height: 300px;
   overflow: hidden;
   width: 100%;
   padding: 20px;
@@ -268,7 +268,7 @@ nav {
   .hero.team-bg {
     background: url("/images/slides/AdobeStock_90921925_WM.jpeg") center/cover no-repeat; }
   .hero.our-platform-technology {
-    background: url("/images/slides/innovative-materials.jpg") center top/cover no-repeat; }
+    background: url("/images/slides/AdobeStock_64334196_WM_edit_headerCrop.jpg") center top/cover no-repeat; }
   .hero.careers {
     background: url("/images/slides/AdobeStock_106790617_WM.jpeg") center top/cover no-repeat; }
   .hero.news {
@@ -574,6 +574,11 @@ footer {
     width: 100%;
     text-align: center;
     margin-left: 0; }
+    nav ul li.active {
+      border-bottom: none;
+      color: #1EAEDB; }
+    nav ul li:hover {
+      border-bottom: none; }
   .slider .slides li {
     height: 250px; }
   .col-2 {

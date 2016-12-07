@@ -380,7 +380,7 @@ nav {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#c4bfb6', endColorstr='#9d968d', GradientType=0);
   color: #fff;
   display: table;
-  height: 350px;
+  height: 300px;
   overflow: hidden;
   width: 100%;
   padding: 20px;
@@ -400,7 +400,7 @@ nav {
   }
 
   &.our-platform-technology {
-    background: url('/images/slides/innovative-materials.jpg') center top / cover no-repeat;
+    background: url('/images/slides/AdobeStock_64334196_WM_edit_headerCrop.jpg') center top / cover no-repeat;
   }
 
   &.careers {
@@ -840,6 +840,14 @@ footer {
     text-align: center;
     margin-left: 0;
 
+    &.active {
+      border-bottom: none;
+      color: #1EAEDB;
+    }
+
+    &:hover {
+      border-bottom: none;
+    }
   }
 
   .slider .slides li {
