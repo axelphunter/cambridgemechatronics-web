@@ -21,7 +21,8 @@
 body {
   font-family: 'Assistant', sans-serif;
   padding-top: 80px;
-  color: #262261; }
+  color: #262261;
+  min-width: 320px; }
 
 .logo {
   background: url("/images/logo.svg") center left/contain no-repeat;
@@ -39,6 +40,10 @@ hr {
 .margin {
   margin-bottom: 20px; }
 
+.container {
+  width: 100%;
+  padding: 0; }
+
 img {
   max-width: 100%; }
 
@@ -47,6 +52,9 @@ p {
 
 .larger {
   font-size: 120%; }
+
+.hamburger {
+  display: none; }
 
 h2 {
   letter-spacing: 0.2px; }
@@ -120,7 +128,7 @@ nav {
   background-color: #fff;
   padding: 10px 20px; }
   nav .logo {
-    font-size: 60px;
+    font-size: 35px;
     line-height: 60px;
     display: inline-block; }
   nav ul {
@@ -209,8 +217,8 @@ nav {
       background: url("/images/logos/infocus.png") center/contain no-repeat; }
     .about .milestones .logo.foxconn {
       background: url("/images/logos/foxconn.png") center/contain no-repeat; }
-    .about .milestones .logo.hutchinson-technology {
-      background: url("/images/logos/hutchinson-technology.png") center left/cover no-repeat; }
+    .about .milestones .logo.hutchinson {
+      background: url("/images/logos/hutchinson.png") center left/cover no-repeat; }
     .about .milestones .logo.yamaha {
       background: url("/images/logos/yamaha.png") center/contain no-repeat; }
     .about .milestones .logo.princeton-university {
@@ -225,6 +233,10 @@ nav {
       background: url("/images/logos/loewe.png") center/contain no-repeat; }
     .about .milestones .logo.pioneer {
       background: url("/images/logos/pioneer.png") center/contain no-repeat; }
+    .about .milestones .logo.actuator {
+      background: url("/images/logos/actuator.png") center/contain no-repeat; }
+    .about .milestones .logo.tdk {
+      background: url("/images/logos/TDK-logo.jpg") center/contain no-repeat; }
   .about .milestones img {
     width: 80%; }
   .about .milestones h5,
@@ -243,7 +255,7 @@ nav {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#c4bfb6', endColorstr='#9d968d', GradientType=0);
   color: #fff;
   display: table;
-  min-height: 350px;
+  height: 300px;
   overflow: hidden;
   width: 100%;
   padding: 20px;
@@ -256,9 +268,12 @@ nav {
   .hero.team-bg {
     background: url("/images/slides/AdobeStock_90921925_WM.jpeg") center/cover no-repeat; }
   .hero.our-platform-technology {
-    background: url("/images/slides/innovative-materials.jpg") center top/cover no-repeat; }
+    background: url("/images/slides/AdobeStock_64334196_WM_edit_headerCrop.jpg") center top/cover no-repeat;
+    margin-bottom: 0; }
   .hero.careers {
     background: url("/images/slides/AdobeStock_106790617_WM.jpeg") center top/cover no-repeat; }
+  .hero.news {
+    background: url("/images/slides/AdobeStock_99168216_WM.jpeg") center/cover no-repeat; }
   .hero .bg-grey {
     background: #484C56; }
   .hero p {
@@ -350,8 +365,11 @@ footer {
   margin-bottom: 1rem;
   background-color: #C4BFB6; }
 
+.twelve.columns {
+  padding-top: 20px; }
+
 .contact-image {
-  background: url("/images/slides/AdobeStock_28914493_WM.jpeg") center/cover no-repeat; }
+  background: url("/images/slides/AdobeStock_87013004_WM.jpeg") bottom center/cover no-repeat; }
 
 .google-link {
   text-decoration: underline;
@@ -396,6 +414,9 @@ footer {
 .news .row {
   display: block; }
 
+.news .hero {
+  height: 300px; }
+
 .news .news-item {
   width: 33.33333%;
   min-height: 280px;
@@ -421,6 +442,16 @@ footer {
     opacity: 0.3; }
   .news .news-item h2 {
     font-size: 24px; }
+  .news .news-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.5); }
   .news .news-item .body,
   .news .news-item .link {
     display: none; }
@@ -513,6 +544,9 @@ footer {
   li,
   p {
     padding: 10px; }
+  .hamburger {
+    display: block;
+    float: right; }
   .contact-email,
   .logo,
   .technology a,
@@ -523,7 +557,15 @@ footer {
   .link.toggle-text {
     margin-left: 10px; }
   .sitenavigation {
-    background: #fff; }
+    background: #fff;
+    display: none; }
+    .sitenavigation.active {
+      display: block;
+      width: 100%;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 60px; }
   .sitenavigation a,
   .sitenavigation li {
     padding: 0; }
@@ -533,6 +575,11 @@ footer {
     width: 100%;
     text-align: center;
     margin-left: 0; }
+    nav ul li.active {
+      border-bottom: none;
+      color: #1EAEDB; }
+    nav ul li:hover {
+      border-bottom: none; }
   .slider .slides li {
     height: 250px; }
   .col-2 {
@@ -553,7 +600,7 @@ footer {
   .technology .col-2 {
     min-height: 200px; }
   .hero {
-    min-height: 280px; }
+    height: 280px; }
   .four.columns {
     width: 50%; }
   .news .news-item {
