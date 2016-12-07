@@ -262,6 +262,10 @@ nav {
     color: #484C56;
   }
 
+  p {
+    color: #fff;
+  }
+
   .white-txt {
     color: #fff;
   }
@@ -405,7 +409,7 @@ nav {
   }
 
   &.careers {
-    background: url('/images/slides/AdobeStock_106790617_WM.jpeg') center top / cover no-repeat;
+    background: url('/images/slides/AdobeStock_106790617_WM.jpeg') center / cover no-repeat;
   }
 
   &.news {
@@ -459,7 +463,13 @@ footer {
 }
 
 .technology-slide-two {
-  background: url("/images/slides/AdobeStock_116043567_WM.jpeg") center/cover no-repeat;
+  background: url("/images/slides/AdobeStock_116043567_WM.jpeg") center 60%/cover no-repeat;
+}
+
+.technology {
+  .technology-slide-two {
+    height: 400px;
+  }
 }
 
 .drone-bg {
@@ -634,6 +644,13 @@ footer {
 
     h2 {
       font-size: 24px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .date {
+      z-index: 2;
+      position: relative;
     }
 
     img {
@@ -651,6 +668,8 @@ footer {
     .body,
     .link {
       display: none;
+      z-index: 2;
+      position: relative;
     }
 
     &:nth-child(1n+2) {

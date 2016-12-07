@@ -184,6 +184,8 @@ nav {
   .bg-beige .link,
   .bg-beige h2 {
     color: #484C56; }
+  .bg-beige p {
+    color: #fff; }
   .bg-beige .white-txt {
     color: #fff; }
 
@@ -271,7 +273,7 @@ nav {
     background: url("/images/slides/AdobeStock_64334196_WM_edit_headerCrop.jpg") center top/cover no-repeat;
     margin-bottom: 0; }
   .hero.careers {
-    background: url("/images/slides/AdobeStock_106790617_WM.jpeg") center top/cover no-repeat; }
+    background: url("/images/slides/AdobeStock_106790617_WM.jpeg") center/cover no-repeat; }
   .hero.news {
     background: url("/images/slides/AdobeStock_99168216_WM.jpeg") center/cover no-repeat; }
   .hero .bg-grey {
@@ -303,7 +305,10 @@ footer {
   background: url("/images/slides/AdobeStock_64334196_WM_edit_headerCrop.jpg") center/cover no-repeat; }
 
 .technology-slide-two {
-  background: url("/images/slides/AdobeStock_116043567_WM.jpeg") center/cover no-repeat; }
+  background: url("/images/slides/AdobeStock_116043567_WM.jpeg") center 60%/cover no-repeat; }
+
+.technology .technology-slide-two {
+  height: 400px; }
 
 .drone-bg {
   background: url("/images/slides/AdobeStock_110279921_WM.jpeg") center right/cover no-repeat; }
@@ -441,7 +446,12 @@ footer {
     background-repeat: no-repeat;
     opacity: 0.3; }
   .news .news-item h2 {
-    font-size: 24px; }
+    font-size: 24px;
+    z-index: 2;
+    position: relative; }
+  .news .news-item .date {
+    z-index: 2;
+    position: relative; }
   .news .news-item img {
     position: absolute;
     top: 0;
@@ -454,7 +464,9 @@ footer {
     background-color: rgba(0, 0, 0, 0.5); }
   .news .news-item .body,
   .news .news-item .link {
-    display: none; }
+    display: none;
+    z-index: 2;
+    position: relative; }
   .news .news-item:nth-child(1n+2) {
     background: #484C56;
     color: #fff; }
