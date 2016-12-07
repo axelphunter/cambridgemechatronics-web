@@ -217,8 +217,8 @@ nav {
       background: url("/images/logos/infocus.png") center/contain no-repeat; }
     .about .milestones .logo.foxconn {
       background: url("/images/logos/foxconn.png") center/contain no-repeat; }
-    .about .milestones .logo.hutchinson-technology {
-      background: url("/images/logos/hutchinson-technology.png") center left/cover no-repeat; }
+    .about .milestones .logo.hutchinson {
+      background: url("/images/logos/hutchinson.png") center left/cover no-repeat; }
     .about .milestones .logo.yamaha {
       background: url("/images/logos/yamaha.png") center/contain no-repeat; }
     .about .milestones .logo.princeton-university {
@@ -233,6 +233,10 @@ nav {
       background: url("/images/logos/loewe.png") center/contain no-repeat; }
     .about .milestones .logo.pioneer {
       background: url("/images/logos/pioneer.png") center/contain no-repeat; }
+    .about .milestones .logo.actuator {
+      background: url("/images/logos/actuator.png") center/contain no-repeat; }
+    .about .milestones .logo.tdk {
+      background: url("/images/logos/TDK-logo.jpg") center/contain no-repeat; }
   .about .milestones img {
     width: 80%; }
   .about .milestones h5,
