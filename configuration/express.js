@@ -10,25 +10,7 @@ const handlebarsHelpers = require('../services/handlebarsHelpers');
 
 // exports
 module.exports = (app, config) => {
-  app.use(compression());
-  // view engine configuration
-  app.set('views', path.join(config.rootPath, '/views'));
-
-  app.engine('.hbs', exphbs({
-    defaultLayout: 'main',
-    extname: '.hbs',
-    layoutsDir: path.join(config.rootPath, '/views/layouts'),
-    partialsDir: path.join(config.rootPath, '/views/partials'),
-    helpers: handlebarsHelpers
-  }));
-  app.set('view engine', '.hbs');
-
-  // body parser configuration
-  app.use(bodyParser.urlencoded({extended: true}));
-
-  app.use(bodyParser.json());
-
-  // serve static files
+  // app paths
   const appPaths = {
     js: path.resolve(config.rootPath, 'js'),
     css: path.resolve(config.rootPath, 'css'),
@@ -37,16 +19,32 @@ module.exports = (app, config) => {
     sitemap: path.resolve(config.rootPath, 'sitemap.xml'),
     bower_components: path.resolve(config.rootPath, 'bower_components')
   };
+  // static options
   const staticOpts = {
     etag: config.debugMode,
     lastModified: config.debugMode,
     maxAge: 0
   };
+  // express handlebars
+  const exphbsOptions = {
+    defaultLayout: 'main',
+    extname: '.hbs',
+    layoutsDir: path.join(config.rootPath, '/views/layouts'),
+    partialsDir: path.join(config.rootPath, '/views/partials'),
+    helpers: handlebarsHelpers
+  };
 
-  app.use('/js', express.static(appPaths.js, staticOpts));
-  app.use('/css', express.static(appPaths.css, staticOpts));
-  app.use('/images', express.static(appPaths.images, staticOpts));
-  app.use('/fonts', express.static(appPaths.fonts, staticOpts));
-  app.use('/sitemap.xml', express.static(appPaths.sitemap, staticOpts));
-  app.use('/bower_components', express.static(appPaths.bower_components, staticOpts));
+  app
+    .use(compression())
+    .set('views', path.join(config.rootPath, '/views'))
+    .engine('.hbs', exphbs(exphbsOptions))
+    .set('view engine', '.hbs')
+    .use(bodyParser.urlencoded({extended: true}))
+    .use(bodyParser.json())
+    .use('/js', express.static(appPaths.js, staticOpts))
+    .use('/css', express.static(appPaths.css, staticOpts))
+    .use('/images', express.static(appPaths.images, staticOpts))
+    .use('/fonts', express.static(appPaths.fonts, staticOpts))
+    .use('/sitemap.xml', express.static(appPaths.sitemap, staticOpts))
+    .use('/bower_components', express.static(appPaths.bower_components, staticOpts));
 };

@@ -8,14 +8,16 @@ var app = {
       var offsetTop = el.offsetTop;
       setTimeout(function() {
         window.scrollTo(0, offsetTop - 100);
-        pageScroll(offsetTop);
       }, 1);
     }
 
     if (document.querySelector('.news-item')) {
       var newsItems = document.querySelectorAll('.news-item'),
-        loadMoreBtn = document.querySelector('#load-more-articles'),
-        maxItems = 9,
+        loadMoreBtn = document.querySelector('#load-more-articles');
+      if (!loadMoreBtn) {
+        return;
+      }
+      var maxItems = 9,
         hiddenClass = 'visually-hidden';
       []
         .forEach
@@ -32,7 +34,6 @@ var app = {
         []
           .forEach
           .call(document.querySelectorAll('.' + hiddenClass), function(item, idx) {
-            console.log(item);
             if (idx < maxItems) {
               item
                 .classList
@@ -51,7 +52,6 @@ var app = {
     new WOW().init();
 
     var textToggle = document.querySelectorAll('.toggle-text');
-    console.log(textToggle);
     if (textToggle.length > 0) {
       []
         .forEach
@@ -83,9 +83,9 @@ var app = {
         });
     }
     if (document.querySelector('.js_percentage')) {
-        var percentage = document.querySelector('.js_percentage');
+      var percentage = document.querySelector('.js_percentage');
 
-        lory(percentage, {infinite: 1});
+      lory(percentage, {infinite: 1});
     }
     if (document.querySelector('.js_next')) {
       window
@@ -96,20 +96,36 @@ var app = {
         }, 5000);
     }
 
-    document.querySelector('.hamburger').onclick=function () {
-      this.classList.toggle('is-active');
+    document
+      .querySelector('.hamburger')
+      .onclick = function() {
+      this
+        .classList
+        .toggle('is-active');
       var sitenavigation = document.querySelector('.sitenavigation');
-       if (sitenavigation.classList.contains('fadeInRight')) {
-         sitenavigation.classList.remove('fadeInRight');
-         sitenavigation.classList.add('fadeOutRight');
-         window.setTimeout(function(){
-             sitenavigation.classList.remove('active');
-         }, 500);
-         return;
-       }
-       sitenavigation.classList.add('active')
-       sitenavigation.classList.remove('fadeOutRight');
-       sitenavigation.classList.add('fadeInRight')
+      if (sitenavigation.classList.contains('fadeInRight')) {
+        sitenavigation
+          .classList
+          .remove('fadeInRight');
+        sitenavigation
+          .classList
+          .add('fadeOutRight');
+        window.setTimeout(function() {
+          sitenavigation
+            .classList
+            .remove('active');
+        }, 500);
+        return;
+      }
+      sitenavigation
+        .classList
+        .add('active')
+      sitenavigation
+        .classList
+        .remove('fadeOutRight');
+      sitenavigation
+        .classList
+        .add('fadeInRight')
     }
   }
 };
