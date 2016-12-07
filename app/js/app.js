@@ -1,5 +1,37 @@
 var app = {
   init: function() {
+    document
+      .querySelector('.hamburger')
+      .onclick = function() {
+      this
+        .classList
+        .toggle('is-active');
+      var sitenavigation = document.querySelector('.sitenavigation');
+      if (sitenavigation.classList.contains('fadeInRight')) {
+        sitenavigation
+          .classList
+          .remove('fadeInRight');
+        sitenavigation
+          .classList
+          .add('fadeOutRight');
+        window.setTimeout(function() {
+          sitenavigation
+            .classList
+            .remove('active');
+        }, 500);
+        return;
+      }
+      sitenavigation
+        .classList
+        .add('active')
+      sitenavigation
+        .classList
+        .remove('fadeOutRight');
+      sitenavigation
+        .classList
+        .add('fadeInRight')
+    }
+
     if (window.location.hash) {
       var i = 0;
       var hash = window.location.hash;
@@ -94,38 +126,6 @@ var app = {
             .querySelector('.js_next')
             .click();
         }, 5000);
-    }
-
-    document
-      .querySelector('.hamburger')
-      .onclick = function() {
-      this
-        .classList
-        .toggle('is-active');
-      var sitenavigation = document.querySelector('.sitenavigation');
-      if (sitenavigation.classList.contains('fadeInRight')) {
-        sitenavigation
-          .classList
-          .remove('fadeInRight');
-        sitenavigation
-          .classList
-          .add('fadeOutRight');
-        window.setTimeout(function() {
-          sitenavigation
-            .classList
-            .remove('active');
-        }, 500);
-        return;
-      }
-      sitenavigation
-        .classList
-        .add('active')
-      sitenavigation
-        .classList
-        .remove('fadeOutRight');
-      sitenavigation
-        .classList
-        .add('fadeInRight')
     }
   }
 };
