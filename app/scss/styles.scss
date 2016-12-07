@@ -347,6 +347,14 @@ nav {
       &.pioneer {
         background: url('/images/logos/pioneer.png') center / contain no-repeat;
       }
+
+      &.actuator {
+        background: url('/images/logos/actuator-solutions.png') center / contain no-repeat;
+      }
+
+      &.tdk {
+        background: url('/images/logos/TDK-logo.jpg') center / contain no-repeat;
+      }
     }
 
     img {
@@ -372,7 +380,7 @@ nav {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#c4bfb6', endColorstr='#9d968d', GradientType=0);
   color: #fff;
   display: table;
-  height: 400px;
+  height: 350px;
   overflow: hidden;
   width: 100%;
   padding: 20px;
@@ -397,6 +405,10 @@ nav {
 
   &.careers {
     background: url('/images/slides/AdobeStock_106790617_WM.jpeg') center top / cover no-repeat;
+  }
+
+  &.news {
+    background: url('/images/slides/AdobeStock_99168216_WM.jpeg') center / cover no-repeat;
   }
 
   .bg-grey {
@@ -524,8 +536,12 @@ footer {
   background-color: #C4BFB6;
 }
 
+.twelve.columns {
+  padding-top: 20px;
+}
+
 .contact-image {
-  background: url("/images/slides/AdobeStock_28914493_WM.jpeg") center/cover no-repeat;
+  background: url("/images/slides/AdobeStock_87013004_WM.jpeg") bottom center/cover no-repeat;
 }
 
 .google-link {

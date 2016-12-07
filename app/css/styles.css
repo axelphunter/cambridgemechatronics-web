@@ -251,7 +251,7 @@ nav {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#c4bfb6', endColorstr='#9d968d', GradientType=0);
   color: #fff;
   display: table;
-  height: 400px;
+  height: 350px;
   overflow: hidden;
   width: 100%;
   padding: 20px;
@@ -267,6 +267,8 @@ nav {
     background: url("/images/slides/innovative-materials.jpg") center top/cover no-repeat; }
   .hero.careers {
     background: url("/images/slides/AdobeStock_106790617_WM.jpeg") center top/cover no-repeat; }
+  .hero.news {
+    background: url("/images/slides/AdobeStock_99168216_WM.jpeg") center/cover no-repeat; }
   .hero .bg-grey {
     background: #484C56; }
   .hero p {
@@ -358,8 +360,11 @@ footer {
   margin-bottom: 1rem;
   background-color: #C4BFB6; }
 
+.twelve.columns {
+  padding-top: 20px; }
+
 .contact-image {
-  background: url("/images/slides/AdobeStock_28914493_WM.jpeg") center/cover no-repeat; }
+  background: url("/images/slides/AdobeStock_87013004_WM.jpeg") bottom center/cover no-repeat; }
 
 .google-link {
   text-decoration: underline;
@@ -432,6 +437,16 @@ footer {
     opacity: 0.3; }
   .news .news-item h2 {
     font-size: 24px; }
+  .news .news-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.5); }
   .news .news-item .body,
   .news .news-item .link {
     display: none; }
@@ -575,7 +590,7 @@ footer {
   .technology .col-2 {
     min-height: 200px; }
   .hero {
-    min-height: 280px; }
+    height: 280px; }
   .four.columns {
     width: 50%; }
   .news .news-item {

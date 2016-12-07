@@ -82,11 +82,11 @@ var app = {
           };
         });
     }
+    if (document.querySelector('.js_percentage')) {
+        var percentage = document.querySelector('.js_percentage');
 
-    var percentage = document.querySelector('.js_percentage');
-
-    lory(percentage, {infinite: 1});
-
+        lory(percentage, {infinite: 1});
+    }
     if (document.querySelector('.js_next')) {
       window
         .setInterval(function() {
@@ -99,17 +99,17 @@ var app = {
     document.querySelector('.hamburger').onclick=function () {
       this.classList.toggle('is-active');
       var sitenavigation = document.querySelector('.sitenavigation');
-       if (sitenavigation.classList.contains('fadeInDown')) {
-         sitenavigation.classList.remove('fadeInDown');
-         sitenavigation.classList.add('fadeOutUp');
+       if (sitenavigation.classList.contains('fadeInRight')) {
+         sitenavigation.classList.remove('fadeInRight');
+         sitenavigation.classList.add('fadeOutRight');
          window.setTimeout(function(){
              sitenavigation.classList.remove('active');
          }, 500);
          return;
        }
        sitenavigation.classList.add('active')
-       sitenavigation.classList.remove('fadeOutUp');
-       sitenavigation.classList.add('fadeInDown')
+       sitenavigation.classList.remove('fadeOutRight');
+       sitenavigation.classList.add('fadeInRight')
     }
   }
 };
