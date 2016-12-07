@@ -251,7 +251,7 @@ nav {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#c4bfb6', endColorstr='#9d968d', GradientType=0);
   color: #fff;
   display: table;
-  min-height: 350px;
+  height: 400px;
   overflow: hidden;
   width: 100%;
   padding: 20px;
@@ -403,6 +403,9 @@ footer {
 
 .news .row {
   display: block; }
+
+.news .hero {
+  height: 300px; }
 
 .news .news-item {
   width: 33.33333%;
