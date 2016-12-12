@@ -463,17 +463,22 @@ footer {
 }
 
 .technology-slide-two {
-  background: url("/images/slides/AdobeStock_116043567_WM.jpeg") center 60%/cover no-repeat;
+  background: url("/images/hero-images/AdobeStock_115518282_WM.jpeg") center 40%/cover no-repeat;
 }
 
 .technology {
   .technology-slide-two {
     height: 400px;
   }
+
+  h2 {
+    max-width: 500px;
+  }
 }
 
 .drone-bg {
-  background: url("/images/slides/AdobeStock_110279921_WM.jpeg") center right /cover no-repeat;
+  background: url("/images/slides/AdobeStock_110279921_WM.jpeg") top right /cover no-repeat;
+  background-size: 200%;
 }
 
 .virtual-bg {
