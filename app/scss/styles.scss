@@ -775,6 +775,42 @@ footer {
       height: 80px;
       background: $beige-color url('/images/icons/user.svg') center bottom / 64% no-repeat;
       border-radius: 100%;
+
+      &.andy-osmant {
+        background: url('/images/headshots/Andy_Osmant_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.ben-brown {
+        background: url('/images/headshots/Ben_Brown_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.dave-richards {
+        background: url('/images/headshots/Dave_Richards_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.dominic-edwards {
+        background: url('/images/headshots/Dominic_Edwards_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.ian-rodgers {
+        background: url('/images/headshots/Ian_Rogers_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.james-howarth {
+        background: url('/images/headshots/James_Howarth_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.jon-edwards {
+        background: url('/images/headshots/Jon_Edwards_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.martin-knight {
+        background: url('/images/headshots/Martin_Knight_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.ursula-lenel {
+        background: url('/images/headshots/Ursula_Lenel_120x120.jpg') center top / contain no-repeat;
+      }
     }
 
     h4 {
@@ -832,7 +868,6 @@ footer {
   .beige-circle,
   .link.toggle-text {
     margin-left: 10px;
-
   }
 
   .sitenavigation {

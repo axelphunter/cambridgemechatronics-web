@@ -534,6 +534,24 @@ footer {
     height: 80px;
     background: #C4BFB6 url("/images/icons/user.svg") center bottom/64% no-repeat;
     border-radius: 100%; }
+    .team .team-member .avatar.andy-osmant {
+      background: url("/images/headshots/Andy_Osmant_120x120.jpg") center top/contain no-repeat; }
+    .team .team-member .avatar.ben-brown {
+      background: url("/images/headshots/Ben_Brown_120x120.jpg") center top/contain no-repeat; }
+    .team .team-member .avatar.dave-richards {
+      background: url("/images/headshots/Dave_Richards_120x120.jpg") center top/contain no-repeat; }
+    .team .team-member .avatar.dominic-edwards {
+      background: url("/images/headshots/Dominic_Edwards_120x120.jpg") center top/contain no-repeat; }
+    .team .team-member .avatar.ian-rodgers {
+      background: url("/images/headshots/Ian_Rogers_120x120.jpg") center top/contain no-repeat; }
+    .team .team-member .avatar.james-howarth {
+      background: url("/images/headshots/James_Howarth_120x120.jpg") center top/contain no-repeat; }
+    .team .team-member .avatar.jon-edwards {
+      background: url("/images/headshots/Jon_Edwards_120x120.jpg") center top/contain no-repeat; }
+    .team .team-member .avatar.martin-knight {
+      background: url("/images/headshots/Martin_Knight_120x120.jpg") center top/contain no-repeat; }
+    .team .team-member .avatar.ursula-lenel {
+      background: url("/images/headshots/Ursula_Lenel_120x120.jpg") center top/contain no-repeat; }
   .team .team-member h4 {
     margin: 0;
     font-size: 22px; }
