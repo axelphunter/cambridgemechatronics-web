@@ -1,128 +1,18 @@
 <main class="about">
   <div class="container">
-    <div class="hero about margin">
+    <div class="hero about margin" style="background-image: url('{{pageContent.data.[aboutpage.hero].value.main.url}}')">
       <div class="inner">
         <h2>About</h2>
       </div>
     </div>
-    <h2 class="wow fadeInUp">Our Vision</h2>
-    <div class="row">
-      <div class="six columns">
-        <p class="wow fadeInUp">
-          Cambridge Mechatronics Limited (CML) is a design and engineering company operating at the very heart of Cambridge, UK. We aim to deliver change amongst a diverse set of high value technology applications through our unique approach.
-        </p>
-        <p class="wow fadeInUp">
-          Our research into smart materials and development of a key platform technology has broadened our abilities to innovate in a number of technology areas. We have achieved great success to date; protecting our designs and inventions and have built a portfolio of over 100 granted patents. Most recently CML has brought to market a Shape Memory Alloy (SMA) actuator that adds optical image stabilisation (OIS) functionality to smartphone cameras.
-        </p>
-      </div>
-      <div class="six columns">
-        <p class="wow fadeInUp">
-          The success of our products is also attributed to the close cooperation with our business partners. CML has developed a number of strong partnerships to commercialise our technology and these have led to product launches by globally recognised companies.
-        </p>
-      </div>
-    </div>
+    {{structuredText pageContent.data.[aboutpage.body]}}
     <section class="bg-beige milestones">
-      <div class="row">
-        <div class="four columns">
-          <div class="logo actuator"></div>
-          <h5>2016</h5>
-          <p>
-              Actuator Solutions signs license for SMA AutoFocus camera actuators
-          </p>
+      {{#each pageContent.data.[aboutpage.milestones].value}}
+        <div class="milestone">
+          <div class="logo" style="background-image: url('{{logo.value.main.url}}')"></div>
+          {{structuredText body}}
         </div>
-        <div class="four columns">
-          <div class="logo infocus"></div>
-          <h5>2015</h5>
-          <p>
-              InFocus launches smartphones using CML's SMA OIS camera technology
-          </p>
-        </div>
-        <div class="four columns">
-          <div class="logo foxconn"></div>
-          <h5>2014 </h5>
-          <p>
-              SMA OIS actuators start shipping to Foxconn production orders
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="four columns">
-          <div class="logo hutchinson"></div>
-          <h5>2013</h5>
-          <p>
-              TDK Hutchinson Technology signs license for SMA OIS actuator production
-          </p>
-        </div>
-        <div class="four columns">
-          <div class="logo yamaha"></div>
-          <h5>2012</h5>
-          <p>
-              Yamaha acquires CML's audio IP portfolio
-          </p>
-        </div>
-        <div class="four columns">
-          <div class="logo princeton-university"></div>
-          <h5>2011</h5>
-          <p>
-              Princeton University and CML partner and develop 3D audio technology
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="four columns">
-          <div class="logo panasonic"></div>
-          <h5>2010</h5>
-          <p>
-              Panasonic starts shipping handsets with CML's SMA AutoFocus cameras
-          </p>
-        </div>
-        <div class="four columns">
-          <div class="logo sh"></div>
-          <h5>2009</h5>
-          <p>
-              Seiko Instruments starts mass production of AutoFocus actuators using CML’s SMA technology
-          </p>
-        </div>
-        <div class="four columns">
-          <div class="logo mitsubishi"></div>
-          <h5>2008</h5>
-          <p>
-              Mitsubishi adds digital sound projectors to all of its flat screen TVs in US market
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="four columns">
-          <div class="logo loewe"></div>
-          <h5>2007</h5>
-          <p>
-              Loewe licenses CML's technology and releases digital sound projectors for their flat screen TV range
-          </p>
-        </div>
-        <div class="four columns">
-          <div class="logo yamaha"></div>
-          <h5>2006</h5>
-          <p>
-              Yamaha becomes CML's secondlicensee and launches the high-end YSP-1 sound projector
-          </p>
-        </div>
-        <div class="four columns">
-          <div class="logo yamaha"></div>
-          <h5>2005</h5>
-          <p>
-              Yamaha expands their digital sound projector product range to include the YSP-800 and enter the mainstream consumer audio market
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="seven columns">
-          <div class="logo pioneer"></div>
-          <h5>2004</h5>
-          <p>
-              Pioneer launches the world's first digital sound projector using CML's technology
-          </p>
-        </div>
-      </div>
+      {{/each}}
     </section>
   </div>
 </main>

@@ -292,19 +292,29 @@ nav {
   }
 }
 
+.career {
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 .about {
   .milestones {
     padding: 20px;
     color: $primary-color;
 
-    .row {
-      display: table;
-      height: 220px;
-      overflow: hidden;
+    .milestone {
+      width: 33%;
+      display: inline-block;
+      padding: 20px;
+      box-sizing: border-box;
+      vertical-align: top;
 
-      .columns {
-        display: table-cell;
-        vertical-align: middle;
+      p:first-of-type {
+        font-size: 2.4rem;
+        color: #262261;
       }
     }
 
@@ -471,7 +481,6 @@ footer {
     height: 400px;
   }
 }
-
 
 .drone-bg {
   background: url("/images/slides/AdobeStock_110279921_WM.jpeg") top right /cover no-repeat;
@@ -762,7 +771,7 @@ footer {
 
   .team-member {
     display: inline-block;
-    width: 33%;
+    width: 24%;
     box-sizing: border-box;
     padding: 0 10px 20px;
     vertical-align: top;
@@ -770,7 +779,7 @@ footer {
     .avatar {
       width: 80px;
       height: 80px;
-      background: $beige-color url('/images/icons/user.svg') center bottom / 64% no-repeat;
+      background: $beige-color url('/images/icons/user.svg') center bottom / cover no-repeat;
       border-radius: 100%;
 
       &.andy-osmant {

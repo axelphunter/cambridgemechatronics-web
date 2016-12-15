@@ -2,8 +2,8 @@
   <div class="slider js_percentage percentage">
     <div class="frame js_frame">
       <ul class="slides js_slides">
-        {{#each slides}}
-        <li style="background: url('/images/slides/{{this}}') center / cover no-repeat"></li>
+        {{#each pageContent.data.[homepage.hero-images].value}}
+        <li style="background: url('{{[hero-image].value.main.url}}') center / cover no-repeat"></li>
         {{/each}}
       </ul>
     </div>
