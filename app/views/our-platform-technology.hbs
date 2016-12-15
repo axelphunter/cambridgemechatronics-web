@@ -1,6 +1,6 @@
 <main class="our-platform-technology">
   <div class="container">
-    <div class="hero our-platform-technology margin">
+    <div class="hero our-platform-technology margin" style="background-image: url('{{pageContent.data.[ourplatformtechnologypa.hero].value.main.url}}')">
       <div class="inner">
         <h2 class="indigo">Small, Lightweight, Precise & Powerful</h2>
       </div>
@@ -8,58 +8,43 @@
     <div class="row" id="drones">
       <div class="col-2">
         <h3 class="wow fadeInUp">Drones</h3>
-        <p class="wow fadeInUp">
-          Most commonly, companies leverage the use of drones to capture high quality imagery however the uses are broadening. New ideas are emerging, such as Amazon’s ambition to launch its drone delivery program using
-a fleet of drones to deliver online purchases straight
-to customers’ doors. Other applications include agriculture, surveying land, monitoring infrastructure and even emergency response. Drones will require more cameras and sensors to perform advanced
-tasks without compromising weight and flight times. Shape Memory Alloy (SMA) actuators are inherently lightweight and compact to accommodate more cameras without sacrificing size and weight. Ensuring a lightweight structure ultimately helps conserve battery life, meaning longer flight times. Its robust structure means it is more resilient to vibrations and precision control data maintains stability even with significant external disturbance.
-        </p>
+        {{structuredText pageContent.data.[ourplatformtechnologypa.drones-body]}}
       </div>
-      <div class="col-2 drone-bg"></div>
+      <div class="col-2 drone-bg" style="background-image: url('{{pageContent.data.[ourplatformtechnologypa.drones-image].value.main.url}}')"></div>
     </div>
     <div class="row" id="virtualreality">
-      <div class="col-2 virtual-bg"></div>
+      <div class="col-2 virtual-bg" style="background-image: url('{{pageContent.data.[ourplatformtechnologypa.virtual-reality-image].value.main.url}}')"></div>
       <div class="col-2">
         <h3 class="wow fadeInUp">Virtual Reality</h3>
-        <p class="wow fadeInUp">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mi arcu, ullamcorper vel fermentum eu, accumsan non eros. Suspendisse convallis purus at hendrerit ultrices. Pellentesque ac ligula interdum, sagittis odio sit amet, consectetur mauris. Integer quis varius metus. Morbi tempus leo sed sapien tincidunt, nec fermentum risus dictum. Sed fringilla aliquet arcu nec ultricies. Etiam quis ex maximus, ornare odio mollis, convallis metus. Mauris ultricies volutpat vulputate. Curabitur rutrum leo arcu, suscipit fermentum odio mattis in. Vivamus quis ante felis.
-        </p>
+        {{structuredText pageContent.data.[ourplatformtechnologypa.virtual-reality-body]}}
       </div>
     </div>
     <div class="row" id="drones">
       <div class="col-2">
         <h3 class="wow fadeInUp">Haptics</h3>
-        <p class="wow fadeInUp">
-              The adoption of haptic feedback is forecast to grow dramatically as users demand the next dimension of interactivity with their products beyond sight and sound. By incorporating a sense of touch and tactility, using haptic technology we give us the ability to connect more naturally to our devices. Haptic actuators will need to be small to work within items like wearable tech and to prevent devices getting larger. Despite the size, it still needs to be able to deliver a significant force to provide the engaging experience. Shape Memory Alloy (SMA) has a high force to size ratio with an added benefit of emitting no disruptive electromagnetic fields that prevent other device components from functioning properly. CML’s technology is small and robust enough to function in these applications to help deliver user interactions that are more realistic, useful or simply enjoyable.
-        </p>
+        {{structuredText pageContent.data.[ourplatformtechnologypa.haptics-body]}}
        </div>
-     <div class="col-2 haptics-bg"></div>
+     <div class="col-2 haptics-bg" style="background-image: url('{{pageContent.data.[ourplatformtechnologypa.haptics-image].value.main.url}}')"></div>
     </div>
     <div class="row" id="medicaldevices">
-      <div class="col-2 medical-devices-bg"></div>
+      <div class="col-2 medical-devices-bg" style="background-image: url('{{pageContent.data.[ourplatformtechnologypa.medical-devices-image].value.main.url}}')"></div>
       <div class="col-2">
         <h3 class="wow fadeInUp">Medical Devices</h3>
-        <p class="wow fadeInUp">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mi arcu, ullamcorper vel fermentum eu, accumsan non eros. Suspendisse convallis purus at hendrerit ultrices. Pellentesque ac ligula interdum, sagittis odio sit amet, consectetur mauris. Integer quis varius metus. Morbi tempus leo sed sapien tincidunt, nec fermentum risus dictum. Sed fringilla aliquet arcu nec ultricies. Etiam quis ex maximus, ornare odio mollis, convallis metus. Mauris ultricies volutpat vulputate. Curabitur rutrum leo arcu, suscipit fermentum odio mattis in. Vivamus quis ante felis.
-        </p>
+        {{structuredText pageContent.data.[ourplatformtechnologypa.medical-devices-body]}}
       </div>
     </div>
     <div class="row" id="robotics">
       <div class="col-2">
-        <h2 class="wow fadeInUp">Robotics</h2>
-        <p class="wow fadeInUp">
-          Robots are set to be commonplace in assembly facilities, factories, hospitals and the home, as they continue to become more sophisticated and specialised. One of the key themes for next generation robotics is to enable them to conduct very precise procedures, mimicking or even outdoing what humans could achieve. CML’s Shape Memory Alloy (SMA) actuators are highly accurate and compact. SMA wire has great potential in robotics given that its structure has the ability to contract and expand in the same way human muscle can. Another key feature is that CML SMA is audibly silent creating robots that can perform in silent operation.
-        </p>
+        <h3 class="wow fadeInUp">Robotics</h3>
+        {{structuredText pageContent.data.[ourplatformtechnologypa.robotics-body]}}
       </div>
-     <div class="col-2 robotics-bg"></div>
+     <div class="col-2 robotics-bg" style="background-image: url('{{pageContent.data.[ourplatformtechnologypa.robotics-image].value.main.url}}')"></div>
     </div>
     <div class="row" id="medicaldevices">
-      <div class="col-2 self-driving-bg"></div>
+      <div class="col-2 self-driving-bg" style="background-image: url('{{pageContent.data.[ourplatformtechnologypa.self-driving-cars-image].value.main.url}}')"></div>
        <div class="col-2">
          <h3 class="wow fadeInUp">Self Driving Cars</h3>
-         <p class="wow fadeInUp">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mi arcu, ullamcorper vel fermentum eu, accumsan non eros. Suspendisse convallis purus at hendrerit ultrices. Pellentesque ac ligula interdum, sagittis odio sit amet, consectetur mauris. Integer quis varius metus. Morbi tempus leo sed sapien tincidunt, nec fermentum risus dictum. Sed fringilla aliquet arcu nec ultricies. Etiam quis ex maximus, ornare odio mollis, convallis metus. Mauris ultricies volutpat vulputate. Curabitur rutrum leo arcu, suscipit fermentum odio mattis in. Vivamus quis ante felis.
-         </p>
+         {{structuredText pageContent.data.[ourplatformtechnologypa.self-driving-cars-body]}}
       </div>
     </div>
   </div>

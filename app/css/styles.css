@@ -202,16 +202,25 @@ nav {
   font-size: 24px;
   margin-bottom: 0; }
 
+.career {
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px;
+  box-sizing: border-box; }
+
 .about .milestones {
   padding: 20px;
   color: #262261; }
-  .about .milestones .row {
-    display: table;
-    height: 220px;
-    overflow: hidden; }
-    .about .milestones .row .columns {
-      display: table-cell;
-      vertical-align: middle; }
+  .about .milestones .milestone {
+    width: 33%;
+    display: inline-block;
+    padding: 20px;
+    box-sizing: border-box;
+    vertical-align: top; }
+    .about .milestones .milestone p:first-of-type {
+      font-size: 2.4rem;
+      color: #262261; }
   .about .milestones .logo {
     width: 80%;
     height: 70px; }
@@ -522,14 +531,14 @@ footer {
 
 .team .team-member {
   display: inline-block;
-  width: 33%;
+  width: 24%;
   box-sizing: border-box;
   padding: 0 10px 20px;
   vertical-align: top; }
   .team .team-member .avatar {
     width: 80px;
     height: 80px;
-    background: #C4BFB6 url("/images/icons/user.svg") center bottom/64% no-repeat;
+    background: #C4BFB6 url("/images/icons/user.svg") center bottom/cover no-repeat;
     border-radius: 100%; }
     .team .team-member .avatar.andy-osmant {
       background: url("/images/headshots/Andy_Osmant_120x120.jpg") center top/contain no-repeat; }
