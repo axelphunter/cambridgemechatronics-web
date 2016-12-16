@@ -183,5 +183,12 @@ module.exports = {
           metaData: config.metaData
         });
       });
+  },
+
+  getTerms(req, res) {
+    res.render('terms', {
+      pageName: 'Terms and Conditions',
+      metaData: config.metaData
+    });
   }
 };
