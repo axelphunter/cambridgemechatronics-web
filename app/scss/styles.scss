@@ -846,7 +846,7 @@ footer {
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   a,
   h1,
   h2,
@@ -870,6 +870,25 @@ footer {
     padding: 0;
   }
 
+  .gemini_image {
+    background-size: 140%;
+  }
+
+  .gemini_exploded {
+    background-size: contain;
+  }
+
+  .ois .four.columns h5,
+  .contact h5 {
+    padding: 0 10px;
+    margin-bottom: 1rem
+  }
+
+  .small-box h5 {
+    padding: 0;
+    line-height: 3.6rem;
+  }
+
   .avatar,
   .beige-circle,
   .link.toggle-text {
@@ -890,15 +909,35 @@ footer {
     }
   }
 
+  .team-member h4 {
+    padding: 0 10px;
+  }
+
+  .team-member {
+    margin-bottom: 20px;
+  }
+
   .sitenavigation a,
-  .sitenavigation li {
+  .sitenavigation li,
+  .about .milestones,
+  .milestones p {
     padding: 0;
 
+  }
+
+  nav .logo {
+    margin-left: -20px;
   }
 
   .sitenavigation .button {
     padding: 0 30px;
 
+  }
+
+  .about .milestones .milestone,
+  .career {
+    width: 49%;
+    padding: 20px 10px;
   }
 
   nav ul li {
@@ -960,7 +999,7 @@ footer {
   }
 
   .hero {
-    height: 280px;
+    height: 200px;
 
   }
 
@@ -998,7 +1037,9 @@ footer {
   .four.columns,
   .news .news-item,
   .team .team-member,
-  .three.columns {
+  .three.columns,
+  .about .milestones .milestone,
+  .career {
     width: 100%;
   }
 
