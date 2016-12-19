@@ -8,7 +8,13 @@
     <div class="row padded">
       {{#each pageContent.results}}
       <div class="news-item wow fadeInUp">
+        {{#if data.[news.post-image]}}
         <a class="image" style="background-image: url('{{data.[news.post-image].value.main.url}}');" href="/news/{{uid}}"></a>
+        {{else if data.[news.watermark]}}
+        <a class="image" style="background-image: url('{{data.[news.watermark].value.main.url}}'); background-size: 80%;" href="/news/{{uid}}"></a>
+        {{else}}
+        <a class="image" href="/news/{{uid}}"></a>
+        {{/if}}
         <h2>{{data.[news.title].value.[0].text}}</h2>
         <p class="date">
           {{dateFormat data.[news.post-date].value}}
