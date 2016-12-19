@@ -72,11 +72,19 @@ module.exports = {
   },
 
   getOis(req, res) {
-    res.render('ois', {
-      pageName: 'OIS',
-      active_tech: true,
-      metaData: config.metaData
-    });
+    prismicConfig
+      .api(req, res)
+      .then((api) => {
+        return api.query(prismic.Predicates.at('document.type', 'oispage'));
+      })
+      .then((pageContent) => {
+        res.render('ois', {
+          pageName: 'OIS',
+          active_tech: true,
+          pageContent: pageContent.results[0],
+          metaData: config.metaData
+        });
+      });
   },
 
   getContact(req, res) {

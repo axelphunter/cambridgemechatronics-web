@@ -66,6 +66,16 @@ a {
 .padded {
   padding: 20px 0; }
 
+.ois-features .feature {
+  display: inline-block;
+  width: 33%;
+  box-sizing: border-box;
+  padding: 10px; }
+  .ois-features .feature .beige-circle {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%; }
+
 .button,
 button,
 input[type="button"],

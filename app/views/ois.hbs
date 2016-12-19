@@ -1,26 +1,23 @@
 <main class="ois">
   <div class="container">
-    <div class="hero technology-slide-two">
+    <div class="hero technology-slide-two" style="background-image: url('{{pageContent.data.[oispage.hero].value.main.url}}')">
       <div class="inner">
         <h2>AutoFocus & Optical Image Stabilisation</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-2">
-        <h2>Optical Image Stabilisation</h2>
-        <p>
-          Optical Image Stabilisation (OIS) started shipping in international smartphones in 2012 and analysts predict the market size to be 370 million units in 2017. OIS is widely recognised as the feature providing the most substantial improvement to smartphone camera quality in recent years. CML has already achieved success implementing this technology into a number of products, with the goal to ensure that the technology is integrated into every smartphone in the near future.
-        </p>
+        {{structuredText pageContent.data.[oispage.ois-body]}}
       </div>
       <div class="col-2 gemini_image"></div>
     </div>
     <div class="row">
-      <div class="col-2 ois-on">
+      <div class="col-2 ois-on" style="background-image: url('{{pageContent.data.[oispage.ois-on-image].value.main.url}}')">
         <div class="small-box">
           <h5>OIS On</h5>
         </div>
       </div>
-      <div class="col-2 ois-off">
+      <div class="col-2 ois-off" style="background-image: url('{{pageContent.data.[oispage.ois-off-image].value.main.url}}')">
         <div class="small-box">
           <h5>OIS Off</h5>
         </div>
@@ -28,79 +25,21 @@
     </div>
     <div class="row">
       <div class="col-2">
-        <h5>Simplicity</h5>
-        <p>
-          CML's OIS actuators use its patented Shape Memory Alloy (SMA) technology. A single piece of SMA wire provides force, motion and precision position control unlike Voice Coil Motors (VCM) that require bulkier magnets, copper windings and position sensors to achieve the same purpose.
-        </p>
-        <p>
-          Therefore, SMA OIS products are significantly smaller, simpler and more robust. The structure comprises SMA wire and only three additional, simple parts, each the thickness of a human hair, that are produced and assembled using fully automated processes. The use of automated manufacture provides high production capacity with stable yield, tight quality control and cleanliness.
-        </p>
+        {{structuredText pageContent.data.[oispage.simplicity-body]}}
       </div>
       <div class="col-2 gemini_exploded"></div>
     </div>
     <hr />
-    <div class="row">
-      <div class="four columns">
-        <div class="beige-circle" id="size"></div>
-        <h5>Size</h5>
-        <p>
-          SMA actuators are less than a third of the height of VCM competition and therefore provide the thinnest OIS cameras.
-        </p>
+    <div class="ois-features">
+      {{#each pageContent.data.[oispage.points-of-interest].value}}
+      <div class="feature">
+        <div class="beige-circle" style="background-image: url('{{image.value.main.url}}')"></div>
+        <h5>{{header.value}}</h5>
+        {{structuredText body}}
       </div>
-      <div class="four columns">
-        <div class="beige-circle" id="performance"></div>
-        <h5>Perfomance</h5>
-        <p>
-          SMA material’s high driving force combined with CML’s patented control algorithms provide industry leading shake suppression performance and camera image quality.
-        </p>
-      </div>
-      <div class="four columns">
-        <div class="beige-circle" id="battery"></div>
-        <h5>Power Consumption</h5>
-        <p>
-          SMA OIS consumes around a fifth the power of VCM, extending smartphone battery life and minimising heat generation.
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="four columns">
-        <div class="beige-circle" id="magnet"></div>
-        <h5>Non-Magnetic</h5>
-        <p>
-          VCM OIS cameras contain several strong magnets to move the lens. The magnetic fields interfere with critical handset components. SMA OIS uses no magnets and generates no disruptive fields. This allows handsets to perform optimally and maximise flexibility of design.
-        </p>
-      </div>
-      <div class="four columns">
-        <div class="beige-circle" id="camera"></div>
-        <h5>Dual Cameras</h5>
-        <p>
-          Dual cameras combine the output of two individual cameras to enhance functionality and image quality. Achieving this through two VCM cameras is challenging given the interference with each other in close proximity. Because SMA OIS contains no magnets, it is the most suitable solution for compact dual camera designs.
-        </p>
-      </div>
-      <div class="four columns">
-        <div class="beige-circle" id="phone"></div>
-        <h5>Selfie Cameras</h5>
-        <p>
-          The selfie camera has seen an explosion in popularity, used to take high quality stills and video. The size constraints for a front facing camera are particularly demanding. The compact and simple structure of SMA provides the best solution to include OIS into selfie cameras.
-        </p>
-      </div>
+      {{/each}}
     </div>
     <hr />
-    <div class="row">
-      <div class="six columns">
-        <h2>AutoFocus + OIS</h2>
-        <p>
-          AutoFocus (AF) cameras first launched in an international handset in mid-2005. They may now be found in more than 90% of the 1.4 billion smartphones shipping each year.
-        </p>
-        <p>
-          Cameras enabled with both AF and OIS began shipping in international smartphones in late 2012. Consumers’ appetite for enhanced camera performance has led to an adoption rate of 15% of in 2015. However, this feature remains predominantly in high-end handsets and has not yet significantly penetrated the high volume, mainstream smartphone market. In order to do so, the difference in size and cost of AF+OIS actuators need to dramatically reduce.
-        </p>
-      </div>
-      <div class="six columns">
-        <p>
-          CML is developing an actuator using its smart metal technology for both AF and OIS functions. The result is a highly integrated and simple structure, smaller in size than standard AF-only VCM products. Our aim is to reduce the difference in size and cost of AF and AF+OIS cameras to allow OIS functionality to be included in almost every smartphone.
-        </p>
-      </div>
-    </div>
+    {{structuredText pageContent.data.[oispage.autofocus-ois-body]}}
   </div>
 </main>
