@@ -284,7 +284,7 @@ nav {
   .hero.careers {
     background: url("/images/slides/AdobeStock_106790617_WM.jpeg") center/cover no-repeat; }
   .hero.news {
-    background: url("/images/slides/AdobeStock_99168216_WM.jpeg") center/cover no-repeat; }
+    background: url("/images/slides/AdobeStock_99168216_1200.jpg") center/cover no-repeat; }
   .hero .bg-grey {
     background: #484C56; }
   .hero p {
@@ -596,8 +596,8 @@ footer {
     background-size: 140%; }
   .gemini_exploded {
     background-size: contain; }
-  .ois .four.columns h5,
-  .contact h5 {
+  .contact h5,
+  .ois .four.columns h5 {
     padding: 0 10px;
     margin-bottom: 1rem; }
   .small-box h5 {
@@ -621,10 +621,10 @@ footer {
     padding: 0 10px; }
   .team-member {
     margin-bottom: 20px; }
-  .sitenavigation a,
-  .sitenavigation li,
   .about .milestones,
-  .milestones p {
+  .milestones p,
+  .sitenavigation a,
+  .sitenavigation li {
     padding: 0; }
   nav .logo {
     margin-left: -20px; }
@@ -679,12 +679,12 @@ footer {
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
+  .about .milestones .milestone,
+  .career,
   .four.columns,
   .news .news-item,
   .team .team-member,
-  .three.columns,
-  .about .milestones .milestone,
-  .career {
+  .three.columns {
     width: 100%; } }
 
 /* Custom, iPhone Retina */
