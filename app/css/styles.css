@@ -227,6 +227,7 @@ nav {
   box-sizing: border-box; }
 
 .about .milestones {
+  margin-top: 20px;
   padding: 20px;
   color: #262261; }
   .about .milestones .milestone {
