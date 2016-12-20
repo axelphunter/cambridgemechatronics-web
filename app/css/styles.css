@@ -112,7 +112,13 @@ input[type="submit"] {
       display: inline-block;
       width: 100%;
       height: 300px;
+      padding: 0;
       margin: 0; }
+      .slider .slides li .inner {
+        display: block; }
+        .slider .slides li .inner h2 {
+          line-height: 300px;
+          margin: 0; }
   .slider .next,
   .slider .prev {
     position: absolute;
