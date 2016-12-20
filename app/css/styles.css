@@ -47,7 +47,8 @@ hr {
 img {
   max-width: 100%; }
 
-p, li {
+li,
+p {
   color: #484C56; }
 
 .larger {
@@ -315,7 +316,7 @@ footer {
   padding: 40px 0;
   background: #484C56;
   color: #fff; }
-  footer p {
+  footer p, footer li {
     color: #fff; }
   footer ul {
     list-style: none; }
