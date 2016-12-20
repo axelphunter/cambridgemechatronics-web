@@ -3,7 +3,11 @@
     <div class="frame js_frame">
       <ul class="slides js_slides">
         {{#each pageContent.data.[homepage.hero-images].value}}
-        <li style="background: url('{{[hero-image].value.main.url}}') center / cover no-repeat"></li>
+        <li class="hero" style="background: url('{{[hero-image].value.main.url}}') center / cover no-repeat">
+          <div class="inner">
+            <h2 class="{{[header-colour].value}}">{{[header-text].value}}</h2>
+          </div>
+        </li>
         {{/each}}
       </ul>
     </div>

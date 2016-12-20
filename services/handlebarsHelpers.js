@@ -29,6 +29,9 @@ module.exports = {
           case 'image':
             response += `<img src='${val.url}' alt='${val.alt}'/>`;
             break;
+          case 'list-item':
+            response += `<li>${val.text}</li>`;
+            break;
           default:
             response += `<p>${val.text}</p>`;
         }
