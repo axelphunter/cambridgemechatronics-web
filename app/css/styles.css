@@ -47,7 +47,7 @@ hr {
 img {
   max-width: 100%; }
 
-p {
+p, li {
   color: #484C56; }
 
 .larger {
@@ -227,6 +227,7 @@ nav {
   box-sizing: border-box; }
 
 .about .milestones {
+  margin-top: 20px;
   padding: 20px;
   color: #262261; }
   .about .milestones .milestone {

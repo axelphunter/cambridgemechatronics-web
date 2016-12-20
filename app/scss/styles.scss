@@ -76,6 +76,7 @@ img {
   max-width: 100%;
 }
 
+li,
 p {
   color: $dark-grey-color;
 }
@@ -328,6 +329,7 @@ nav {
 
 .about {
   .milestones {
+    margin-top: 20px;
     padding: 20px;
     color: $primary-color;
 
