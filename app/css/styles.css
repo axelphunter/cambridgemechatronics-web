@@ -47,7 +47,7 @@ hr {
 img {
   max-width: 100%; }
 
-p {
+p, li {
   color: #484C56; }
 
 .larger {
