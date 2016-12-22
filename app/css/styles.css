@@ -237,9 +237,6 @@ nav {
     padding: 20px;
     box-sizing: border-box;
     vertical-align: top; }
-    .about .milestones .milestone p:first-of-type {
-      font-size: 2.4rem;
-      color: #262261; }
   .about .milestones .logo {
     width: 80%;
     height: 70px; }
@@ -316,7 +313,8 @@ footer {
   padding: 40px 0;
   background: #484C56;
   color: #fff; }
-  footer p, footer li {
+  footer li,
+  footer p {
     color: #fff; }
   footer ul {
     list-style: none; }

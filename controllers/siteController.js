@@ -1,22 +1,22 @@
 'use strict';
 
 const config = require('config');
-const fs = require('fs');
 const prismicConfig = require('../configuration/prismic');
 const prismic = require('prismic.io');
 
 // */ controllers
 module.exports = {
   getHome(req, res) {
-    const slides = fs.readdirSync(`${config.rootPath}/images/hero-images`);
     prismicConfig
       .api(req, res)
       .then((api) => {
-        return api.query(prismic.Predicates.at('document.type', 'homepage'));
+        const query = api.query(prismic.Predicates.at('document.type', 'homepage'));
+        return query;
       })
       .then((pageContent) => {
         res.render('home', {
           pageName: 'Home',
+          ctx: res.locals.ctx,
           pageContent: pageContent.results[0],
           metaData: config.metaData
         });
@@ -27,11 +27,13 @@ module.exports = {
     prismicConfig
       .api(req, res)
       .then((api) => {
-        return api.query(prismic.Predicates.at('document.type', 'aboutpage'));
+        const query = api.query(prismic.Predicates.at('document.type', 'aboutpage'));
+        return query;
       })
       .then((pageContent) => {
         res.render('about', {
           pageName: 'About',
+          ctx: res.locals.ctx,
           active_about: true,
           pageContent: pageContent.results[0],
           metaData: config.metaData
@@ -43,11 +45,13 @@ module.exports = {
     prismicConfig
       .api(req, res)
       .then((api) => {
-        return api.query(prismic.Predicates.at('document.type', 'technologypage'));
+        const query = api.query(prismic.Predicates.at('document.type', 'technologypage'));
+        return query;
       })
       .then((pageContent) => {
         res.render('technology', {
           pageName: 'Technology',
+          ctx: res.locals.ctx,
           active_tech: true,
           pageContent: pageContent.results[0],
           metaData: config.metaData
@@ -59,11 +63,13 @@ module.exports = {
     prismicConfig
       .api(req, res)
       .then((api) => {
-        return api.query(prismic.Predicates.at('document.type', 'ourplatformtechnologypa'));
+        const query = api.query(prismic.Predicates.at('document.type', 'ourplatformtechnologypa'));
+        return query;
       })
       .then((pageContent) => {
         res.render('our-platform-technology', {
           pageName: 'Our Platform Technology',
+          ctx: res.locals.ctx,
           active_tech: true,
           pageContent: pageContent.results[0],
           metaData: config.metaData
@@ -75,11 +81,13 @@ module.exports = {
     prismicConfig
       .api(req, res)
       .then((api) => {
-        return api.query(prismic.Predicates.at('document.type', 'oispage'));
+        const query = api.query(prismic.Predicates.at('document.type', 'oispage'));
+        return query;
       })
       .then((pageContent) => {
         res.render('ois', {
           pageName: 'OIS',
+          ctx: res.locals.ctx,
           active_tech: true,
           pageContent: pageContent.results[0],
           metaData: config.metaData
@@ -91,11 +99,13 @@ module.exports = {
     prismicConfig
       .api(req, res)
       .then((api) => {
-        return api.query(prismic.Predicates.at('document.type', 'contactpage'));
+        const query = api.query(prismic.Predicates.at('document.type', 'contactpage'));
+        return query;
       })
       .then((pageContent) => {
         res.render('contact', {
           pageName: 'Contact',
+          ctx: res.locals.ctx,
           active_contact: true,
           pageContent: pageContent.results[0],
           metaData: config.metaData
@@ -107,19 +117,22 @@ module.exports = {
     prismicConfig
       .api(req, res)
       .then((api) => {
-        return api.query(prismic.Predicates.at('document.type', 'news'));
+        const query = api.query(prismic.Predicates.at('document.type', 'news'));
+        return query;
       })
       .then((pageContent) => {
         pageContent
           .results
           .sort((a, b) => {
-            return new Date(a.data['news.post-date'].value) - new Date(b.data['news.post-date'].value);
+            const sorter = new Date(a.data['news.post-date'].value) - new Date(b.data['news.post-date'].value);
+            return sorter;
           });
         pageContent
           .results
           .reverse();
         res.render('news', {
           pageName: 'News',
+          ctx: res.locals.ctx,
           active_news: true,
           pageContent,
           metaData: config.metaData
@@ -141,18 +154,19 @@ module.exports = {
         if (pageContent) {
           return res.render('news-item', {
             pageName: 'News',
+            ctx: res.locals.ctx,
             active_news: true,
             pageContent,
             metaData: config.metaData
           });
         }
         res.status(404);
-        res.render('404', {
+        return res.render('404', {
           pageName: '404',
           metaData: config.metaData
         });
       })
-      .catch((err) => {
+      .catch(() => {
         res.status(404);
         res.render('404', {
           pageName: '404',
@@ -165,11 +179,13 @@ module.exports = {
     prismicConfig
       .api(req, res)
       .then((api) => {
-        return api.query(prismic.Predicates.at('document.type', 'careerspage'));
+        const query = api.query(prismic.Predicates.at('document.type', 'careerspage'));
+        return query;
       })
       .then((pageContent) => {
         res.render('careers', {
           pageName: 'Careers',
+          ctx: res.locals.ctx,
           active_careers: true,
           pageContent: pageContent.results[0],
           metaData: config.metaData
@@ -181,11 +197,13 @@ module.exports = {
     prismicConfig
       .api(req, res)
       .then((api) => {
-        return api.query(prismic.Predicates.at('document.type', 'teampage'));
+        const query = api.query(prismic.Predicates.at('document.type', 'teampage'));
+        return query;
       })
       .then((pageContent) => {
         res.render('team', {
           pageName: 'Team',
+          ctx: res.locals.ctx,
           active_team: true,
           pageContent: pageContent.results[0],
           metaData: config.metaData

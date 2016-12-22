@@ -1,17 +1,17 @@
 <main class="careers">
   <div class="container">
-    <div class="hero margin careers" style="background-image: url('{{pageContent.data.[careerspage.hero].value.main.url}}')">
+    <div class="hero margin careers" style="background-image: url('{{image pageContent 'careerspage.hero'}}')">
       <div class="inner">
         <h2 class="indigo">Careers</h2>
       </div>
     </div>
-    {{structuredText pageContent.data.[careerspage.body]}}
-    {{#each pageContent.data.[careerspage.career].value}}
-      {{structuredText body}}
+    {{structuredText pageContent 'careerspage.body' ctx}}
+    {{#group pageContent 'careerspage.career'}}
+      {{structuredText this 'body' ../ctx}}
       {{#if job-spec}}
       <a class="link" href="#">Download full job spec</a>
       {{/if}}
       <hr />
-    {{/each}}
+    {{/group}}
   </div>
 </main>

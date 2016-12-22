@@ -1,18 +1,18 @@
 <main class="about">
   <div class="container">
-    <div class="hero about margin" style="background-image: url('{{pageContent.data.[aboutpage.hero].value.main.url}}')">
+    <div class="hero about margin" style="background-image: url('{{image pageContent 'aboutpage.hero'}}')">
       <div class="inner">
         <h2>About</h2>
       </div>
     </div>
-    {{structuredText pageContent.data.[aboutpage.body]}}
+    {{structuredText pageContent 'aboutpage.body' ctx}}
     <section class="bg-beige milestones">
-      {{#each pageContent.data.[aboutpage.milestones].value}}
+      {{#group pageContent 'aboutpage.milestones'}}
         <div class="milestone">
-          <div class="logo" style="background-image: url('{{logo.value.main.url}}')"></div>
-          {{structuredText body}}
+          <div class="logo" style="background-image: url('{{image this 'logo'}}')"></div>
+          {{structuredText this 'body' ../ctx}}
         </div>
-      {{/each}}
+      {{/group}}
     </section>
   </div>
 </main>

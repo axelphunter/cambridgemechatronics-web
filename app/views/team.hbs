@@ -1,64 +1,70 @@
 <main class="team">
     <div class="container">
-        <div class="hero team-bg margin" style="background-image: url('{{pageContent.data.[teampage.hero].value.main.url}}')">
+        <div class="hero team-bg margin" style="background-image: url('{{image pageContent 'teampage.hero'}}')">
             <div class="inner">
                 <h2 class="indigo">Team</h2>
             </div>
         </div>
-        {{structuredText pageContent.data.[teampage.body]}}
+        {{structuredText pageContent 'teampage.body' ctx}}
         <h3 class="wow fadeInUp">Board</h3>
-        {{#each pageContent.data.[teampage.board].value}}
+        {{#group pageContent 'teampage.board'}}
           <div class="team-member">
-              <div class="avatar" style="background-image: url('{{image.value.main.url}}')">
+              <div class="avatar" style="background-image: url('{{image this 'image'}}')">
               </div>
-              <h4>{{name.value}}</h4>
-              <h4>{{title.value}}</h4>
-              {{#if bio}}
+              <h4>{{text this 'name'}}</h4>
+              {{#if data.title}}
+              <h4>{{text this 'title'}}</h4>
+              {{/if}}
+              {{#if data.bio}}
               <div class="link toggle-text">
                   Read More +
               </div>
               <div class="text">
-                  {{structuredText bio}}
+                  {{structuredText this 'bio' ../ctx}}
               </div>
               {{/if}}
           </div>
-        {{/each}}
+        {{/group}}
         <hr/>
         <h3 class="wow fadeInUp">Advisers</h3>
-        {{#each pageContent.data.[teampage.board-advisors].value}}
-          <div class="team-member">
-              <div class="avatar" style="background-image: url('{{image.value.main.url}}')">
-              </div>
-              <h4>{{name.value}}</h4>
-              <h4>{{title.value}}</h4>
-              {{#if bio}}
-              <div class="link toggle-text">
-                  Read More +
-              </div>
-              <div class="text">
-                  {{structuredText bio}}
-              </div>
-              {{/if}}
-          </div>
-        {{/each}}
+        {{#group pageContent 'teampage.board-advisors'}}
+        <div class="team-member">
+            <div class="avatar" style="background-image: url('{{image this 'image'}}')">
+            </div>
+            <h4>{{text this 'name'}}</h4>
+            {{#if data.title}}
+            <h4>{{text this 'title'}}</h4>
+            {{/if}}
+            {{#if data.bio}}
+            <div class="link toggle-text">
+                Read More +
+            </div>
+            <div class="text">
+                {{structuredText this 'bio' ../ctx}}
+            </div>
+            {{/if}}
+        </div>
+        {{/group}}
         <hr/>
         <h3 class="wow fadeInUp">Senior Management</h3>
-        {{#each pageContent.data.[teampage.senior-management].value}}
-          <div class="team-member">
-              <div class="avatar" style="background-image: url('{{image.value.main.url}}')">
-              </div>
-              <h4>{{name.value}}</h4>
-              <h4>{{title.value}}</h4>
-              {{#if bio}}
-              <div class="link toggle-text">
-                  Read More +
-              </div>
-              <div class="text">
-                  {{structuredText bio}}
-              </div>
-              {{/if}}
-          </div>
-        {{/each}}
+        {{#group pageContent 'teampage.senior-management'}}
+        <div class="team-member">
+            <div class="avatar" style="background-image: url('{{image this 'image'}}')">
+            </div>
+            <h4>{{text this 'name'}}</h4>
+            {{#if data.title}}
+            <h4>{{text this 'title'}}</h4>
+            {{/if}}
+            {{#if data.bio}}
+            <div class="link toggle-text">
+                Read More +
+            </div>
+            <div class="text">
+                {{structuredText this 'bio' ../ctx}}
+            </div>
+            {{/if}}
+        </div>
+        {{/group}}
         <!-- <hr/>
         <h3 class="wow fadeInUp">Technical Team</h3>
         {{#each pageContent.data.[teampage.technical-team].value}}

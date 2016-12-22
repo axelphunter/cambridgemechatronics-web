@@ -2,13 +2,13 @@
   <div class="slider js_percentage percentage">
     <div class="frame js_frame">
       <ul class="slides js_slides">
-        {{#each pageContent.data.[homepage.hero-images].value}}
-        <li class="hero" style="background: url('{{[hero-image].value.main.url}}') center / cover no-repeat">
+        {{#group pageContent 'homepage.hero-images'}}
+        <li class="hero" style="background: url('{{image this 'hero-image'}}') center / cover no-repeat">
           <div class="inner">
-            <h2 class="{{[header-colour].value}}">{{[header-text].value}}</h2>
+            <h2 class="{{[header-colour].value}}">{{text this 'header-text'}}</h2>
           </div>
         </li>
-        {{/each}}
+        {{/group}}
       </ul>
     </div>
     <span class="js_prev prev">

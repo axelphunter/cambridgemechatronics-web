@@ -3,24 +3,24 @@
   <div class="container">
     <div class="row">
       <div class="col-2">
-        {{structuredText pageContent.data.[homepage.high-technology-design-body]}}
+        {{structuredText pageContent 'homepage.high-technology-design-body' ctx}}
         <a class="link" href="/about">About ></a>
       </div>
-      <div class="col-2 about-bg" style="background-image: url('{{pageContent.data.[homepage.high-technology-design-image].value.main.url}}')"></div>
+      <div class="col-2 about-bg" style="background-image: url('{{image pageContent 'homepage.high-technology-design-image'}}')"></div>
     </div>
     <div class="row">
-      <div class="col-2 team-bg" style="background-image: url('{{pageContent.data.[homepage.complementary-skills-image].value.main.url}}')"></div>
+      <div class="col-2 team-bg" style="background-image: url('{{image pageContent 'homepage.complementary-skills-image'}}')"></div>
       <div class="col-2 bg-darkgrey">
-        {{structuredText pageContent.data.[homepage.complementary-skills-body]}}
+        {{structuredText pageContent 'homepage.complementary-skills-body' ctx}}
         <a class="link" href="/team">Team ></a>
       </div>
     </div>
     <div class="row">
       <div class="col-2  bg-beige">
-        {{structuredText pageContent.data.[homepage.innovative-materials-body]}}
+        {{structuredText pageContent 'homepage.innovative-materials-body' ctx}}
         <a class="link" href="/technology">Technology ></a>
       </div>
-      <div class="col-2 technology-bg" style="background-image: url('{{pageContent.data.[homepage.innovative-materials-image].value.main.url}}')"></div>
+      <div class="col-2 technology-bg" style="background-image: url('{{image pageContent 'homepage.innovative-materials-image'}}')"></div>
     </div>
   </div>
 </main>
