@@ -143,7 +143,7 @@ input[type="submit"] {
       .slider .slides li .inner {
         display: block; }
         .slider .slides li .inner h2 {
-          line-height: 300px;
+          line-height: 250px;
           margin: 0; }
   .slider .next,
   .slider .prev {
@@ -401,7 +401,7 @@ footer {
   height: 36px; }
 
 .gemini_image {
-  background: url(/images/gemini_assy_shadow.jpg) center/170% no-repeat; }
+  background: url("/images/gemini_assy_shadow.jpg") center/170% no-repeat; }
 
 .gemini_exploded {
   background: url("/images/gemini_exploded.jpg") center/90% no-repeat; }
