@@ -24,6 +24,12 @@ body {
   color: #262261;
   min-width: 320px; }
 
+.not-mobile {
+  display: block; }
+
+.mobile {
+  display: none; }
+
 .logo {
   background: url("/images/logo.svg") center left/contain no-repeat;
   text-indent: -99999px;
@@ -587,6 +593,10 @@ footer {
 /* Large Devices, Wide Screens */
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
+  .mobile {
+    display: block; }
+  .not-mobile {
+    display: none; }
   footer {
     padding: 40px 10px; } }
 
