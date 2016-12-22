@@ -22,7 +22,25 @@ body {
   font-family: 'Assistant', sans-serif;
   padding-top: 80px;
   color: #262261;
-  min-width: 320px; }
+  min-width: 320px;
+  -webkit-overflow-scrolling: touch; }
+
+.plus-circle,
+.plus-circle-light {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px; }
+
+.plus-circle {
+  background: url("/images/plus-circle.png") center/cover no-repeat; }
+
+.plus-circle-light {
+  background: url("/images/plus-circle-light.png") center/cover no-repeat; }
+
+ul {
+  list-style: disc inside; }
 
 .not-mobile {
   display: block; }
@@ -185,6 +203,7 @@ nav {
   padding: 60px 20px;
   width: 50%;
   float: left;
+  position: relative;
   box-sizing: border-box;
   flex: 1; }
   .col-2.soft-padding {
@@ -292,7 +311,8 @@ nav {
   overflow: hidden;
   width: 100%;
   padding: 20px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  position: relative; }
   .hero .inner {
     display: table-cell;
     vertical-align: middle; }
@@ -593,6 +613,8 @@ footer {
 /* Large Devices, Wide Screens */
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
+  .ois-features .feature {
+    width: 100%; }
   .mobile {
     display: block; }
   .not-mobile {
