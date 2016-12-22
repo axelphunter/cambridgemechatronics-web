@@ -5,7 +5,7 @@
         {{#group pageContent 'homepage.hero-images'}}
         <li class="hero" style="background: url('{{image this 'hero-image'}}') center / cover no-repeat">
           <div class="inner">
-            <h2 class="{{[header-colour].value}}">{{text this 'header-text'}}</h2>
+            <h2 class="{{text this 'header-colour'}}">{{text this 'header-text'}}</h2>
           </div>
         </li>
         {{/group}}
