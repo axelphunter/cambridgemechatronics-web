@@ -1,23 +1,23 @@
 <main class="ois">
   <div class="container">
-    <div class="hero technology-slide-two" style="background-image: url('{{pageContent.data.[oispage.hero].value.main.url}}')">
+    <div class="hero technology-slide-two" style="background-image: url('{{image pageContent 'oispage.hero'}}')">
       <div class="inner">
         <h2>AutoFocus & Optical Image Stabilisation</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-2">
-        {{structuredText pageContent.data.[oispage.ois-body]}}
+        {{structuredText pageContent 'oispage.ois-body' ctx}}
       </div>
       <div class="col-2 gemini_image"></div>
     </div>
     <div class="row">
-      <div class="col-2 ois-on" style="background-image: url('{{pageContent.data.[oispage.ois-on-image].value.main.url}}')">
+      <div class="col-2 ois-on" style="background-image: url('{{image pageContent 'oispage.ois-on-image'}}')">
         <div class="small-box">
           <h5>OIS On</h5>
         </div>
       </div>
-      <div class="col-2 ois-off" style="background-image: url('{{pageContent.data.[oispage.ois-off-image].value.main.url}}')">
+      <div class="col-2 ois-off" style="background-image: url('{{image pageContent 'oispage.ois-off-image'}}')">
         <div class="small-box">
           <h5>OIS Off</h5>
         </div>
@@ -25,21 +25,21 @@
     </div>
     <div class="row">
       <div class="col-2">
-        {{structuredText pageContent.data.[oispage.simplicity-body]}}
+        {{structuredText pageContent 'oispage.simplicity-body' ctx}}
       </div>
       <div class="col-2 gemini_exploded"></div>
     </div>
     <hr />
     <div class="ois-features">
-      {{#each pageContent.data.[oispage.points-of-interest].value}}
+      {{#group pageContent 'oispage.points-of-interest'}}
       <div class="feature">
-        <div class="beige-circle" style="background-image: url('{{image.value.main.url}}')"></div>
-        <h5>{{header.value}}</h5>
-        {{structuredText body}}
+        <div class="beige-circle" style="background-image: url('{{image this 'image'}}')"></div>
+        <h5>{{text this 'header'}}</h5>
+        {{structuredText this 'body' ../ctx}}
       </div>
-      {{/each}}
+      {{/group}}
     </div>
     <hr />
-    {{structuredText pageContent.data.[oispage.autofocus-ois-body]}}
+    {{structuredText pageContent 'oispage.autofocus-ois-body' ctx}}
   </div>
 </main>

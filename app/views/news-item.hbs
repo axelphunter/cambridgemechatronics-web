@@ -9,25 +9,25 @@
       {{#if pageContent.data.[news.post-image]}}
       <div class="row">
         <div class="six columns">
-          <h2 class="wow fadeInDown">{{pageContent.data.[news.title].value.[0].text}}</h2>
+          <h2 class="wow fadeInDown">{{text pageContent 'news.title'}}</h2>
           <p class="date">
             {{dateFormat pageContent.data.[news.post-date].value}}
           </p>
           <div class="wow fadeInUp">
-            {{structuredText pageContent.data.[news.body]}}
+            {{structuredText pageContent 'news.body' ctx}}
           </div>
         </div>
         <div class="six columns">
-          <img src="{{pageContent.data.[news.post-image].value.main.url}}" alt="{{pageContent.data.[news.post-image].value.main.alt}}" />
+          <img src="{{image pageContent 'news.post-image'}}"/>
         </div>
       </div>
       {{else}}
-      <h2 class="wow fadeInDown">{{pageContent.data.[news.title].value.[0].text}}</h2>
+      <h2 class="wow fadeInDown">{{text pageContent 'news.title'}}</h2>
       <p class="date">
         {{dateFormat pageContent.data.[news.post-date].value}}
       </p>
       <div class="wow fadeInUp">
-        {{structuredText pageContent.data.[news.body]}}
+        {{structuredText pageContent 'news.body' ctx}}
       </div>
       {{/if}}
     </div>
