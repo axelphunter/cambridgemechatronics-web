@@ -28,8 +28,8 @@ body {
 .plus-circle,
 .plus-circle-light {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   position: absolute;
   top: 20px;
   right: 20px; }
@@ -700,6 +700,8 @@ footer {
       border-bottom: none; }
   .slider .slides li {
     height: 250px; }
+  .slider .slides li .inner h2 {
+    line-height: 229px; }
   .col-2 {
     width: 100%;
     min-height: 200px;
@@ -716,7 +718,8 @@ footer {
   .three.columns:nth-child(4) {
     width: 50%; }
   .technology .col-2 {
-    min-height: 200px; }
+    min-height: 200px;
+    margin-top: -22px; }
   .hero {
     height: 200px; }
   .four.columns {
@@ -726,6 +729,8 @@ footer {
   .team .infographic .text {
     width: 100%;
     text-align: center; }
+  .pull-txt-left {
+    font-size: 25px; }
   .news .news-item:nth-child(9n+1) {
     width: 100%; }
   .team .team-member {
