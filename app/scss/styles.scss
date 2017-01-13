@@ -780,6 +780,22 @@ footer {
   font-weight: bold;
 }
 
+.login-box {
+  padding: 10px 30px;
+  border: 1px solid #262261;
+  border-radius: 4px;
+  width: 480px;
+  margin: 130px auto;
+}
+
+.login-button {
+  display: block;
+}
+
+.psw {
+  float: right;
+}
+
 .team {
   .infographic {
     padding: 20px;

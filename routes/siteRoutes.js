@@ -16,4 +16,5 @@ module.exports = (app) => {
   app.get('/careers', siteController.getCareers);
   app.get('/team', siteController.getTeam);
   app.get('/terms', siteController.getTerms);
+  app.get('/login', siteController.getLogin);
 };

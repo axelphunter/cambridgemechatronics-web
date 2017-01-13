@@ -216,5 +216,12 @@ module.exports = {
       pageName: 'Terms and Conditions',
       metaData: config.metaData
     });
+  },
+
+  getLogin(req, res) {
+      res.render('login', {
+          pageName: 'Login',
+          metaData: config.metaData
+      });
   }
 };
