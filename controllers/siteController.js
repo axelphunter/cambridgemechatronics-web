@@ -223,5 +223,33 @@ module.exports = {
           pageName: 'Login',
           metaData: config.metaData
       });
+  },
+
+  getCreateUser(req, res) {
+      res.render('create-user', {
+          pageName: 'Create User',
+          metaData: config.metaData
+      });
+  },
+
+  getAdminPortalList(req, res) {
+      res.render('admin-portal-list', {
+          pageName: 'Admin Portal List',
+          metaData: config.metaData
+      });
+  },
+
+  getAdminPortalView(req, res) {
+      res.render('admin-portal-view', {
+          pageName: 'Admin Portal View',
+          metaData: config.metaData
+      });
+  },
+
+  getViewUsers(req, res) {
+      res.render('view-users', {
+          pageName: 'View Users',
+          metaData: config.metaData
+      });
   }
 };

@@ -786,368 +786,473 @@ footer {
   border-radius: 4px;
   width: 480px;
   margin: 130px auto;
-}
 
-.login-button {
-  display: block;
-}
-
-.psw {
-  float: right;
-}
-
-.team {
-  .infographic {
-    padding: 20px;
-    background: $dark-grey-color;
-    color: #fff;
-
-    .icon {
-      width: 15%;
-      margin-right: 2%;
-      height: 100%;
-      min-height: 100px;
-      display: inline-block;
-
-      &.users {
-        background: url('/images/icons/user-circle.svg') center top / contain no-repeat;
-      }
-
-      &.globe {
-        background: url('/images/icons/globe.svg') center top / contain no-repeat;
-      }
-
-      &.grad {
-        background: url('/images/icons/grad-circle.svg') center top / contain no-repeat;
-      }
-
-      &.badge {
-        background: url('/images/icons/badge.svg') center top / 100% no-repeat;
-      }
-    }
-
-    .text {
-      display: inline-block;
-      width: 72%;
-      vertical-align: top;
-
-      h2 {
-        font-size: 26px;
-      }
-
-      p {
-        margin-bottom: 0;
-        color: #fff;
-      }
-    }
-  }
-
-  .team-member {
-    display: inline-block;
-    width: 24%;
-    box-sizing: border-box;
-    padding: 0 10px 20px;
-    vertical-align: top;
-
-    .avatar {
-      width: 80px;
-      height: 80px;
-      background: $beige-color url('/images/icons/user.svg') center bottom / cover no-repeat;
-      border-radius: 100%;
-
-      &.andy-osmant {
-        background: url('/images/headshots/Andy_Osmant_120x120.jpg') center top / contain no-repeat;
-      }
-
-      &.ben-brown {
-        background: url('/images/headshots/Ben_Brown_120x120.jpg') center top / contain no-repeat;
-      }
-
-      &.dave-richards {
-        background: url('/images/headshots/Dave_Richards_120x120.jpg') center top / contain no-repeat;
-      }
-
-      &.dominic-edwards {
-        background: url('/images/headshots/Dominic_Edwards_120x120.jpg') center top / contain no-repeat;
-      }
-
-      &.ian-rodgers {
-        background: url('/images/headshots/Ian_Rogers_120x120.jpg') center top / contain no-repeat;
-      }
-
-      &.james-howarth {
-        background: url('/images/headshots/James_Howarth_120x120.jpg') center top / contain no-repeat;
-      }
-
-      &.jon-edwards {
-        background: url('/images/headshots/Jon_Edwards_120x120.jpg') center top / contain no-repeat;
-      }
-
-      &.martin-knight {
-        background: url('/images/headshots/Martin_Knight_120x120.jpg') center top / contain no-repeat;
-      }
-
-      &.ursula-lenel {
-        background: url('/images/headshots/Ursula_Lenel_120x120.jpg') center top / contain no-repeat;
-      }
-    }
-
-    h4 {
-      margin: 0;
-      font-size: 22px;
-    }
-
-    .text {
-      display: none;
-      color: $dark-grey-color;
-
-      &.active {
-        display: block;
-      }
-    }
-  }
-}
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width: 1200px) {}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width: 992px) {
-  .plus-circle,
-  .plus-circle-light {
+  .login-button {
     display: block;
+    width: 30%;
   }
 
-  h2 {
-    font-size: 2.5rem;
-  }
-
-  .ois-features .feature {
-    width: 100%;
-  }
-
-  .mobile {
-    display: block;
-  }
-
-  .not-mobile {
-    display: none;
-  }
-
-  footer {
-    padding: 40px 10px;
-  }
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width: 767px) {
-  a,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  li,
-  p {
-    padding: 10px;
-  }
-
-  .hamburger {
-    display: block;
+  .psw {
     float: right;
   }
 
-  .contact-email,
-  .logo,
-  .technology a,
-  footer a {
-    padding: 0;
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+  }
+}
+
+.view-users {
+  margin-bottom: 10px;
+
+  button:hover,
+  .button:hover {
+    border-color: #888;
   }
 
-  .gemini_image {
-    background-size: 140%;
+  .modalDialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
   }
 
-  .gemini_exploded {
-    background-size: contain;
+  .modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
   }
 
-  .contact h5,
-  .ois .four.columns h5 {
-    padding: 0 10px;
-    margin-bottom: 1rem;
-  }
-
-  .small-box h5 {
-    padding: 0;
-    line-height: 3.6rem;
-  }
-
-  .avatar,
-  .beige-circle,
-  .link.toggle-text {
-    margin-left: 10px;
-  }
-
-  .sitenavigation {
+  .modal {
+    width: 80%;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 4px;
     background: #fff;
-    display: none;
+  }
 
-    &.active {
+  .delete-Modal {
+    width: 30%;
+  }
+
+  .close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+  }
+
+  .close:hover {
+    background: #0fa0ce;
+  }
+
+  h4 {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  .amend-user {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+.create-user {
+  margin-bottom: 10px;
+
+  input {
+    width: 100%;
+  }
+
+  select {
+    width: 100%;
+  }
+
+  form {
+    margin-bottom: 0.5em;
+  }
+
+  .submit {
+    float: right;
+  }
+}
+
+  .team {
+    .infographic {
+      padding: 20px;
+      background: $dark-grey-color;
+      color: #fff;
+
+      .icon {
+        width: 15%;
+        margin-right: 2%;
+        height: 100%;
+        min-height: 100px;
+        display: inline-block;
+
+        &.users {
+          background: url('/images/icons/user-circle.svg') center top / contain no-repeat;
+        }
+
+        &.globe {
+          background: url('/images/icons/globe.svg') center top / contain no-repeat;
+        }
+
+        &.grad {
+          background: url('/images/icons/grad-circle.svg') center top / contain no-repeat;
+        }
+
+        &.badge {
+          background: url('/images/icons/badge.svg') center top / 100% no-repeat;
+        }
+      }
+
+      .text {
+        display: inline-block;
+        width: 72%;
+        vertical-align: top;
+
+        h2 {
+          font-size: 26px;
+        }
+
+        p {
+          margin-bottom: 0;
+          color: #fff;
+        }
+      }
+    }
+
+    .team-member {
+      display: inline-block;
+      width: 24%;
+      box-sizing: border-box;
+      padding: 0 10px 20px;
+      vertical-align: top;
+
+      .avatar {
+        width: 80px;
+        height: 80px;
+        background: $beige-color url('/images/icons/user.svg') center bottom / cover no-repeat;
+        border-radius: 100%;
+
+        &.andy-osmant {
+          background: url('/images/headshots/Andy_Osmant_120x120.jpg') center top / contain no-repeat;
+        }
+
+        &.ben-brown {
+          background: url('/images/headshots/Ben_Brown_120x120.jpg') center top / contain no-repeat;
+        }
+
+        &.dave-richards {
+          background: url('/images/headshots/Dave_Richards_120x120.jpg') center top / contain no-repeat;
+        }
+
+        &.dominic-edwards {
+          background: url('/images/headshots/Dominic_Edwards_120x120.jpg') center top / contain no-repeat;
+        }
+
+        &.ian-rodgers {
+          background: url('/images/headshots/Ian_Rogers_120x120.jpg') center top / contain no-repeat;
+        }
+
+        &.james-howarth {
+          background: url('/images/headshots/James_Howarth_120x120.jpg') center top / contain no-repeat;
+        }
+
+        &.jon-edwards {
+          background: url('/images/headshots/Jon_Edwards_120x120.jpg') center top / contain no-repeat;
+        }
+
+        &.martin-knight {
+          background: url('/images/headshots/Martin_Knight_120x120.jpg') center top / contain no-repeat;
+        }
+
+        &.ursula-lenel {
+          background: url('/images/headshots/Ursula_Lenel_120x120.jpg') center top / contain no-repeat;
+        }
+      }
+
+      h4 {
+        margin: 0;
+        font-size: 22px;
+      }
+
+      .text {
+        display: none;
+        color: $dark-grey-color;
+
+        &.active {
+          display: block;
+        }
+      }
+    }
+  }
+
+  /* Large Devices, Wide Screens */
+  @media only screen and (max-width: 1200px) {}
+
+  /* Medium Devices, Desktops */
+  @media only screen and (max-width: 992px) {
+    .plus-circle,
+    .plus-circle-light {
       display: block;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    .ois-features .feature {
       width: 100%;
-      position: fixed;
-      left: 0;
-      right: 0;
-      top: 60px;
+    }
+
+    .mobile {
+      display: block;
+    }
+
+    .not-mobile {
+      display: none;
+    }
+
+    footer {
+      padding: 40px 10px;
     }
   }
 
-  .team-member h4 {
-    padding: 0 10px;
-  }
-
-  .team-member {
-    margin-bottom: 20px;
-  }
-
-  .about .milestones,
-  .milestones p,
-  .sitenavigation a,
-  .sitenavigation li {
-    padding: 0;
-
-  }
-
-  nav .logo {
-    margin-left: -20px;
-  }
-
-  .sitenavigation .button {
-    padding: 0 30px;
-
-  }
-
-  .about .milestones .milestone,
-  .career {
-    width: 49%;
-    padding: 20px 10px;
-  }
-
-  nav ul li {
-    width: 100%;
-    text-align: center;
-    margin-left: 0;
-
-    &.active {
-      border-bottom: none;
-      color: #1EAEDB;
+  /* Small Devices, Tablets */
+  @media only screen and (max-width: 767px) {
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    li,
+    p {
+      padding: 10px;
     }
 
-    &:hover {
-      border-bottom: none;
+    .hamburger {
+      display: block;
+      float: right;
     }
+
+    .contact-email,
+    .logo,
+    .technology a,
+    footer a {
+      padding: 0;
+    }
+
+    .gemini_image {
+      background-size: 140%;
+    }
+
+    .gemini_exploded {
+      background-size: contain;
+    }
+
+    .contact h5,
+    .ois .four.columns h5 {
+      padding: 0 10px;
+      margin-bottom: 1rem;
+    }
+
+    .small-box h5 {
+      padding: 0;
+      line-height: 3.6rem;
+    }
+
+    .avatar,
+    .beige-circle,
+    .link.toggle-text {
+      margin-left: 10px;
+    }
+
+    .sitenavigation {
+      background: #fff;
+      display: none;
+
+      &.active {
+        display: block;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 60px;
+      }
+    }
+
+    .team-member h4 {
+      padding: 0 10px;
+    }
+
+    .team-member {
+      margin-bottom: 20px;
+    }
+
+    .about .milestones,
+    .milestones p,
+    .sitenavigation a,
+    .sitenavigation li {
+      padding: 0;
+
+    }
+
+    nav .logo {
+      margin-left: -20px;
+    }
+
+    .sitenavigation .button {
+      padding: 0 30px;
+
+    }
+
+    .about .milestones .milestone,
+    .career {
+      width: 49%;
+      padding: 20px 10px;
+    }
+
+    nav ul li {
+      width: 100%;
+      text-align: center;
+      margin-left: 0;
+
+      &.active {
+        border-bottom: none;
+        color: #1EAEDB;
+      }
+
+      &:hover {
+        border-bottom: none;
+      }
+    }
+
+    .slider .slides li {
+      height: 250px;
+
+    }
+
+    .slider .slides li .inner h2 {
+      line-height: 229px;
+    }
+
+    .col-2 {
+      width: 100%;
+      min-height: 200px;
+      padding: 0;
+
+    }
+
+    .home .col-2 {
+      padding: 20px 10px;
+
+    }
+
+    .row {
+      display: block;
+
+    }
+
+    .three.columns {
+      width: 50%;
+
+    }
+
+    .columns {
+      margin-left: 0;
+
+    }
+
+    .three.columns:nth-child(3),
+    .three.columns:nth-child(4) {
+      width: 50%;
+
+    }
+
+    .technology .col-2 {
+      min-height: 200px;
+      margin-top: -22px;
+
+    }
+
+    .hero {
+      height: 200px;
+
+    }
+
+    .four.columns {
+      width: 50%;
+
+    }
+
+    .news .news-item {
+      width: 50%;
+
+    }
+
+    .team .infographic .text {
+      width: 100%;
+      text-align: center;
+
+    }
+
+    .pull-txt-left {
+      font-size: 25px;
+
+    }
+
+    .news .news-item:nth-child(9n+1) {
+      width: 100%;
+
+    }
+
+    .team .team-member {
+      width: 50%;
+      padding: 0;
+
+    }
+
   }
 
-  .slider .slides li {
-    height: 250px;
+  /* Extra Small Devices, Phones */
+  @media only screen and (max-width: 480px) {
+    .about .milestones .milestone,
+    .career,
+    .four.columns,
+    .news .news-item,
+    .team .team-member,
+    .three.columns {
+      width: 100%;
+    }
 
   }
 
-  .slider .slides li .inner h2 {
-    line-height: 229px;
-  }
-
-  .col-2 {
-    width: 100%;
-    min-height: 200px;
-    padding: 0;
-
-  }
-
-  .home .col-2 {
-    padding: 20px 10px;
-
-  }
-
-  .row {
-    display: block;
-
-  }
-
-  .three.columns {
-    width: 50%;
-
-  }
-
-  .columns {
-    margin-left: 0;
-
-  }
-
-  .three.columns:nth-child(3),
-  .three.columns:nth-child(4) {
-    width: 50%;
-
-  }
-
-  .technology .col-2 {
-    min-height: 200px;
-    margin-top: -22px;
-
-  }
-
-  .hero {
-    height: 200px;
-
-  }
-
-  .four.columns {
-    width: 50%;
-
-  }
-
-  .news .news-item {
-    width: 50%;
-
-  }
-
-  .team .infographic .text {
-    width: 100%;
-    text-align: center;
-
-  }
-
-  .pull-txt-left {
-    font-size: 25px;
-
-  }
-
-  .news .news-item:nth-child(9n+1) {
-    width: 100%;
-
-  }
-
-  .team .team-member {
-    width: 50%;
-    padding: 0;
-
-  }
-
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (max-width: 480px) {
-  .about .milestones .milestone,
-  .career,
-  .four.columns,
-  .news .news-item,
-  .team .team-member,
-  .three.columns {
-    width: 100%;
-  }
-
-}
-
-/* Custom, iPhone Retina */
-@media only screen and (max-width: 320px) {}
+  /* Custom, iPhone Retina */
+  @media only screen and (max-width: 320px) {}

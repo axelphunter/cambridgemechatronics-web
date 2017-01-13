@@ -1,0 +1,37 @@
+<main class="news-item">
+  <div class="container">
+      <div class="user-logged">
+          <a class="button" href="/login">Log off</a>
+      </div>
+      <form class="pull-right">
+          <input type="text" placeholder="Search..." required>
+          <input type="button" value="Search">
+      </form>
+    <div class="padded">
+      {{#if pageContent.data.[news.post-image]}}
+      <div class="row">
+        <div class="six columns">
+          <h2 class="wow fadeInDown">{{text pageContent 'news.title'}}</h2>
+          <p class="date">
+            {{dateFormat pageContent.data.[news.post-date].value}}
+          </p>
+          <div class="wow fadeInUp">
+            {{structuredText pageContent 'news.body' ctx}}
+          </div>
+        </div>
+        <div class="six columns">
+          <img src="{{image pageContent 'news.post-image'}}"/>
+        </div>
+      </div>
+      {{else}}
+      <h2 class="wow fadeInDown">{{text pageContent 'news.title'}}</h2>
+      <p class="date">
+        {{dateFormat pageContent.data.[news.post-date].value}}
+      </p>
+      <div class="wow fadeInUp">
+        {{structuredText pageContent 'news.body' ctx}}
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</main>

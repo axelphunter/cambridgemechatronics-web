@@ -17,4 +17,8 @@ module.exports = (app) => {
   app.get('/team', siteController.getTeam);
   app.get('/terms', siteController.getTerms);
   app.get('/login', siteController.getLogin);
+  app.get('/admin-portal-list', siteController.getAdminPortalList);
+  app.get('/admin-portal-view', siteController.getAdminPortalView);
+  app.get('/view-users', siteController.getViewUsers);
+  app.get('/create-user', siteController.getCreateUser);
 };

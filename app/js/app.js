@@ -23,14 +23,14 @@ var app = {
       }
       sitenavigation
         .classList
-        .add('active')
+        .add('active');
       sitenavigation
         .classList
         .remove('fadeOutRight');
       sitenavigation
         .classList
         .add('fadeInRight')
-    }
+    };
 
     if (window.location.hash) {
       var i = 0;
