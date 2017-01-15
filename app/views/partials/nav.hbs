@@ -29,8 +29,13 @@
       {{/if}}
       {{#if authenticated}}
       <li>
-        <a href="/admin/dashboard">Dashboard</a>
+        <a href="/admin">Dashboard</a>
       </li>
+      {{#if userId}}
+      <li>
+        <a href="/admin/user/{{userId}}">My Account</a>
+      </li>
+      {{/if}}
       <li>
         <a class="button" href="/admin/logout">Logout</a>
       </li>

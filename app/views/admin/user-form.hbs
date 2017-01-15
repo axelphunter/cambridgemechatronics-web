@@ -3,7 +3,7 @@
 
         {{#if edit}}
         <h1>Edit User - {{user.emailaddress}}</h1>
-        <form action="/admin/user/{{user.id}}" method="post">
+        <form action="/admin/user/{{user._id}}" method="post">
         {{else}}
         <h1>Create User</h1>
         <form action="/admin/user/create" method="post">
@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="six columns">
                     Email Address:<br>
-                    <input type="email" value="{{user.emailaddress}}" name="emailaddress"><br>
+                    <input type="email" value="{{user.emailaddress}}" name="emailaddress" {{#unless admin}} disabled {{/unless}}><br>
                     First Name:<br>
                     <input type="text" value="{{user.name.first}}" name="firstname" class=""><br>
                 </div>
@@ -22,6 +22,18 @@
                     <input type="text" value="{{user.name.last}}" name="lastname">
                 </div>
             </div>
+            {{#if edit}}
+            <div class="row">
+              <div class="six columns">
+                Change password:<br>
+                <input type="password" name="password"><br>
+              </div>
+              <div class="six columns">
+                Change password confirm:<br>
+                <input type="password" name="confirmpassword"><br>
+              </div>
+            </div>
+            {{/if}}
             Job Role:<br>
             <input type="text" value="{{user.jobrole}}" name="jobrole">
             {{#if admin}}
@@ -38,7 +50,11 @@
               {{/if}}
                 <span class="label-body"> User is admin</span>
             {{/if}}
+            {{#if edit}}
+            <input type="submit" value="Edit" class="submit button"/>
+            {{else}}
             <input type="submit" value="Submit" class="submit button"/>
+            {{/if}}
         </form>
     </div>
 </main>

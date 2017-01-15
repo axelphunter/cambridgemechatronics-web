@@ -34,6 +34,7 @@
     "gulp-useref": "^2.0.0",
     "hammerjs": "^2.0.6",
     "handlebars": "^4.0.5",
+    "lodash": "^4.17.4",
     "moment": "^2.15.1",
     "mongoose": "^4.7.6",
     "morgan": "^1.7.0",

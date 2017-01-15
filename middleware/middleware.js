@@ -42,7 +42,7 @@ module.exports = {
           req.session.authenticated = true;
 
           req.flash('success', 'You have been logged in successfully');
-          return res.redirect('/admin/dashboard');
+          return res.redirect('/admin');
         });
       }
     });
