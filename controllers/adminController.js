@@ -82,7 +82,7 @@ module.exports = {
       .lean()
       .then((response) => {
         const users = response;
-        return res.render('admin/view-users', {
+        return res.render('admin/user-listing', {
           admin: req.session.user.admin,
           authenticated: true,
           pageName: 'View Users',

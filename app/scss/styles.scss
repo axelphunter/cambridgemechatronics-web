@@ -792,22 +792,34 @@ footer {
     width: 30%;
   }
 
-  .psw {
-    float: right;
+  input[type="password"],
+  input[type="text"] {
+    width: 100%;
   }
 
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
+  .psw {
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
   }
 }
 
 .view-users {
   margin-bottom: 10px;
 
-  button:hover,
-  .button:hover {
+  .button:hover,
+  button:hover {
     border-color: #888;
+  }
+
+  h1 {
+    float: left;
+  }
+
+  .searchbar {
+    margin: 20px 0;
   }
 
   .modalDialog {
@@ -818,7 +830,7 @@ footer {
     left: 0;
     background: rgba(0,0,0,0.8);
     z-index: 99999;
-    opacity:0;
+    opacity: 0;
     -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
     transition: opacity 400ms ease-in;
@@ -826,7 +838,7 @@ footer {
   }
 
   .modalDialog:target {
-    opacity:1;
+    opacity: 1;
     pointer-events: auto;
   }
 
@@ -834,7 +846,7 @@ footer {
     width: 80%;
     position: relative;
     margin: 10% auto;
-    padding: 5px 20px 13px 20px;
+    padding: 5px 20px 13px;
     border-radius: 4px;
     background: #fff;
   }
@@ -901,358 +913,358 @@ footer {
   }
 }
 
-  .team {
-    .infographic {
-      padding: 20px;
-      background: $dark-grey-color;
-      color: #fff;
+.team {
+  .infographic {
+    padding: 20px;
+    background: $dark-grey-color;
+    color: #fff;
 
-      .icon {
-        width: 15%;
-        margin-right: 2%;
-        height: 100%;
-        min-height: 100px;
-        display: inline-block;
+    .icon {
+      width: 15%;
+      margin-right: 2%;
+      height: 100%;
+      min-height: 100px;
+      display: inline-block;
 
-        &.users {
-          background: url('/images/icons/user-circle.svg') center top / contain no-repeat;
-        }
-
-        &.globe {
-          background: url('/images/icons/globe.svg') center top / contain no-repeat;
-        }
-
-        &.grad {
-          background: url('/images/icons/grad-circle.svg') center top / contain no-repeat;
-        }
-
-        &.badge {
-          background: url('/images/icons/badge.svg') center top / 100% no-repeat;
-        }
+      &.users {
+        background: url('/images/icons/user-circle.svg') center top / contain no-repeat;
       }
 
-      .text {
-        display: inline-block;
-        width: 72%;
-        vertical-align: top;
+      &.globe {
+        background: url('/images/icons/globe.svg') center top / contain no-repeat;
+      }
 
-        h2 {
-          font-size: 26px;
-        }
+      &.grad {
+        background: url('/images/icons/grad-circle.svg') center top / contain no-repeat;
+      }
 
-        p {
-          margin-bottom: 0;
-          color: #fff;
-        }
+      &.badge {
+        background: url('/images/icons/badge.svg') center top / 100% no-repeat;
       }
     }
 
-    .team-member {
+    .text {
       display: inline-block;
-      width: 24%;
-      box-sizing: border-box;
-      padding: 0 10px 20px;
+      width: 72%;
       vertical-align: top;
 
-      .avatar {
-        width: 80px;
-        height: 80px;
-        background: $beige-color url('/images/icons/user.svg') center bottom / cover no-repeat;
-        border-radius: 100%;
-
-        &.andy-osmant {
-          background: url('/images/headshots/Andy_Osmant_120x120.jpg') center top / contain no-repeat;
-        }
-
-        &.ben-brown {
-          background: url('/images/headshots/Ben_Brown_120x120.jpg') center top / contain no-repeat;
-        }
-
-        &.dave-richards {
-          background: url('/images/headshots/Dave_Richards_120x120.jpg') center top / contain no-repeat;
-        }
-
-        &.dominic-edwards {
-          background: url('/images/headshots/Dominic_Edwards_120x120.jpg') center top / contain no-repeat;
-        }
-
-        &.ian-rodgers {
-          background: url('/images/headshots/Ian_Rogers_120x120.jpg') center top / contain no-repeat;
-        }
-
-        &.james-howarth {
-          background: url('/images/headshots/James_Howarth_120x120.jpg') center top / contain no-repeat;
-        }
-
-        &.jon-edwards {
-          background: url('/images/headshots/Jon_Edwards_120x120.jpg') center top / contain no-repeat;
-        }
-
-        &.martin-knight {
-          background: url('/images/headshots/Martin_Knight_120x120.jpg') center top / contain no-repeat;
-        }
-
-        &.ursula-lenel {
-          background: url('/images/headshots/Ursula_Lenel_120x120.jpg') center top / contain no-repeat;
-        }
+      h2 {
+        font-size: 26px;
       }
 
-      h4 {
-        margin: 0;
-        font-size: 22px;
-      }
-
-      .text {
-        display: none;
-        color: $dark-grey-color;
-
-        &.active {
-          display: block;
-        }
+      p {
+        margin-bottom: 0;
+        color: #fff;
       }
     }
   }
 
-  /* Large Devices, Wide Screens */
-  @media only screen and (max-width: 1200px) {}
+  .team-member {
+    display: inline-block;
+    width: 24%;
+    box-sizing: border-box;
+    padding: 0 10px 20px;
+    vertical-align: top;
 
-  /* Medium Devices, Desktops */
-  @media only screen and (max-width: 992px) {
-    .plus-circle,
-    .plus-circle-light {
-      display: block;
+    .avatar {
+      width: 80px;
+      height: 80px;
+      background: $beige-color url('/images/icons/user.svg') center bottom / cover no-repeat;
+      border-radius: 100%;
+
+      &.andy-osmant {
+        background: url('/images/headshots/Andy_Osmant_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.ben-brown {
+        background: url('/images/headshots/Ben_Brown_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.dave-richards {
+        background: url('/images/headshots/Dave_Richards_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.dominic-edwards {
+        background: url('/images/headshots/Dominic_Edwards_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.ian-rodgers {
+        background: url('/images/headshots/Ian_Rogers_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.james-howarth {
+        background: url('/images/headshots/James_Howarth_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.jon-edwards {
+        background: url('/images/headshots/Jon_Edwards_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.martin-knight {
+        background: url('/images/headshots/Martin_Knight_120x120.jpg') center top / contain no-repeat;
+      }
+
+      &.ursula-lenel {
+        background: url('/images/headshots/Ursula_Lenel_120x120.jpg') center top / contain no-repeat;
+      }
     }
 
-    h2 {
-      font-size: 2.5rem;
+    h4 {
+      margin: 0;
+      font-size: 22px;
     }
 
-    .ois-features .feature {
-      width: 100%;
-    }
-
-    .mobile {
-      display: block;
-    }
-
-    .not-mobile {
+    .text {
       display: none;
-    }
-
-    footer {
-      padding: 40px 10px;
-    }
-  }
-
-  /* Small Devices, Tablets */
-  @media only screen and (max-width: 767px) {
-    a,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    li,
-    p {
-      padding: 10px;
-    }
-
-    .hamburger {
-      display: block;
-      float: right;
-    }
-
-    .contact-email,
-    .logo,
-    .technology a,
-    footer a {
-      padding: 0;
-    }
-
-    .gemini_image {
-      background-size: 140%;
-    }
-
-    .gemini_exploded {
-      background-size: contain;
-    }
-
-    .contact h5,
-    .ois .four.columns h5 {
-      padding: 0 10px;
-      margin-bottom: 1rem;
-    }
-
-    .small-box h5 {
-      padding: 0;
-      line-height: 3.6rem;
-    }
-
-    .avatar,
-    .beige-circle,
-    .link.toggle-text {
-      margin-left: 10px;
-    }
-
-    .sitenavigation {
-      background: #fff;
-      display: none;
+      color: $dark-grey-color;
 
       &.active {
         display: block;
-        width: 100%;
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 60px;
       }
     }
+  }
+}
 
-    .team-member h4 {
-      padding: 0 10px;
-    }
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {}
 
-    .team-member {
-      margin-bottom: 20px;
-    }
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  .plus-circle,
+  .plus-circle-light {
+    display: block;
+  }
 
-    .about .milestones,
-    .milestones p,
-    .sitenavigation a,
-    .sitenavigation li {
-      padding: 0;
+  h2 {
+    font-size: 2.5rem;
+  }
 
-    }
+  .ois-features .feature {
+    width: 100%;
+  }
 
-    nav .logo {
-      margin-left: -20px;
-    }
+  .mobile {
+    display: block;
+  }
 
-    .sitenavigation .button {
-      padding: 0 30px;
+  .not-mobile {
+    display: none;
+  }
 
-    }
+  footer {
+    padding: 40px 10px;
+  }
+}
 
-    .about .milestones .milestone,
-    .career {
-      width: 49%;
-      padding: 20px 10px;
-    }
+/* Small Devices, Tablets */
+@media only screen and (max-width: 767px) {
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  li,
+  p {
+    padding: 10px;
+  }
 
-    nav ul li {
-      width: 100%;
-      text-align: center;
-      margin-left: 0;
+  .hamburger {
+    display: block;
+    float: right;
+  }
 
-      &.active {
-        border-bottom: none;
-        color: #1EAEDB;
-      }
+  .contact-email,
+  .logo,
+  .technology a,
+  footer a {
+    padding: 0;
+  }
 
-      &:hover {
-        border-bottom: none;
-      }
-    }
+  .gemini_image {
+    background-size: 140%;
+  }
 
-    .slider .slides li {
-      height: 250px;
+  .gemini_exploded {
+    background-size: contain;
+  }
 
-    }
+  .contact h5,
+  .ois .four.columns h5 {
+    padding: 0 10px;
+    margin-bottom: 1rem;
+  }
 
-    .slider .slides li .inner h2 {
-      line-height: 229px;
-    }
+  .small-box h5 {
+    padding: 0;
+    line-height: 3.6rem;
+  }
 
-    .col-2 {
-      width: 100%;
-      min-height: 200px;
-      padding: 0;
+  .avatar,
+  .beige-circle,
+  .link.toggle-text {
+    margin-left: 10px;
+  }
 
-    }
+  .sitenavigation {
+    background: #fff;
+    display: none;
 
-    .home .col-2 {
-      padding: 20px 10px;
-
-    }
-
-    .row {
+    &.active {
       display: block;
-
-    }
-
-    .three.columns {
-      width: 50%;
-
-    }
-
-    .columns {
-      margin-left: 0;
-
-    }
-
-    .three.columns:nth-child(3),
-    .three.columns:nth-child(4) {
-      width: 50%;
-
-    }
-
-    .technology .col-2 {
-      min-height: 200px;
-      margin-top: -22px;
-
-    }
-
-    .hero {
-      height: 200px;
-
-    }
-
-    .four.columns {
-      width: 50%;
-
-    }
-
-    .news .news-item {
-      width: 50%;
-
-    }
-
-    .team .infographic .text {
       width: 100%;
-      text-align: center;
-
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 60px;
     }
+  }
 
-    .pull-txt-left {
-      font-size: 25px;
+  .team-member h4 {
+    padding: 0 10px;
+  }
 
-    }
+  .team-member {
+    margin-bottom: 20px;
+  }
 
-    .news .news-item:nth-child(9n+1) {
-      width: 100%;
-
-    }
-
-    .team .team-member {
-      width: 50%;
-      padding: 0;
-
-    }
+  .about .milestones,
+  .milestones p,
+  .sitenavigation a,
+  .sitenavigation li {
+    padding: 0;
 
   }
 
-  /* Extra Small Devices, Phones */
-  @media only screen and (max-width: 480px) {
-    .about .milestones .milestone,
-    .career,
-    .four.columns,
-    .news .news-item,
-    .team .team-member,
-    .three.columns {
-      width: 100%;
-    }
+  nav .logo {
+    margin-left: -20px;
+  }
+
+  .sitenavigation .button {
+    padding: 0 30px;
 
   }
 
-  /* Custom, iPhone Retina */
-  @media only screen and (max-width: 320px) {}
+  .about .milestones .milestone,
+  .career {
+    width: 49%;
+    padding: 20px 10px;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+
+    &.active {
+      border-bottom: none;
+      color: #1EAEDB;
+    }
+
+    &:hover {
+      border-bottom: none;
+    }
+  }
+
+  .slider .slides li {
+    height: 250px;
+
+  }
+
+  .slider .slides li .inner h2 {
+    line-height: 229px;
+  }
+
+  .col-2 {
+    width: 100%;
+    min-height: 200px;
+    padding: 0;
+
+  }
+
+  .home .col-2 {
+    padding: 20px 10px;
+
+  }
+
+  .row {
+    display: block;
+
+  }
+
+  .three.columns {
+    width: 50%;
+
+  }
+
+  .columns {
+    margin-left: 0;
+
+  }
+
+  .three.columns:nth-child(3),
+  .three.columns:nth-child(4) {
+    width: 50%;
+
+  }
+
+  .technology .col-2 {
+    min-height: 200px;
+    margin-top: -22px;
+
+  }
+
+  .hero {
+    height: 200px;
+
+  }
+
+  .four.columns {
+    width: 50%;
+
+  }
+
+  .news .news-item {
+    width: 50%;
+
+  }
+
+  .team .infographic .text {
+    width: 100%;
+    text-align: center;
+
+  }
+
+  .pull-txt-left {
+    font-size: 25px;
+
+  }
+
+  .news .news-item:nth-child(9n+1) {
+    width: 100%;
+
+  }
+
+  .team .team-member {
+    width: 50%;
+    padding: 0;
+
+  }
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  .about .milestones .milestone,
+  .career,
+  .four.columns,
+  .news .news-item,
+  .team .team-member,
+  .three.columns {
+    width: 100%;
+  }
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {}

@@ -554,17 +554,23 @@ footer {
   .login-box .login-button {
     display: block;
     width: 30%; }
-  .login-box .psw {
-    float: right; }
-  .login-box input[type="text"],
-  .login-box input[type="password"] {
+  .login-box input[type="password"],
+  .login-box input[type="text"] {
     width: 100%; }
+  .login-box .psw {
+    margin-bottom: 1.5rem; }
+  .login-box p {
+    margin-bottom: 1.5rem; }
 
 .view-users {
   margin-bottom: 10px; }
-  .view-users button:hover,
-  .view-users .button:hover {
+  .view-users .button:hover,
+  .view-users button:hover {
     border-color: #888; }
+  .view-users h1 {
+    float: left; }
+  .view-users .searchbar {
+    margin: 20px 0; }
   .view-users .modalDialog {
     position: fixed;
     top: 0;
@@ -585,7 +591,7 @@ footer {
     width: 80%;
     position: relative;
     margin: 10% auto;
-    padding: 5px 20px 13px 20px;
+    padding: 5px 20px 13px;
     border-radius: 4px;
     background: #fff; }
   .view-users .delete-Modal {
