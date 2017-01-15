@@ -23,7 +23,7 @@ module.exports = {
       return res.redirect('/admin/login');
     }
 
-    UserModel.findOne({
+    return UserModel.findOne({
       emailaddress: req.body.emailaddress
     }, (err, user) => {
       if (err) {
@@ -34,21 +34,58 @@ module.exports = {
       if (!user) {
         req.flash('error', 'Authentication failed. User not found.');
         return res.redirect('/admin/login');
-      } else if (user) {
-        // check if password matches
-        user.comparePassword(req.body.password, (_err) => {
-          if (_err) {
-            req.flash('error', 'Username or password incorrect.');
-            return res.redirect('/admin/login');
-          }
-
-          req.session.user = user;
-          req.session.authenticated = true;
-
-          req.flash('success', 'You have been logged in successfully');
-          return res.redirect('/admin');
-        });
       }
+      // check if password matches
+      user.comparePassword(req.body.password, (_err) => {
+        if (_err) {
+          req.flash('error', 'Username or password incorrect.');
+          return res.redirect('/admin/login');
+        }
+        user = JSON.parse(JSON.stringify(user));
+        req.session.user = user;
+        req.session.authenticated = true;
+
+        req.flash('success', 'You have been logged in successfully');
+        return res.redirect('/admin');
+      });
+    });
+  },
+
+  getPasswordReset(req, res) {
+    return res.render('admin/password-reset', {
+      admin: req.session.user.admin,
+      authenticated: true,
+      userId: req.session.user._id,
+      error: req.flash('error')[0],
+      success: req.flash('success')[0],
+      pageName: 'Create User',
+      edit: false,
+      metaData: config.metaData
+    });
+  },
+
+  postPasswordReset(req, res) {
+    const backURL = req.header('Referer') || '/';
+
+    if (req.body.password !== req.body.confirmpassword) {
+      req.flash('error', 'Both passwords must match.');
+      return res.redirect(backURL);
+    }
+    delete req.body.confirmpassword;
+
+    return UserModel.findOneAndUpdate({
+      _id: req.session.user._id
+    }, {
+      password: req.body.password,
+      passwordReset: false
+    }).then(() => {
+      req.session.user.passwordReset = false;
+      req.flash('success', 'Your password has been reset successfully.');
+      return res.redirect('/admin');
+    }).catch((err) => {
+      console.log(err);
+      req.flash('error', 'There was a problem updating yoru password please try again.');
+      return res.redirect(backURL);
     });
   },
 
@@ -77,7 +114,7 @@ module.exports = {
       })
       .then((pageContent) => {
         if (searchQuery) {
-          pageContent.results = _.filter(pageContent.results, function(val) {
+          pageContent.results = _.filter(pageContent.results, (val) => {
             return val
               .data['adminitem.title']
               .value
@@ -192,10 +229,10 @@ module.exports = {
             'name.last': new RegExp(nameRegexString, 'i')
           }
         ]
-      }
+      };
     }
 
-    UserModel
+    return UserModel
       .find(query)
       .lean()
       .then((response) => {
@@ -226,7 +263,7 @@ module.exports = {
       return res.redirect(backURL);
     }
     const backURL = req.header('Referer') || '/';
-    UserModel.findByIdAndRemove(req.params.userId, (err, response) => {
+    return UserModel.findByIdAndRemove(req.params.userId, (err) => {
       if (err) {
         console.log(err);
         req.flash('error', 'There was a problem deleting this user.');
@@ -244,7 +281,7 @@ module.exports = {
       return res.redirect(backURL);
     }
     const backURL = req.header('Referer') || '/';
-    UserModel
+    return UserModel
       .findById(req.params.userId)
       .lean()
       .then((response) => {
@@ -287,7 +324,7 @@ module.exports = {
         return res.redirect(backURL);
       }
     } else {
-      delete req.body.password
+      delete req.body.password;
     }
     delete req.body.confirmpassword;
 
@@ -295,9 +332,9 @@ module.exports = {
       userObj.password = req.body.password;
     }
 
-    UserModel.findOneAndUpdate({
+    return UserModel.findOneAndUpdate({
       _id: req.params.userId
-    }, userObj).then((response) => {
+    }, userObj).then(() => {
       req.flash('success', 'User details were updated successfully');
       return res.redirect(backURL);
     }).catch((err) => {
@@ -339,10 +376,11 @@ module.exports = {
       },
       role: req.body.jobrole,
       admin: req.body.administrator,
-      phonenumber: req.body.phonenumber
+      phonenumber: req.body.phonenumber,
+      passwordReset: true
     };
 
-    new UserModel(userObj)
+    return new UserModel(userObj)
       .save()
       .then(() => {
         req.flash('success', 'The account was created successfully');
@@ -352,6 +390,6 @@ module.exports = {
         console.log(err);
         req.flash('error', 'This email address is already in use.');
         return res.redirect(backURL);
-      })
+      });
   }
 };

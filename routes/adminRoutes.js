@@ -8,7 +8,9 @@ const middleware = require('../middleware/middleware');
 module.exports = (app) => {
   app.get('/admin/login', adminController.getLogin);
   app.post('/admin/login', adminController.postLogin);
-  app.get('/admin/logout', middleware.checkAuth, adminController.getLogout);
+  app.get('/admin/logout', adminController.getLogout);
+  app.get('/admin/password-reset', middleware.checkAuth, adminController.getPasswordReset);
+  app.post('/admin/password-reset', middleware.checkAuth, adminController.postPasswordReset);
   app.get('/admin/user/create', middleware.checkAuth, adminController.getCreateUser);
   app.post('/admin/user/create', middleware.checkAuth, adminController.postCreateUser);
   app.get('/admin', middleware.checkAuth, adminController.getAdminDashboard);
