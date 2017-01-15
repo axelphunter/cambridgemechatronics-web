@@ -978,7 +978,7 @@ footer {
   }
 
   input:checked + .slider {
-    background-color: #0FA0CE;
+    background-color: #262261;
   }
 
   input:focus + .slider {
@@ -997,6 +997,27 @@ footer {
 
   .slider.round:before {
     border-radius: 50%;
+  }
+}
+
+.user-item {
+  border-bottom: 1px solid grey;
+
+  li {
+    list-style: none;
+    line-height: 38px;
+    height: 38px;
+    margin-bottom: 2rem;
+
+    &:first-child {
+      font-size: 20px;
+      font-weight: bold;
+      color: #262261;
+    }
+
+    .view-item {
+      float: right;
+    }
   }
 }
 
@@ -1146,6 +1167,7 @@ footer {
 /* Small Devices, Tablets */
 @media only screen and (max-width: 767px) {
   a,
+  form,
   h1,
   h2,
   h3,
@@ -1161,11 +1183,20 @@ footer {
     float: right;
   }
 
+  .create-user h1 {
+    font-size: 2.5rem;
+  }
+
   .contact-email,
   .logo,
   .technology a,
   footer a {
     padding: 0;
+  }
+
+  .dashboard-search {
+    margin-bottom: 0;
+    padding: 10px;
   }
 
   .gemini_image {
@@ -1338,6 +1369,87 @@ footer {
 
   }
 
+  .view-users {
+    .user-table {
+      width: 100%;
+    }
+
+    tbody,
+    td,
+    th,
+    thead,
+    tr {
+      display: block;
+    }
+
+    tbody {
+      clear: both;
+      overflow: hidden;
+    }
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 35% !important;
+      height: 25px;
+    }
+
+    td:before {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    td:nth-of-type(1):before {
+      content: "Email Address";
+    }
+
+    td:nth-of-type(2):before {
+      content: "Name";
+    }
+
+    td:nth-of-type(3):before {
+      content: "Last Activity";
+    }
+
+    td:nth-of-type(4):before {
+      content: "Online";
+    }
+
+    td:nth-of-type(5):before {
+      content: "Admin";
+    }
+
+    td:nth-of-type(6),
+    td:nth-of-type(7) {
+      padding-left: 10px !important;
+      width: 100%;
+    }
+
+    .searchbar {
+      margin-left: 10px;
+      float: none;
+    }
+
+    .add-user {
+      margin-left: 10px;
+    }
+
+    h1 {
+      float: none;
+      font-size: 2.5rem;
+    }
+  }
 }
 
 /* Extra Small Devices, Phones */

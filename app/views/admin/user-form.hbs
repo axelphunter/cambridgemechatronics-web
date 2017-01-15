@@ -2,7 +2,7 @@
     <div class="container">
 
         {{#if edit}}
-        <h1>Edit User - {{user.emailaddress}}</h1>
+        <h1>User - {{user.emailaddress}}</h1>
         <form action="/admin/user/{{user._id}}" method="post">
         {{else}}
         <h1>Create User</h1>

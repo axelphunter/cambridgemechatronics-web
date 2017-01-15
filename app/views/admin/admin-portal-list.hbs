@@ -1,18 +1,21 @@
-<main class="news">
+<main class="dashboard">
   <div class="container">
+    <form class="dashboard-search">
       <input type="text" placeholder="Search..." value="{{searchQuery}}" id="searchbar">
       <button id="searchButton">Search</button>
-      <div class="row padded">
-      {{#each pageContent.results}}
-      <div class="news-item wow fadeInUp">
+    </form>
+    <h1>Dashboard</h1>
+    {{#each pageContent.results}}
+    <ul class="user-item row">
+      <li class="four columns">
         {{text this 'adminitem.title'}}
-        <p class="date">
-          {{dateFormat firstPublicationDate}}
-        </p>
-        <a class="button" href="/admin/{{uid}}">View</a>
-      </div>
-      {{/each}}
-      <p id="load-more-articles" class="link larger">Load More +</p>
-    </div>
+      </li>
+      <li class="four columns">
+        {{dateFormat firstPublicationDate}}
+      </li>
+      <li class="four columns"><a class="button view-item" href="/admin/{{uid}}">View</a></li>
+    </ul>
+    {{/each}}
+    <p id="load-more-articles" class="link larger">Load More +</p>
   </div>
 </main>

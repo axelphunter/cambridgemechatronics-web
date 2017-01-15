@@ -684,7 +684,7 @@ footer {
     -webkit-transition: 0.4s;
     transition: 0.4s; }
   .create-user input:checked + .slider {
-    background-color: #0FA0CE; }
+    background-color: #262261; }
   .create-user input:focus + .slider {
     box-shadow: 0 0 1px #2196F3; }
   .create-user input:checked + .slider:before {
@@ -695,6 +695,20 @@ footer {
     border-radius: 34px; }
   .create-user .slider.round:before {
     border-radius: 50%; }
+
+.user-item {
+  border-bottom: 1px solid grey; }
+  .user-item li {
+    list-style: none;
+    line-height: 38px;
+    height: 38px;
+    margin-bottom: 2rem; }
+    .user-item li:first-child {
+      font-size: 20px;
+      font-weight: bold;
+      color: #262261; }
+    .user-item li .view-item {
+      float: right; }
 
 .team .infographic {
   padding: 20px;
@@ -782,6 +796,7 @@ footer {
 /* Small Devices, Tablets */
 @media only screen and (max-width: 767px) {
   a,
+  form,
   h1,
   h2,
   h3,
@@ -793,11 +808,16 @@ footer {
   .hamburger {
     display: block;
     float: right; }
+  .create-user h1 {
+    font-size: 2.5rem; }
   .contact-email,
   .logo,
   .technology a,
   footer a {
     padding: 0; }
+  .dashboard-search {
+    margin-bottom: 0;
+    padding: 10px; }
   .gemini_image {
     background-size: 140%; }
   .gemini_exploded {
@@ -886,7 +906,57 @@ footer {
     width: 100%; }
   .team .team-member {
     width: 50%;
-    padding: 0; } }
+    padding: 0; }
+  .view-users .user-table {
+    width: 100%; }
+  .view-users tbody,
+  .view-users td,
+  .view-users th,
+  .view-users thead,
+  .view-users tr {
+    display: block; }
+  .view-users tbody {
+    clear: both;
+    overflow: hidden; }
+  .view-users thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px; }
+  .view-users td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 35% !important;
+    height: 25px; }
+  .view-users td:before {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap; }
+  .view-users td:nth-of-type(1):before {
+    content: "Email Address"; }
+  .view-users td:nth-of-type(2):before {
+    content: "Name"; }
+  .view-users td:nth-of-type(3):before {
+    content: "Last Activity"; }
+  .view-users td:nth-of-type(4):before {
+    content: "Online"; }
+  .view-users td:nth-of-type(5):before {
+    content: "Admin"; }
+  .view-users td:nth-of-type(6),
+  .view-users td:nth-of-type(7) {
+    padding-left: 10px !important;
+    width: 100%; }
+  .view-users .searchbar {
+    margin-left: 10px;
+    float: none; }
+  .view-users .add-user {
+    margin-left: 10px; }
+  .view-users h1 {
+    float: none;
+    font-size: 2.5rem; } }
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
