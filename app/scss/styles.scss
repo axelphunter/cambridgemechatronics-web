@@ -1143,6 +1143,18 @@ footer {
     display: block;
   }
 
+  a,
+  form,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  li,
+  p {
+    padding: 10px;
+  }
+
   h2 {
     font-size: 2.5rem;
   }
@@ -1166,18 +1178,6 @@ footer {
 
 /* Small Devices, Tablets */
 @media only screen and (max-width: 767px) {
-  a,
-  form,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  li,
-  p {
-    padding: 10px;
-  }
-
   .hamburger {
     display: block;
     float: right;
@@ -1434,6 +1434,7 @@ footer {
     td:nth-of-type(7) {
       padding-left: 10px !important;
       width: 100%;
+      padding-bottom: 25px;
     }
 
     .searchbar {
