@@ -26,9 +26,15 @@
             <input type="text" value="{{user.jobrole}}" name="jobrole">
             {{#if admin}}
               {{#if user.admin}}
-                <input type="checkbox" style="width:15px;" name="administrator" checked>
+                <label class="switch">
+                <input type="checkbox" name="administrator" checked>
+                    <div class="slider round"></div>
+                </label>
               {{else}}
-                <input type="checkbox" style="width:15px;" name="administrator">
+                <label class="switch">
+                <input type="checkbox" name="administrator">
+                    <div class="slider round"></div>
+                </label>
               {{/if}}
                 <span class="label-body"> User is admin</span>
             {{/if}}
