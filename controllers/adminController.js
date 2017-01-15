@@ -4,6 +4,7 @@ const config = require('config');
 const prismicConfig = require('../configuration/prismic');
 const prismic = require('prismic.io');
 const UserModel = require('../models/userModel');
+const generatePassword = require('generate-password');
 const _ = require('lodash');
 
 // */ controllers
@@ -23,7 +24,7 @@ module.exports = {
       return res.redirect('/admin/login');
     }
 
-    UserModel.findOne({
+    return UserModel.findOne({
       emailaddress: req.body.emailaddress
     }, (err, user) => {
       if (err) {
@@ -34,22 +35,68 @@ module.exports = {
       if (!user) {
         req.flash('error', 'Authentication failed. User not found.');
         return res.redirect('/admin/login');
-      } else if (user) {
-        // check if password matches
-        user.comparePassword(req.body.password, (_err) => {
-          if (_err) {
-            req.flash('error', 'Username or password incorrect.');
-            return res.redirect('/admin/login');
-          }
-
-          req.session.user = user;
-          req.session.authenticated = true;
-
-          req.flash('success', 'You have been logged in successfully');
-          return res.redirect('/admin');
-        });
       }
+      // check if password matches
+      user.comparePassword(req.body.password, (_err, isMatch) => {
+        if (_err || !isMatch) {
+          req.flash('error', 'Username or password incorrect.');
+          return res.redirect('/admin/login');
+        }
+
+        user = JSON.parse(JSON.stringify(user));
+        req.session.user = user;
+        req.session.authenticated = true;
+
+        req.flash('success', 'You have been logged in successfully');
+        return res.redirect('/admin');
+      });
     });
+  },
+
+  getPasswordReset(req, res) {
+    return res.render('admin/password-reset', {
+      admin: req.session.user.admin,
+      authenticated: true,
+      userId: req.session.user._id,
+      error: req.flash('error')[0],
+      success: req.flash('success')[0],
+      pageName: 'Create User',
+      edit: false,
+      metaData: config.metaData
+    });
+  },
+
+  postPasswordReset(req, res) {
+    const backURL = req.header('Referer') || '/';
+
+    if (req.body.password !== req.body.confirmpassword) {
+      req.flash('error', 'Both passwords must match.');
+      return res.redirect(backURL);
+    }
+    if (!req.body.password.match(/(?=^.{8,15}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z])(?=(.*\d){1,}))((?!.*[",;&|'])|(?=(.*\W){1,}))(?!.*[",;&|'])^.*$/)) {
+      req.flash('error', 'Password must have at least 8 characters and maximum of 15 characters with at least one Capital letter, at least one lower case letter and at least one number.');
+      return res.redirect(backURL);
+    }
+    delete req.body.confirmpassword;
+
+    return UserModel
+      .findById(req.session.user._id)
+      .exec()
+      .then((response) => {
+        response.password = req.body.password;
+        response.passwordReset = false;
+        return response.save()
+      })
+      .then(() => {
+        req.session.user.passwordReset = false;
+        req.flash('success', 'Your password has been reset successfully.');
+        return res.redirect('/admin');
+      })
+      .catch((err) => {
+        console.log(err);
+        req.flash('error', 'There was a problem updating yoru password please try again.');
+        return res.redirect(backURL);
+      });
   },
 
   getLogout(req, res) {
@@ -77,7 +124,7 @@ module.exports = {
       })
       .then((pageContent) => {
         if (searchQuery) {
-          pageContent.results = _.filter(pageContent.results, function(val) {
+          pageContent.results = _.filter(pageContent.results, (val) => {
             return val
               .data['adminitem.title']
               .value
@@ -192,10 +239,10 @@ module.exports = {
             'name.last': new RegExp(nameRegexString, 'i')
           }
         ]
-      }
+      };
     }
 
-    UserModel
+    return UserModel
       .find(query)
       .lean()
       .then((response) => {
@@ -226,7 +273,7 @@ module.exports = {
       return res.redirect(backURL);
     }
     const backURL = req.header('Referer') || '/';
-    UserModel.findByIdAndRemove(req.params.userId, (err, response) => {
+    return UserModel.findByIdAndRemove(req.params.userId, (err) => {
       if (err) {
         console.log(err);
         req.flash('error', 'There was a problem deleting this user.');
@@ -244,7 +291,7 @@ module.exports = {
       return res.redirect(backURL);
     }
     const backURL = req.header('Referer') || '/';
-    UserModel
+    return UserModel
       .findById(req.params.userId)
       .lean()
       .then((response) => {
@@ -287,24 +334,40 @@ module.exports = {
         return res.redirect(backURL);
       }
     } else {
-      delete req.body.password
+      delete req.body.password;
+    }
+    if (req.body.password && !req.body.password.match(/(?=^.{8,15}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z])(?=(.*\d){1,}))((?!.*[",;&|'])|(?=(.*\W){1,}))(?!.*[",;&|'])^.*$/)) {
+      req.flash('error', 'Password must have at least 8 characters and maximum of 15 characters with at least one Capital letter, at least one lower case letter and at least one number.');
+      return res.redirect(backURL);
     }
     delete req.body.confirmpassword;
 
-    if (req.body.password) {
-      userObj.password = req.body.password;
-    }
-
-    UserModel.findOneAndUpdate({
-      _id: req.params.userId
-    }, userObj).then((response) => {
-      req.flash('success', 'User details were updated successfully');
-      return res.redirect(backURL);
-    }).catch((err) => {
-      console.log(err);
-      req.flash('error', 'There was a problem updating these user details.');
-      return res.redirect(backURL);
-    });
+    return UserModel
+      .findById(req.params.userId)
+      .exec()
+      .then((response) => {
+        response.emailaddress = req.body.emailaddress,
+        response.name = {
+          first: req.body.firstname,
+          last: req.body.lastname
+        },
+        response.role = req.body.jobrole,
+        response.admin = req.body.administrator,
+        response.phonenumber = req.body.phonenumber
+        if (req.body.password) {
+          response.password = req.body.password;
+        }
+        return response.save();
+      })
+      .then(() => {
+        req.flash('success', 'User details were updated successfully');
+        return res.redirect(backURL);
+      })
+      .catch((err) => {
+        console.log(err);
+        req.flash('error', 'There was a problem updating these user details.');
+        return res.redirect(backURL);
+      });
   },
 
   getCreateUser(req, res) {
@@ -328,7 +391,8 @@ module.exports = {
       return res.redirect(backURL);
     }
 
-    const password = 'delta1234';
+    const password = generatePassword.generate({length: 8, numbers: true, symbols: true, uppercase: true});
+    console.log(password);
 
     const userObj = {
       emailaddress: req.body.emailaddress,
@@ -339,10 +403,11 @@ module.exports = {
       },
       role: req.body.jobrole,
       admin: req.body.administrator,
-      phonenumber: req.body.phonenumber
+      phonenumber: req.body.phonenumber,
+      passwordReset: true
     };
 
-    new UserModel(userObj)
+    return new UserModel(userObj)
       .save()
       .then(() => {
         req.flash('success', 'The account was created successfully');
@@ -352,6 +417,6 @@ module.exports = {
         console.log(err);
         req.flash('error', 'This email address is already in use.');
         return res.redirect(backURL);
-      })
+      });
   }
 };
