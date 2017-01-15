@@ -26,11 +26,11 @@
             <input type="text" value="{{user.jobrole}}" name="jobrole">
             {{#if admin}}
               {{#if user.admin}}
-                <input type="checkbox" name="administrator" checked>
+                <input type="checkbox" style="width:15px;" name="administrator" checked>
               {{else}}
-                <input type="checkbox" name="administrator">
+                <input type="checkbox" style="width:15px;" name="administrator">
               {{/if}}
-                <span class="label-body">User is admin</span>
+                <span class="label-body"> User is admin</span>
             {{/if}}
             <input type="submit" value="Submit" class="submit button"/>
         </form>
