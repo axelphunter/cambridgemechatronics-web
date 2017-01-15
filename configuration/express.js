@@ -7,6 +7,11 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const compression = require('compression');
 const handlebarsHelpers = require('../services/handlebarsHelpers');
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
+const expressValidator = require('express-validator');
 
 // exports
 module.exports = (app, config) => {
@@ -46,5 +51,18 @@ module.exports = (app, config) => {
     .use('/images', express.static(appPaths.images, staticOpts))
     .use('/fonts', express.static(appPaths.fonts, staticOpts))
     .use('/sitemap.xml', express.static(appPaths.sitemap, staticOpts))
-    .use('/bower_components', express.static(appPaths.bower_components, staticOpts));
+    .use('/bower_components', express.static(appPaths.bower_components, staticOpts))
+    .use(cookieParser('secret'))
+    .use(session({
+      secret: 'ilovescotchyscotchscotch',
+      store: new RedisStore({
+        url: process.env.REDIS_URL || config.redis.uri
+      }),
+      saveUninitialized: false,
+      resave: false
+    }))
+    .use(flash())
+    .use(bodyParser.urlencoded({extended: true}))
+    .use(bodyParser.json())
+    .use(expressValidator());
 };

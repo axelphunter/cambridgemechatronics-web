@@ -22,9 +22,23 @@
       <li class="{{#if active_careers}}active{{/if}}">
         <a href="/careers">Careers</a>
       </li>
+      {{#if admin}}
       <li>
-        <a class="button" href="/login">Login</a>
+        <a href="/admin/users/list">Users</a>
       </li>
+      {{/if}}
+      {{#if authenticated}}
+      <li>
+        <a href="/admin/dashboard">Dashboard</a>
+      </li>
+      <li>
+        <a class="button" href="/admin/logout">Logout</a>
+      </li>
+      {{else}}
+      <li>
+        <a class="button" href="/admin/login">Login</a>
+      </li>
+      {{/if}}
     </ul>
       <!--<button class="hamburger hamburger--collapse" type="button">-->
         <!--<span class="hamburger-box">-->

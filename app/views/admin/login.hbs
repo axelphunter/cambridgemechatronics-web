@@ -1,16 +1,15 @@
 <main class="login">
-    <form action="admin-portal">
+    <form action="/admin/login" method="post">
         <div class="container">
             <div class="login-box">
-                <label><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-
+                <label><b>Email address</b></label>
+                <input type="email" class="u-full-width" placeholder="Enter Email Address" name="emailaddress" required>
                 <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required><br>
+                <input type="password" class="u-full-width" placeholder="Enter Password" name="password" required><br>
                 <button type="submit" class="login-button">Login</button>
                 <p>By entering this part of the site you hereby confirm that you are aware that the Confidential Information is confidential and you shall respect its confidential nature, hold the Confidential Information in trust, and take normal and reasonable precautions to maintain such confidentiality so that none of the Confidential Information, except as otherwise provided herein, will be divulged to any other party not required to know.</p>
-                <input type="checkbox" checked="checked"> Remember me
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>       </div>
+                <span class="psw"><a href="#">Forgot password?</a></span>
+            </div>
+        </div>
     </form>
 </main>

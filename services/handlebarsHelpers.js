@@ -9,6 +9,20 @@ module.exports = {
     return moment(date).format('dddd, MMMM Do YYYY');
   },
 
+  dateTimeFormat(date) {
+    return moment(date).format('DD/MM/YYYY HH:mm:ss');
+  },
+
+  isOnline(date) {
+    let response = '';
+    if (moment(date).diff(moment()) < -300000) {
+      response += '<i class="fa fa-user-circle-o" aria-hidden="true"></i>';
+    } else {
+      response += '<i class="fa fa-user-circle" aria-hidden="true"></i>';
+    }
+    return new Handlebars.SafeString(response);
+  },
+
   group(obj, ref, data) {
     let response = '';
     const array = obj

@@ -17,6 +17,9 @@ require('./configuration/express')(app, config);
 // logger configuration
 require('./configuration/logger')(app);
 
+// mongoose config
+require('./configuration/mongoose')(config);
+
 // sitemap service run
 require('./services/sitemap');
 
