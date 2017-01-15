@@ -8,5 +8,11 @@
     "socialImage": "http://www.cambridgemechatronics.com/images/main-bg.jpg",
     "company": "Cambridge Mechatronics Ltd",
     "companyReg": "3071231"
+  },
+  "mongodb": {
+    "uri": "mongodb://localhost:27017/cambridgemechatronics"
+  },
+  "redis": {
+    "uri": "redis://localhost:6379"
   }
 }

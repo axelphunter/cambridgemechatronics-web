@@ -1,0 +1,38 @@
+<main class="create-user">
+    <div class="container">
+
+        {{#if edit}}
+        <h1>Edit User - {{user.emailaddress}}</h1>
+        <form action="/admin/user/{{user.id}}" method="post">
+        {{else}}
+        <h1>Create User</h1>
+        <form action="/admin/user/create" method="post">
+        {{/if}}
+            <div class="row">
+                <div class="six columns">
+                    Email Address:<br>
+                    <input type="email" value="{{user.emailaddress}}" name="emailaddress"><br>
+                    First Name:<br>
+                    <input type="text" value="{{user.name.first}}" name="firstname" class=""><br>
+                </div>
+                <div class="six columns">
+                    Phone Number:<br>
+                    <input type="tel" value="{{user.phonenumber}}" name="phonenumber"><br>
+                    Last name:<br>
+                    <input type="text" value="{{user.name.last}}" name="lastname">
+                </div>
+            </div>
+            Job Role:<br>
+            <input type="text" value="{{user.jobrole}}" name="jobrole">
+            {{#if admin}}
+              {{#if user.admin}}
+                <input type="checkbox" name="administrator" checked>
+              {{else}}
+                <input type="checkbox" name="administrator">
+              {{/if}}
+                <span class="label-body">User is admin</span>
+            {{/if}}
+            <input type="submit" value="Submit" class="submit button"/>
+        </form>
+    </div>
+</main>

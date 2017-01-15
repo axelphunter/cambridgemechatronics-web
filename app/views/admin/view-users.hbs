@@ -1,0 +1,77 @@
+<main class="view-users">
+    <div class="container">
+        <h1>User Listing</h1>
+        <table class="user-table" style="width: 100%;">
+          <thead>
+            <tr>
+                <th>Email Address</th>
+                <th>Name</th>
+                <th>Last Activity</th>
+                <th>Online</th>
+                <th>Admin</th>
+                <th></th>
+                <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each users}}
+            <tr>
+                <td>{{emailaddress}}</td>
+                <td>{{name.first}} {{name.last}}</td>
+                <td>{{dateTimeFormat lastupdate}}</td>
+                <td>
+                  {{isOnline lastupdate}}
+                </td>
+                <td>
+                  {{#if admin}}
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                  {{/if}}
+                </td>
+                <td><a href="/admin/user/{{_id}}" class="button">View</a></td>
+                <td><a href="#deleteModal{{_id}}" class="button">Delete</a></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+
+        <a class="add-user button" href="/admin/user/create">Add New</a>
+
+        <div id="userModal" class="modalDialog">
+            <div class="modal">
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>User</h2>
+                <div class="row">
+                    <div class="six columns">
+                        <h4>Email</h4>
+                        <p>eik.hunter@cambridgemechantronics.co.uk</p>
+                        <h4>Name</h4>
+                        <p>Eik Hunter</p>
+                    </div>
+                    <div class="six columns">
+                        <h4>Phone Number</h4>
+                        <p>(+44) 75976 48000</p>
+                        <h4>Job Role</h4>
+                        <p>Web Developer</p>
+                    </div>
+                </div>
+                <h4>Username</h4>
+                <p>eik.hunter</p>
+                <h4>User Rights</h4>
+                <p>Administrator</p>
+                <a class="button amend-user">Edit</a>
+            </div>
+            </div>
+        </div>
+
+        {{#each users}}
+        <div id="deleteModal{{_id}}" class="modalDialog">
+            <div class="delete-Modal modal">
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Delete User?</h2>
+                <p>Are you sure you want to do this?</p>
+                <a href="/admin/delete/{{_id}}" class="button delete-yes">Yes</a>
+                <a class="button delete-no pull-right">No</a>
+            </div>
+        </div>
+        {{/each}}
+</main>
