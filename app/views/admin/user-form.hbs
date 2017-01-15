@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="six columns">
                     Email Address:<br>
-                    <input type="email" value="{{user.emailaddress}}" name="emailaddress" {{#unless admin}} disabled {{/unless}}><br>
+                    <input type="email" value="{{user.emailaddress}}" name="emailaddress" {{#unless authUser.admin}} disabled {{/unless}}><br>
                     First Name:<br>
                     <input type="text" value="{{user.name.first}}" name="firstname" class=""><br>
                 </div>
@@ -36,7 +36,7 @@
             {{/if}}
             Job Role:<br>
             <input type="text" value="{{user.jobrole}}" name="jobrole">
-            {{#if admin}}
+            {{#if authUser.admin}}
               {{#if user.admin}}
                 <label class="switch">
                 <input type="checkbox" name="administrator" checked>

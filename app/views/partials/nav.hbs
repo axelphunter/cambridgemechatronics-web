@@ -22,20 +22,18 @@
       <li class="{{#if active_careers}}active{{/if}}">
         <a href="/careers">Careers</a>
       </li>
-      {{#if admin}}
+      {{#if authUser.admin}}
       <li>
         <a href="/admin/users/list">Users</a>
       </li>
       {{/if}}
-      {{#if authenticated}}
+      {{#if authUser._id}}
+      <li>
+        <a href="/admin/user/{{authUser._id}}">My Account</a>
+      </li>
       <li>
         <a href="/admin">Dashboard</a>
       </li>
-      {{#if userId}}
-      <li>
-        <a href="/admin/user/{{userId}}">My Account</a>
-      </li>
-      {{/if}}
       <li>
         <a class="button" href="/admin/logout">Logout</a>
       </li>

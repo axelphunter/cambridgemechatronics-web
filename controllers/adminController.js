@@ -55,9 +55,7 @@ module.exports = {
 
   getPasswordReset(req, res) {
     return res.render('admin/password-reset', {
-      admin: req.session.user.admin,
-      authenticated: true,
-      userId: req.session.user._id,
+      authUser: req.session.user,
       error: req.flash('error')[0],
       success: req.flash('success')[0],
       pageName: 'Create User',
@@ -143,9 +141,7 @@ module.exports = {
           .results
           .reverse();
         return res.render('admin/admin-portal-list', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           ctx: res.locals.ctx,
@@ -172,9 +168,7 @@ module.exports = {
       .then((pageContent) => {
         if (pageContent) {
           return res.render('admin/admin-portal-view', {
-            admin: req.session.user.admin,
-            authenticated: true,
-            userId: req.session.user._id,
+            authUser: req.session.user,
             error: req.flash('error')[0],
             success: req.flash('success')[0],
             ctx: res.locals.ctx,
@@ -185,9 +179,7 @@ module.exports = {
         }
         res.status(404);
         return res.render('404', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: '404',
@@ -198,9 +190,7 @@ module.exports = {
         console.log(err);
         res.status(404);
         res.render('404', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: '404',
@@ -247,10 +237,9 @@ module.exports = {
       .lean()
       .then((response) => {
         const users = response;
+        console.log(users);
         return res.render('admin/user-listing', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: 'View Users',
@@ -297,9 +286,7 @@ module.exports = {
       .then((response) => {
         const user = response;
         return res.render('admin/user-form', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           edit: true,
@@ -372,9 +359,7 @@ module.exports = {
 
   getCreateUser(req, res) {
     return res.render('admin/user-form', {
-      admin: req.session.user.admin,
-      authenticated: true,
-      userId: req.session.user._id,
+      authUser: req.session.user,
       error: req.flash('error')[0],
       success: req.flash('success')[0],
       pageName: 'Create User',

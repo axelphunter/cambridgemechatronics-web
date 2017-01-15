@@ -15,9 +15,7 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('home', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: 'Home',
@@ -37,9 +35,7 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('about', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: 'About',
@@ -60,9 +56,7 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('technology', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: 'Technology',
@@ -83,9 +77,7 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('our-platform-technology', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: 'Our Platform Technology',
@@ -106,9 +98,7 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('ois', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: 'OIS',
@@ -129,9 +119,7 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('contact', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: 'Contact',
@@ -161,9 +149,7 @@ module.exports = {
           .results
           .reverse();
         res.render('news', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: 'News',
@@ -188,9 +174,7 @@ module.exports = {
       .then((pageContent) => {
         if (pageContent) {
           return res.render('news-item', {
-            admin: req.session.user.admin,
-            authenticated: true,
-            userId: req.session.user._id,
+            authUser: req.session.user,
             error: req.flash('error')[0],
             success: req.flash('success')[0],
             pageName: 'News',
@@ -202,9 +186,7 @@ module.exports = {
         }
         res.status(404);
         return res.render('404', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: '404',
@@ -214,9 +196,7 @@ module.exports = {
       .catch(() => {
         res.status(404);
         res.render('404', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: '404',
@@ -234,9 +214,7 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('careers', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: 'Careers',
@@ -257,9 +235,7 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('team', {
-          admin: req.session.user.admin,
-          authenticated: true,
-          userId: req.session.user._id,
+          authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           pageName: 'Team',
@@ -273,9 +249,7 @@ module.exports = {
 
   getTerms(req, res) {
     res.render('terms', {
-      admin: req.session.user.admin,
-      authenticated: true,
-      userId: req.session.user._id,
+      authUser: req.session.user,
       error: req.flash('error')[0],
       success: req.flash('success')[0],
       pageName: 'Terms and Conditions',
