@@ -5,7 +5,7 @@ const UserModel = require('../models/userModel');
 module.exports = {
   checkAuth(req, res, next) {
     if (req.session && req.session.authenticated && req.session.user) {
-      if (req.session.user.passwordReset == true && req.originalUrl !== '/admin/password-reset') {
+      if (req.session.user.passwordReset && req.originalUrl !== '/admin/password-reset') {
         return res.redirect('/admin/password-reset');
       }
       const user = req.session.user;

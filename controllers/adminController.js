@@ -4,6 +4,7 @@ const config = require('config');
 const prismicConfig = require('../configuration/prismic');
 const prismic = require('prismic.io');
 const UserModel = require('../models/userModel');
+const generatePassword = require('generate-password');
 const _ = require('lodash');
 
 // */ controllers
@@ -36,11 +37,12 @@ module.exports = {
         return res.redirect('/admin/login');
       }
       // check if password matches
-      user.comparePassword(req.body.password, (_err) => {
-        if (_err) {
+      user.comparePassword(req.body.password, (_err, isMatch) => {
+        if (_err || !isMatch) {
           req.flash('error', 'Username or password incorrect.');
           return res.redirect('/admin/login');
         }
+
         user = JSON.parse(JSON.stringify(user));
         req.session.user = user;
         req.session.authenticated = true;
@@ -71,22 +73,30 @@ module.exports = {
       req.flash('error', 'Both passwords must match.');
       return res.redirect(backURL);
     }
+    if (!req.body.password.match(/(?=^.{8,15}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z])(?=(.*\d){1,}))((?!.*[",;&|'])|(?=(.*\W){1,}))(?!.*[",;&|'])^.*$/)) {
+      req.flash('error', 'Password must have at least 8 characters and maximum of 15 characters with at least one Capital letter, at least one lower case letter and at least one number.');
+      return res.redirect(backURL);
+    }
     delete req.body.confirmpassword;
 
-    return UserModel.findOneAndUpdate({
-      _id: req.session.user._id
-    }, {
-      password: req.body.password,
-      passwordReset: false
-    }).then(() => {
-      req.session.user.passwordReset = false;
-      req.flash('success', 'Your password has been reset successfully.');
-      return res.redirect('/admin');
-    }).catch((err) => {
-      console.log(err);
-      req.flash('error', 'There was a problem updating yoru password please try again.');
-      return res.redirect(backURL);
-    });
+    return UserModel
+      .findById(req.session.user._id)
+      .exec()
+      .then((response) => {
+        response.password = req.body.password;
+        response.passwordReset = false;
+        return response.save()
+      })
+      .then(() => {
+        req.session.user.passwordReset = false;
+        req.flash('success', 'Your password has been reset successfully.');
+        return res.redirect('/admin');
+      })
+      .catch((err) => {
+        console.log(err);
+        req.flash('error', 'There was a problem updating yoru password please try again.');
+        return res.redirect(backURL);
+      });
   },
 
   getLogout(req, res) {
@@ -326,22 +336,38 @@ module.exports = {
     } else {
       delete req.body.password;
     }
+    if (req.body.password && !req.body.password.match(/(?=^.{8,15}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z])(?=(.*\d){1,}))((?!.*[",;&|'])|(?=(.*\W){1,}))(?!.*[",;&|'])^.*$/)) {
+      req.flash('error', 'Password must have at least 8 characters and maximum of 15 characters with at least one Capital letter, at least one lower case letter and at least one number.');
+      return res.redirect(backURL);
+    }
     delete req.body.confirmpassword;
 
-    if (req.body.password) {
-      userObj.password = req.body.password;
-    }
-
-    return UserModel.findOneAndUpdate({
-      _id: req.params.userId
-    }, userObj).then(() => {
-      req.flash('success', 'User details were updated successfully');
-      return res.redirect(backURL);
-    }).catch((err) => {
-      console.log(err);
-      req.flash('error', 'There was a problem updating these user details.');
-      return res.redirect(backURL);
-    });
+    return UserModel
+      .findById(req.params.userId)
+      .exec()
+      .then((response) => {
+        response.emailaddress = req.body.emailaddress,
+        response.name = {
+          first: req.body.firstname,
+          last: req.body.lastname
+        },
+        response.role = req.body.jobrole,
+        response.admin = req.body.administrator,
+        response.phonenumber = req.body.phonenumber
+        if (req.body.password) {
+          response.password = req.body.password;
+        }
+        return response.save();
+      })
+      .then(() => {
+        req.flash('success', 'User details were updated successfully');
+        return res.redirect(backURL);
+      })
+      .catch((err) => {
+        console.log(err);
+        req.flash('error', 'There was a problem updating these user details.');
+        return res.redirect(backURL);
+      });
   },
 
   getCreateUser(req, res) {
@@ -365,7 +391,8 @@ module.exports = {
       return res.redirect(backURL);
     }
 
-    const password = 'delta1234';
+    const password = generatePassword.generate({length: 8, numbers: true, symbols: true, uppercase: true});
+    console.log(password);
 
     const userObj = {
       emailaddress: req.body.emailaddress,
