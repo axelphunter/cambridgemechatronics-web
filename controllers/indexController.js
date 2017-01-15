@@ -15,6 +15,11 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('home', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
           pageName: 'Home',
           ctx: res.locals.ctx,
           pageContent: pageContent.results[0],
@@ -32,6 +37,11 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('about', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
           pageName: 'About',
           ctx: res.locals.ctx,
           active_about: true,
@@ -50,6 +60,11 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('technology', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
           pageName: 'Technology',
           ctx: res.locals.ctx,
           active_tech: true,
@@ -68,6 +83,11 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('our-platform-technology', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
           pageName: 'Our Platform Technology',
           ctx: res.locals.ctx,
           active_tech: true,
@@ -86,6 +106,11 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('ois', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
           pageName: 'OIS',
           ctx: res.locals.ctx,
           active_tech: true,
@@ -104,6 +129,11 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('contact', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
           pageName: 'Contact',
           ctx: res.locals.ctx,
           active_contact: true,
@@ -131,6 +161,11 @@ module.exports = {
           .results
           .reverse();
         res.render('news', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
           pageName: 'News',
           ctx: res.locals.ctx,
           active_news: true,
@@ -153,6 +188,11 @@ module.exports = {
       .then((pageContent) => {
         if (pageContent) {
           return res.render('news-item', {
+            admin: req.session.user.admin,
+            authenticated: true,
+            userId: req.session.user._id,
+            error: req.flash('error')[0],
+            success: req.flash('success')[0],
             pageName: 'News',
             ctx: res.locals.ctx,
             active_news: true,
@@ -162,6 +202,11 @@ module.exports = {
         }
         res.status(404);
         return res.render('404', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
           pageName: '404',
           metaData: config.metaData
         });
@@ -169,6 +214,11 @@ module.exports = {
       .catch(() => {
         res.status(404);
         res.render('404', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
           pageName: '404',
           metaData: config.metaData
         });
@@ -184,6 +234,11 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('careers', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
           pageName: 'Careers',
           ctx: res.locals.ctx,
           active_careers: true,
@@ -202,6 +257,11 @@ module.exports = {
       })
       .then((pageContent) => {
         res.render('team', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
           pageName: 'Team',
           ctx: res.locals.ctx,
           active_team: true,
@@ -213,6 +273,11 @@ module.exports = {
 
   getTerms(req, res) {
     res.render('terms', {
+      admin: req.session.user.admin,
+      authenticated: true,
+      userId: req.session.user._id,
+      error: req.flash('error')[0],
+      success: req.flash('success')[0],
       pageName: 'Terms and Conditions',
       metaData: config.metaData
     });

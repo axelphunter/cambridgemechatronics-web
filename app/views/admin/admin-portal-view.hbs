@@ -1,37 +1,16 @@
 <main class="news-item">
   <div class="container">
-      <div class="user-logged">
-          <a class="button" href="/login">Log off</a>
-      </div>
-      <form class="pull-right">
-          <input type="button" value="Search">
-          <input type="text" placeholder="Search..." required>
-      </form>
     <div class="padded">
-      {{#if pageContent.data.[news.post-image]}}
-      <div class="row">
-        <div class="six columns">
-          <h2 class="wow fadeInDown">{{text pageContent 'news.title'}}</h2>
-          <p class="date">
-            {{dateFormat pageContent.data.[news.post-date].value}}
-          </p>
-          <div class="wow fadeInUp">
-            {{structuredText pageContent 'news.body' ctx}}
-          </div>
-        </div>
-        <div class="six columns">
-          <img src="{{image pageContent 'news.post-image'}}"/>
-        </div>
-      </div>
-      {{else}}
-      <h2 class="wow fadeInDown">{{text pageContent 'news.title'}}</h2>
+      <h2 class="wow fadeInDown">{{text pageContent 'adminitem.title'}}</h2>
       <p class="date">
-        {{dateFormat pageContent.data.[news.post-date].value}}
+        {{dateFormat pageContent.firstPublicationDate}}
       </p>
       <div class="wow fadeInUp">
-        {{structuredText pageContent 'news.body' ctx}}
+        {{structuredText pageContent 'adminitem.content' ctx}}
+        {{#if pageContent.data.[adminitem.file]}}
+        <a href="{{pageContent.data.[adminitem.file].value.file.url}}" target="_blank" class="button">View</a>
+        {{/if}}
       </div>
-      {{/if}}
     </div>
   </div>
 </main>

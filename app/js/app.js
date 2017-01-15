@@ -127,6 +127,43 @@ var app = {
             .click();
         }, 5000);
     }
+
+    if (document.getElementById('searchbar')) {
+      var searchbar = document.getElementById('searchbar');
+      var searchButton = document.getElementById('searchButton');
+      searchButton.onclick = function() {
+        var value = searchbar.value;
+        window.location = app.updateQueryStringParameter(window.location.href, 'search', value);
+      };
+    }
+
+    app.removeNotifier(document.getElementById('notifier'));
+  },
+
+  removeNotifier(el) {
+    if (!el) {
+      return;
+    }
+
+    window.setTimeout(() => {
+      el
+        .classList
+        .remove('fadeInDown');
+      el
+        .classList
+        .add('fadeOutUp');
+    }, 3000);
+  },
+
+  updateQueryStringParameter(uri, key, value) {
+    const re = new RegExp(`([?&])${key}=.*?(&|$)`, 'i');
+    const separator = uri.indexOf('?') !== -1
+      ? '&'
+      : '?';
+    if (uri.match(re)) {
+      return uri.replace(re, `$1${key}=${value}$2`);
+    }
+    return `${uri}${separator}${key}=${value}`;
   }
 };
 

@@ -34,6 +34,24 @@ body {
   top: 20px;
   right: 20px; }
 
+input[disabled] {
+  border: none; }
+
+.notification {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  top: 80px;
+  z-index: 100;
+  color: #fff;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 5px 0; }
+  .notification.error {
+    background: #d64946; }
+  .notification.success {
+    background: #30b14b; }
+
 .plus-circle {
   background: url("/images/plus-circle.png") center/cover no-repeat; }
 
@@ -181,7 +199,7 @@ nav {
     list-style: none; }
     nav ul li {
       cursor: pointer;
-      margin-left: 20px;
+      margin-left: 14px;
       margin-bottom: 0;
       line-height: 30px;
       display: inline-block;

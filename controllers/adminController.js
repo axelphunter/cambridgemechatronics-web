@@ -4,11 +4,14 @@ const config = require('config');
 const prismicConfig = require('../configuration/prismic');
 const prismic = require('prismic.io');
 const UserModel = require('../models/userModel');
+const _ = require('lodash');
 
 // */ controllers
 module.exports = {
   getLogin(req, res) {
     return res.render('admin/login', {
+      error: req.flash('error')[0],
+      success: req.flash('success')[0],
       pageName: 'Login',
       metaData: config.metaData
     });
@@ -16,8 +19,7 @@ module.exports = {
 
   postLogin(req, res) {
     if (!req.body.emailaddress || !req.body.password) {
-      console.log('no email or password');
-      // req.flash('error', 'Both email address and pasword is required.');
+      req.flash('error', 'Both email address and pasword is required.');
       return res.redirect('/admin/login');
     }
 
@@ -44,7 +46,7 @@ module.exports = {
           req.session.authenticated = true;
 
           req.flash('success', 'You have been logged in successfully');
-          return res.redirect('/admin/dashboard');
+          return res.redirect('/admin');
         });
       }
     });
@@ -59,50 +61,176 @@ module.exports = {
   },
 
   getAdminDashboard(req, res) {
-    return res.render('admin/admin-portal-list', {
-      admin: req.session.user.admin,
-      authenticated: true,
-      pageName: 'Admin Portal List',
-      metaData: config.metaData
-    });
+    const backURL = req.header('Referer') || '/';
+    const searchQuery = req.query.search
+      ? req
+        .query
+        .search
+        .toLowerCase()
+      : null;
+
+    prismicConfig
+      .api(req, res)
+      .then((api) => {
+        const query = api.query(prismic.Predicates.at('document.type', 'adminitem'));
+        return query;
+      })
+      .then((pageContent) => {
+        if (searchQuery) {
+          pageContent.results = _.filter(pageContent.results, function(val) {
+            return val
+              .data['adminitem.title']
+              .value
+              .toLowerCase()
+              .indexOf(searchQuery) > -1;
+          });
+        }
+
+        pageContent
+          .results
+          .sort((a, b) => {
+            const sorter = new Date(a.firstPublicationDate) - new Date(b.firstPublicationDate);
+            return sorter;
+          });
+        pageContent
+          .results
+          .reverse();
+        return res.render('admin/admin-portal-list', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
+          ctx: res.locals.ctx,
+          searchQuery,
+          pageContent,
+          pageName: 'Admin Portal List',
+          metaData: config.metaData
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        req.flash('error', 'There was a problem accessing documents.');
+        return res.redirect(backURL);
+      });
   },
 
-  getAdminView(req, res) {
-    return res.render('admin/admin-portal-view', {
-      admin: req.session.user.admin,
-      authenticated: true,
-      pageName: 'Admin Portal View',
-      metaData: config.metaData
-    });
+  getAdminItemBySlug(req, res) {
+    const slug = req.params.slug;
+    prismicConfig
+      .api(req, res)
+      .then((api) => {
+        return api.getByUID('adminitem', slug);
+      })
+      .then((pageContent) => {
+        if (pageContent) {
+          return res.render('admin/admin-portal-view', {
+            admin: req.session.user.admin,
+            authenticated: true,
+            userId: req.session.user._id,
+            error: req.flash('error')[0],
+            success: req.flash('success')[0],
+            ctx: res.locals.ctx,
+            pageContent,
+            pageName: 'Admin Portal View',
+            metaData: config.metaData
+          });
+        }
+        res.status(404);
+        return res.render('404', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
+          pageName: '404',
+          metaData: config.metaData
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(404);
+        res.render('404', {
+          admin: req.session.user.admin,
+          authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
+          pageName: '404',
+          metaData: config.metaData
+        });
+      });
   },
 
   getViewUsers(req, res) {
+    const backURL = req.header('Referer') || '/';
+    if (!req.session.user.admin) {
+      req.flash('error', 'You are not authorised to access this page.');
+      return res.redirect(backURL);
+    }
+    const searchQuery = req.query.search || null;
+    let query = {};
+
+    if (searchQuery) {
+      const nameQuery = searchQuery.split(' ');
+      let nameRegexString = '';
+
+      for (let i = 0; i < nameQuery.length; i++) {
+        nameRegexString += nameQuery[i];
+        if (i < nameQuery.length - 1) {
+          nameRegexString += '|';
+        }
+      }
+
+      query = {
+        $or: [
+          {
+            emailaddress: new RegExp(searchQuery, 'i')
+          }, {
+            'name.first': new RegExp(nameRegexString, 'i')
+          }, {
+            'name.last': new RegExp(nameRegexString, 'i')
+          }
+        ]
+      }
+    }
+
     UserModel
-      .find({})
+      .find(query)
       .lean()
       .then((response) => {
         const users = response;
         return res.render('admin/user-listing', {
           admin: req.session.user.admin,
           authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
           pageName: 'View Users',
           metaData: config.metaData,
+          searchQuery,
           users
         });
       })
       .catch((err) => {
         console.log(err);
+        req.flash('error', 'There was a problem accessing users.');
+        return res.redirect(backURL);
       });
   },
 
   getDeleteUserById(req, res) {
+    if (!req.session.user.admin) {
+      const backURL = req.header('Referer') || '/';
+      req.flash('error', 'You are not authorised to access this page.');
+      return res.redirect(backURL);
+    }
     const backURL = req.header('Referer') || '/';
     UserModel.findByIdAndRemove(req.params.userId, (err, response) => {
       if (err) {
         console.log(err);
         req.flash('error', 'There was a problem deleting this user.');
       } else {
-        console.log(response);
         req.flash('error', 'User has been deleted successfully.');
       }
       return res.redirect(backURL);
@@ -110,6 +238,11 @@ module.exports = {
   },
 
   getUserById(req, res) {
+    if (!req.session.user.admin && req.session.user._id !== req.params.userId) {
+      const backURL = req.header('Referer') || '/';
+      req.flash('error', 'You are not authorised to access this page.');
+      return res.redirect(backURL);
+    }
     const backURL = req.header('Referer') || '/';
     UserModel
       .findById(req.params.userId)
@@ -119,6 +252,9 @@ module.exports = {
         return res.render('admin/user-form', {
           admin: req.session.user.admin,
           authenticated: true,
+          userId: req.session.user._id,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
           edit: true,
           user,
           pageName: 'Create User',
@@ -132,13 +268,52 @@ module.exports = {
       });
   },
 
-  postUserById(req, res) {},
+  postUserById(req, res) {
+    const backURL = req.header('Referer') || '/';
+    const userObj = {
+      emailaddress: req.body.emailaddress,
+      name: {
+        first: req.body.firstname,
+        last: req.body.lastname
+      },
+      role: req.body.jobrole,
+      admin: req.body.administrator,
+      phonenumber: req.body.phonenumber
+    };
+
+    if (req.body.password || req.body.confirmpassword) {
+      if (req.body.password !== req.body.confirmpassword) {
+        req.flash('error', 'Both passwords must match.');
+        return res.redirect(backURL);
+      }
+    } else {
+      delete req.body.password
+    }
+    delete req.body.confirmpassword;
+
+    if (req.body.password) {
+      userObj.password = req.body.password;
+    }
+
+    UserModel.findOneAndUpdate({
+      _id: req.params.userId
+    }, userObj).then((response) => {
+      req.flash('success', 'User details were updated successfully');
+      return res.redirect(backURL);
+    }).catch((err) => {
+      console.log(err);
+      req.flash('error', 'There was a problem updating these user details.');
+      return res.redirect(backURL);
+    });
+  },
 
   getCreateUser(req, res) {
-    console.log('here');
     return res.render('admin/user-form', {
       admin: req.session.user.admin,
       authenticated: true,
+      userId: req.session.user._id,
+      error: req.flash('error')[0],
+      success: req.flash('success')[0],
       pageName: 'Create User',
       edit: false,
       metaData: config.metaData
@@ -171,7 +346,7 @@ module.exports = {
       .save()
       .then(() => {
         req.flash('success', 'The account was created successfully');
-        return res.redirect(backURL);
+        return res.redirect('/admin/users/list');
       })
       .catch((err) => {
         console.log(err);
