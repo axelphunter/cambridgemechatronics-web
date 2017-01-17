@@ -499,10 +499,6 @@ footer {
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.3; }
-  .news .news-item p {
-    display: none; }
-  .news .news-item p:first-child {
-    display: block; }
   .news .news-item h2 {
     font-size: 24px;
     z-index: 2;
@@ -525,6 +521,12 @@ footer {
     display: none;
     z-index: 2;
     position: relative; }
+    .news .news-item .body p,
+    .news .news-item .link p {
+      display: none; }
+    .news .news-item .body p:first-child,
+    .news .news-item .link p:first-child {
+      display: block; }
   .news .news-item:nth-child(1n+2) {
     background: #484C56;
     color: #fff; }

@@ -710,14 +710,6 @@ footer {
       opacity: 0.3;
     }
 
-    p {
-      display: none;
-    }
-
-    p:first-child {
-      display: block;
-    }
-
     h2 {
       font-size: 24px;
       z-index: 2;
@@ -746,6 +738,14 @@ footer {
       display: none;
       z-index: 2;
       position: relative;
+
+      p {
+        display: none;
+      }
+
+      p:first-child {
+        display: block;
+      }
     }
 
     &:nth-child(1n+2) {
