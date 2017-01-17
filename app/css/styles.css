@@ -499,6 +499,10 @@ footer {
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.3; }
+  .news .news-item p {
+    display: none; }
+  .news .news-item p:first-child {
+    display: block; }
   .news .news-item h2 {
     font-size: 24px;
     z-index: 2;

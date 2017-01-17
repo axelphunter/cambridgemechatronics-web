@@ -710,6 +710,14 @@ footer {
       opacity: 0.3;
     }
 
+    p {
+      display: none;
+    }
+
+    p:first-child {
+      display: block;
+    }
+
     h2 {
       font-size: 24px;
       z-index: 2;
