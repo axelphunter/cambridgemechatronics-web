@@ -8,22 +8,39 @@
         <h1>Create User</h1>
         <form action="/admin/user/create" method="post">
         {{/if}}
+        <label>
+          Email Address:
+          <input type="email" value="{{user.emailaddress}}" name="emailaddress">
+        </label>
             <div class="row">
                 <div class="six columns">
-                    Email Address:<br>
-                    <input type="email" value="{{user.emailaddress}}" name="emailaddress" {{#unless authUser.admin}} disabled {{/unless}}><br>
-                    First Name:<br>
-                    <input type="text" value="{{user.name.first}}" name="firstname" class=""><br>
+                  <label>
+                    First Name:
+                    <input type="text" value="{{user.name.first}}" name="firstname" class="">
+                  </label>
+
                 </div>
                 <div class="six columns">
-                    Phone Number:<br>
-                    <input type="tel" value="{{user.phonenumber}}" name="phonenumber"><br>
-                    Last name:<br>
+                  <label>
+                    Last name:
                     <input type="text" value="{{user.name.last}}" name="lastname">
+                  </label>
                 </div>
             </div>
+            {{#if user.admin}}
+              <label class="switch">
+              <input type="checkbox" name="administrator" checked>
+                  <div class="slider round"></div>
+              </label>
+            {{else}}
+              <label class="switch">
+              <input type="checkbox" name="administrator">
+                  <div class="slider round"></div>
+              </label>
+            {{/if}}
+              <span class="label-body"> User is admin</span>
             {{#if edit}}
-            <div class="row">
+            <!-- <div class="row">
               <div class="six columns">
                 Change password:<br>
                 <input type="password" name="password"><br>
@@ -32,23 +49,7 @@
                 Change password confirm:<br>
                 <input type="password" name="confirmpassword"><br>
               </div>
-            </div>
-            {{/if}}
-            Job Role:<br>
-            <input type="text" value="{{user.jobrole}}" name="jobrole">
-            {{#if authUser.admin}}
-              {{#if user.admin}}
-                <label class="switch">
-                <input type="checkbox" name="administrator" checked>
-                    <div class="slider round"></div>
-                </label>
-              {{else}}
-                <label class="switch">
-                <input type="checkbox" name="administrator">
-                    <div class="slider round"></div>
-                </label>
-              {{/if}}
-                <span class="label-body"> User is admin</span>
+            </div> -->
             {{/if}}
             {{#if edit}}
             <input type="submit" value="Edit" class="submit button"/>
@@ -56,5 +57,13 @@
             <input type="submit" value="Submit" class="submit button"/>
             {{/if}}
         </form>
+        {{#if edit}}
+        {{#if user.blocked}}
+        <a class="button" href="/admin/block/{{user._id}}">UnBlock user</a>
+        {{else}}
+        <a class="button" href="/admin/block/{{user._id}}">Block user</a>
+        {{/if}}
+        <a class="button" href="/admin/password-reset/{{user._id}}">Force password reset</a>
+        {{/if}}
     </div>
 </main>

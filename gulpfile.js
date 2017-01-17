@@ -31,7 +31,7 @@ gulp.task('process-views', function() {
     .pipe(gulpIf('*.css', cleanCSS()))
     .pipe(assets.restore())
     .pipe(useref())
-    .pipe(gulpIf('*.js', uglify()))
+    // .pipe(gulpIf('*.js', uglify()))
     .pipe(gulp.dest('dist'));
 });
 

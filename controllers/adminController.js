@@ -36,6 +36,11 @@ module.exports = {
         req.flash('error', 'Authentication failed. User not found.');
         return res.redirect('/admin/login');
       }
+
+      if(user.blocked) {
+        req.flash('error', 'Authentication failed. The users access has been blocked. Please contact an administrator.');
+        return res.redirect('/admin/login');
+      }
       // check if password matches
       user.comparePassword(req.body.password, (_err, isMatch) => {
         if (_err || !isMatch) {
@@ -80,10 +85,10 @@ module.exports = {
     return UserModel
       .findById(req.session.user._id)
       .exec()
-      .then((response) => {
-        response.password = req.body.password;
-        response.passwordReset = false;
-        return response.save()
+      .then((user) => {
+        user.password = req.body.password;
+        user.passwordReset = false;
+        return user.save();
       })
       .then(() => {
         req.session.user.passwordReset = false;
@@ -237,7 +242,6 @@ module.exports = {
       .lean()
       .then((response) => {
         const users = response;
-        console.log(users);
         return res.render('admin/user-listing', {
           authUser: req.session.user,
           error: req.flash('error')[0],
@@ -265,7 +269,7 @@ module.exports = {
     return UserModel.findByIdAndRemove(req.params.userId, (err) => {
       if (err) {
         console.log(err);
-        req.flash('error', 'There was a problem deleting this user.');
+        req.flash('success', 'There was a problem deleting this user.');
       } else {
         req.flash('error', 'User has been deleted successfully.');
       }
@@ -273,8 +277,57 @@ module.exports = {
     });
   },
 
+  getForcePasswordResetUserById(req, res) {
+    if (!req.session.user.admin) {
+      const backURL = req.header('Referer') || '/';
+      req.flash('error', 'You are not authorised to access this page.');
+      return res.redirect(backURL);
+    }
+    const backURL = req.header('Referer') || '/';
+    return UserModel
+      .findById(req.params.userId)
+      .exec()
+      .then((user) => {
+        user.passwordReset = true;
+        return user.save();
+      })
+      .then(() => {
+        req.flash('success', 'Force password request successful.');
+        return res.redirect(backURL);
+      })
+      .catch(() => {
+        req.flash('error', 'Facepassword request unsuccessful.');
+        return res.redirect(backURL);
+      });
+  },
+
+  getBlockUserById(req, res) {
+    if (!req.session.user.admin) {
+      const backURL = req.header('Referer') || '/';
+      req.flash('error', 'You are not authorised to access this page.');
+      return res.redirect(backURL);
+    }
+    const backURL = req.header('Referer') || '/';
+    return UserModel
+      .findById(req.params.userId)
+      .exec()
+      .then((user) => {
+        user.blocked = !user.blocked;
+        return user.save();
+      })
+      .then((response) => {
+        console.log(response);
+        req.flash('success', `User has been ${response.blocked ? 'blocked' : 'Unblocked'} successfully.`);
+        return res.redirect(backURL);
+      })
+      .catch(() => {
+        req.flash('error', 'There was a problem performing this function.');
+        return res.redirect(backURL);
+      });
+  },
+
   getUserById(req, res) {
-    if (!req.session.user.admin && req.session.user._id !== req.params.userId) {
+    if (!req.session.user.admin) {
       const backURL = req.header('Referer') || '/';
       req.flash('error', 'You are not authorised to access this page.');
       return res.redirect(backURL);

@@ -16,6 +16,23 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  passwordReset: {
+    type: Boolean
+  },
+  name: {
+    first: {
+      type: String
+    },
+    last: {
+      type: String
+    }
+  },
+  admin: {
+    type: Boolean
+  },
+  blocked: {
+    type: Boolean
   }
 }, {strict: false});
 
