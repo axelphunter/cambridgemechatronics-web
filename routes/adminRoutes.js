@@ -11,8 +11,8 @@ module.exports = (app) => {
   app.get('/admin/logout', adminController.getLogout);
   app.get('/admin/password-reset', middleware.checkAuth, adminController.getPasswordReset);
   app.post('/admin/password-reset', middleware.checkAuth, adminController.postPasswordReset);
-  app.get('/admin/user/create', middleware.checkAuth, adminController.getCreateUser);
-  app.post('/admin/user/create', middleware.checkAuth, adminController.postCreateUser);
+  app.get('/admin/user/create', adminController.getCreateUser);
+  app.post('/admin/user/create', adminController.postCreateUser);
   app.get('/admin', middleware.checkAuth, adminController.getAdminDashboard);
   app.get('/admin/:slug', middleware.checkAuth, adminController.getAdminItemBySlug);
   app.get('/admin/users/list', middleware.checkAuth, adminController.getViewUsers);
