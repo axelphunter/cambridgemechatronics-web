@@ -700,6 +700,14 @@ footer {
       display: none;
       z-index: 2;
       position: relative;
+
+      p {
+        display: none;
+      }
+
+      p:first-child {
+        display: block;
+      }
     }
 
     &:nth-child(1n+2) {

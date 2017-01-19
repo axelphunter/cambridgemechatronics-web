@@ -49,9 +49,8 @@ gulp.task('minify-html', function() {
 });
 
 gulp.task('images', function() {
-  return gulp
-    .src(config.appDir + '/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
-    .pipe(imagemin({interlaced: true}))
+  return gulp.src(config.appDir + '/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
+  // .pipe(imagemin({interlaced: true}))
     .pipe(gulp.dest(config.distDir + '/images'))
 });
 
