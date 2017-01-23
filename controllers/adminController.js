@@ -412,16 +412,6 @@ module.exports = {
       .findById(req.params.userId)
       .exec()
       .then((response) => {
-<<<<<<< Updated upstream
-        response.emailaddress = req.body.emailaddress,
-          response.name = {
-            first: req.body.firstname,
-            last: req.body.lastname
-          },
-          response.role = req.body.jobrole,
-          response.admin = req.body.administrator,
-          response.phonenumber = req.body.phonenumber
-=======
         const user = response;
         console.log(req.body);
         user.emailaddress = req.body.emailaddress;
@@ -430,7 +420,6 @@ module.exports = {
         user.role = req.body.jobrole;
         user.admin = req.body.administrator;
         user.phonenumber = req.body.phonenumber;
->>>>>>> Stashed changes
         if (req.body.password) {
           user.password = req.body.password;
         }
