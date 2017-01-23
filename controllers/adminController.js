@@ -4,6 +4,7 @@ const config = require('config');
 const prismicConfig = require('../configuration/prismic');
 const prismic = require('prismic.io');
 const UserModel = require('../models/userModel');
+const UserActivityModel = require('../models/UserActivityModel');
 const generatePassword = require('generate-password');
 const _ = require('lodash');
 
@@ -37,7 +38,7 @@ module.exports = {
         return res.redirect('/admin/login');
       }
 
-      if(user.blocked) {
+      if (user.blocked) {
         req.flash('error', 'Authentication failed. The users access has been blocked. Please contact an administrator.');
         return res.redirect('/admin/login');
       }
@@ -51,6 +52,17 @@ module.exports = {
         user = JSON.parse(JSON.stringify(user));
         req.session.user = user;
         req.session.authenticated = true;
+
+        new UserActivityModel({
+            activity: 'Logged in',
+            uid: req.session.user._id,
+            createdAt: new Date()
+          })
+          .save((err) => {
+            if (err) {
+              console.log(err);
+            }
+          });
 
         req.flash('success', 'You have been logged in successfully');
         return res.redirect('/admin');
@@ -103,6 +115,17 @@ module.exports = {
   },
 
   getLogout(req, res) {
+    new UserActivityModel({
+        activity: 'Logged out',
+        uid: req.session.user._id,
+        createdAt: new Date()
+      })
+      .save((err) => {
+        if (err) {
+          console.log(err);
+        }
+      });
+
     req.session.user = null;
     req.session.authenticated = false;
 
@@ -112,12 +135,12 @@ module.exports = {
 
   getAdminDashboard(req, res) {
     const backURL = req.header('Referer') || '/';
-    const searchQuery = req.query.search
-      ? req
-        .query
-        .search
-        .toLowerCase()
-      : null;
+    const searchQuery = req.query.search ?
+      req
+      .query
+      .search
+      .toLowerCase() :
+      null;
 
     prismicConfig
       .api(req, res)
@@ -145,6 +168,7 @@ module.exports = {
         pageContent
           .results
           .reverse();
+
         return res.render('admin/admin-portal-list', {
           authUser: req.session.user,
           error: req.flash('error')[0],
@@ -225,15 +249,13 @@ module.exports = {
       }
 
       query = {
-        $or: [
-          {
-            emailaddress: new RegExp(searchQuery, 'i')
-          }, {
-            'name.first': new RegExp(nameRegexString, 'i')
-          }, {
-            'name.last': new RegExp(nameRegexString, 'i')
-          }
-        ]
+        $or: [{
+          emailaddress: new RegExp(searchQuery, 'i')
+        }, {
+          'name.first': new RegExp(nameRegexString, 'i')
+        }, {
+          'name.last': new RegExp(nameRegexString, 'i')
+        }]
       };
     }
 
@@ -246,6 +268,7 @@ module.exports = {
           authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
+          password: req.flash('password')[0],
           pageName: 'View Users',
           metaData: config.metaData,
           searchQuery,
@@ -333,16 +356,30 @@ module.exports = {
       return res.redirect(backURL);
     }
     const backURL = req.header('Referer') || '/';
+    let user;
+    let userActivity;
     return UserModel
       .findById(req.params.userId)
       .lean()
       .then((response) => {
-        const user = response;
+        user = response;
+        return UserActivityModel
+          .find({
+            uid: req.params.userId
+          })
+          .sort({
+            createdAt: 'desc'
+          })
+          .lean();
+      })
+      .then((response) => {
+        userActivity = response;
         return res.render('admin/user-form', {
           authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
           edit: true,
+          userActivity,
           user,
           pageName: 'Create User',
           metaData: config.metaData
@@ -387,13 +424,13 @@ module.exports = {
       .exec()
       .then((response) => {
         response.emailaddress = req.body.emailaddress,
-        response.name = {
-          first: req.body.firstname,
-          last: req.body.lastname
-        },
-        response.role = req.body.jobrole,
-        response.admin = req.body.administrator,
-        response.phonenumber = req.body.phonenumber
+          response.name = {
+            first: req.body.firstname,
+            last: req.body.lastname
+          },
+          response.role = req.body.jobrole,
+          response.admin = req.body.administrator,
+          response.phonenumber = req.body.phonenumber
         if (req.body.password) {
           response.password = req.body.password;
         }
@@ -429,8 +466,15 @@ module.exports = {
       return res.redirect(backURL);
     }
 
-    const password = generatePassword.generate({length: 8, numbers: true, symbols: true, uppercase: true});
-    console.log(password);
+    const password = generatePassword.generate({
+      length: 8,
+      numbers: true,
+      symbols: true,
+      uppercase: true
+    });
+
+
+    // console.log(password);
 
     const userObj = {
       emailaddress: req.body.emailaddress,
@@ -449,6 +493,7 @@ module.exports = {
       .save()
       .then(() => {
         req.flash('success', 'The account was created successfully');
+        req.flash('password', password);
         return res.redirect('/admin/users/list');
       })
       .catch((err) => {

@@ -65,5 +65,35 @@
         {{/if}}
         <a class="button" href="/admin/password-reset/{{user._id}}">Force password reset</a>
         {{/if}}
+        {{#if userActivity}}
+        <table class="user-activity">
+          <thead>
+            <tr>
+              <td>
+                Date/ time
+              </td>
+              <td>
+                Activity
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each userActivity}}
+            <tr>
+              <td>
+                {{dateTimeFormat createdAt}}
+              </td>
+              <td>
+                {{activity}}
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        {{else}}
+        <p>
+          There has been no activity recorded for this user.
+        </p>
+        {{/if}}
     </div>
 </main>

@@ -799,6 +799,33 @@ footer {
   }
 }
 
+table.user-activity {
+  display: table;
+  width: 100%;
+}
+
+table.user-activity tbody,
+table.user-activity thead {
+  float: left;
+  width: 100%;
+}
+
+table.user-activity tbody {
+  overflow: auto;
+  height: 150px;
+}
+
+table.user-activity tr {
+  width: 100%;
+  display: table;
+  text-align: left;
+}
+
+table.user-activity td,
+table.user-activity th {
+  width: 33%;
+}
+
 .date {
   margin-bottom: 0;
   font-weight: bold;

@@ -8,8 +8,10 @@
       </p>
       <div class="wow fadeInUp">
         {{structuredText pageContent 'adminitem.content' ctx}}
-        {{#if pageContent.data.[adminitem.file]}}
-        <a href="{{pageContent.data.[adminitem.file].value.file.url}}" target="_blank" class="button">View</a>
+        {{#if pageContent.data.[adminitem.documents]}}
+          {{#each pageContent.data.[adminitem.documents].value}}
+            <a href="{{[file-location].value.file.url}}" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> {{[document-name].value}}</a>
+          {{/each}}
         {{/if}}
       </div>
     </div>

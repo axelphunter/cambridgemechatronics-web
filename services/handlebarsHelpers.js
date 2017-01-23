@@ -6,16 +6,26 @@ const prismic = require('../configuration/prismic');
 
 module.exports = {
   dateFormat(date) {
-    return moment(date).format('dddd, MMMM Do YYYY');
+    return moment(date)
+      .format('dddd, MMMM Do YYYY');
   },
 
   dateTimeFormat(date) {
-    return moment(date).format('DD/MM/YYYY HH:mm:ss');
+    if (!date) {
+      return 'No activity';
+    }
+    return moment(date)
+      .format('DD/MM/YYYY HH:mm:ss');
   },
 
   isOnline(date) {
+    console.log(date);
+    if (!date) {
+      return 'No activity';
+    }
     let response = '';
-    if (moment(date).diff(moment()) < -300000) {
+    if (moment(date)
+      .diff(moment()) < -300000) {
       response += '<i class="fa fa-user-circle-o" aria-hidden="true"></i>';
     } else {
       response += '<i class="fa fa-user-circle" aria-hidden="true"></i>';
@@ -48,11 +58,13 @@ module.exports = {
   },
 
   image(obj, ref) {
-    return new Handlebars.SafeString(obj.getImage(ref).url || false);
+    return new Handlebars.SafeString(obj.getImage(ref)
+      .url || false);
   },
 
   structuredText(obj, ref, ctx) {
-    return new Handlebars.SafeString(obj.getStructuredText(ref).asHtml(ctx.linkResolver));
+    return new Handlebars.SafeString(obj.getStructuredText(ref)
+      .asHtml(ctx.linkResolver));
   },
 
   structuredTextPlain(obj) {

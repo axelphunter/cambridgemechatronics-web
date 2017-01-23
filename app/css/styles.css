@@ -559,6 +559,26 @@ footer {
     .news .news-item:nth-child(9n+1) .link {
       display: block; }
 
+table.user-activity {
+  display: table;
+  width: 100%; }
+
+table.user-activity thead, table.user-activity tbody {
+  float: left;
+  width: 100%; }
+
+table.user-activity tbody {
+  overflow: auto;
+  height: 150px; }
+
+table.user-activity tr {
+  width: 100%;
+  display: table;
+  text-align: left; }
+
+table.user-activity th, table.user-activity td {
+  width: 33%; }
+
 .date {
   margin-bottom: 0;
   font-weight: bold; }
