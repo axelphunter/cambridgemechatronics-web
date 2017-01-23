@@ -4,7 +4,7 @@ const config = require('config');
 const prismicConfig = require('../configuration/prismic');
 const prismic = require('prismic.io');
 const UserModel = require('../models/userModel');
-const UserActivityModel = require('../models/UserActivityModel');
+const UserActivityModel = require('../models/userActivityModel');
 const generatePassword = require('generate-password');
 const _ = require('lodash');
 
