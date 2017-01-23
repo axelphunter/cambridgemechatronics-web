@@ -14,21 +14,10 @@
         </label>
             <div class="row">
                 <div class="six columns">
-<<<<<<< Updated upstream
                   <label>
                     First Name:
                     <input type="text" value="{{user.name.first}}" name="firstname" class="">
                   </label>
-
-=======
-                    Email Address:<br>
-                    <input type="email" value="{{user.emailaddress}}" name="emailaddress" {{#unless authUser.admin}} disabled {{/unless}}><br>
-                    {{#unless authUser.admin}}
-                    <input type="hidden" value="{{user.emailaddress}}" name="emailaddress">
-                    {{/unless}}
-                    First Name:<br>
-                    <input type="text" value="{{user.name.first}}" name="firstname" class=""><br>
->>>>>>> Stashed changes
                 </div>
                 <div class="six columns">
                   <label>
