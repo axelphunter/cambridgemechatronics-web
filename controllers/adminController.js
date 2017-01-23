@@ -394,17 +394,6 @@ module.exports = {
 
   postUserById(req, res) {
     const backURL = req.header('Referer') || '/';
-    const userObj = {
-      emailaddress: req.body.emailaddress,
-      name: {
-        first: req.body.firstname,
-        last: req.body.lastname
-      },
-      role: req.body.jobrole,
-      admin: req.body.administrator,
-      phonenumber: req.body.phonenumber
-    };
-
     if (req.body.password || req.body.confirmpassword) {
       if (req.body.password !== req.body.confirmpassword) {
         req.flash('error', 'Both passwords must match.');
@@ -423,6 +412,7 @@ module.exports = {
       .findById(req.params.userId)
       .exec()
       .then((response) => {
+<<<<<<< Updated upstream
         response.emailaddress = req.body.emailaddress,
           response.name = {
             first: req.body.firstname,
@@ -431,12 +421,23 @@ module.exports = {
           response.role = req.body.jobrole,
           response.admin = req.body.administrator,
           response.phonenumber = req.body.phonenumber
+=======
+        const user = response;
+        console.log(req.body);
+        user.emailaddress = req.body.emailaddress;
+        user.name.first = req.body.firstname;
+        user.name.last = req.body.lastname;
+        user.role = req.body.jobrole;
+        user.admin = req.body.administrator;
+        user.phonenumber = req.body.phonenumber;
+>>>>>>> Stashed changes
         if (req.body.password) {
-          response.password = req.body.password;
+          user.password = req.body.password;
         }
-        return response.save();
+        console.log(user);
+        return user.save();
       })
-      .then(() => {
+      .then((response) => {
         req.flash('success', 'User details were updated successfully');
         return res.redirect(backURL);
       })
@@ -462,7 +463,7 @@ module.exports = {
     const backURL = req.header('Referer') || '/';
 
     if (!req.body.emailaddress) {
-      req.flash('error', 'Both email address and pasword is required.');
+      req.flash('error', 'Email address is required.');
       return res.redirect(backURL);
     }
 

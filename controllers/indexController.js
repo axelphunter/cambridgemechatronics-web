@@ -135,19 +135,25 @@ module.exports = {
     prismicConfig
       .api(req, res)
       .then((api) => {
-        const query = api.query(prismic.Predicates.at('document.type', 'news'));
-        return query;
+
+        return api
+          .form('everything')
+          .ref(api.master())
+          .query(prismic.Predicates.at("document.type", "news"))
+          .pageSize(100)
+          .orderings('[my.news.post-date desc]')
+          .submit();
       })
       .then((pageContent) => {
-        pageContent
-          .results
-          .sort((a, b) => {
-            const sorter = new Date(a.data['news.post-date'].value) - new Date(b.data['news.post-date'].value);
-            return sorter;
-          });
-        pageContent
-          .results
-          .reverse();
+        // pageContent
+        //   .results
+        //   .sort((a, b) => {
+        //     const sorter = new Date(a.data['news.post-date'].value) - new Date(b.data['news.post-date'].value);
+        //     return sorter;
+        //   });
+        // pageContent
+        //   .results
+        //   .reverse();
         res.render('news', {
           authUser: req.session.user,
           error: req.flash('error')[0],

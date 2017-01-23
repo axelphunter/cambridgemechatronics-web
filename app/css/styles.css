@@ -1,29 +1,12 @@
-/* assistant-regular - latin */
-@font-face {
-  font-family: 'Assistant';
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/assistant-v1-latin-regular.eot");
-  /* IE9 Compat Modes */
-  src: local("Assistant"), local("Assistant-Regular"), url("/fonts/assistant-v1-latin-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/assistant-v1-latin-regular.woff2") format("woff2"), url("/fonts/assistant-v1-latin-regular.woff") format("woff"), url("/fonts/assistant-v1-latin-regular.ttf") format("truetype"), url("/fonts/assistant-v1-latin-regular.svg#Assistant") format("svg");
-  /* Legacy iOS */ }
-
-/* assistant-700 - latin */
-@font-face {
-  font-family: 'Assistant';
-  font-style: normal;
-  font-weight: 700;
-  src: url("/fonts/assistant-v1-latin-700.eot");
-  /* IE9 Compat Modes */
-  src: local("Assistant Bold"), local("Assistant-Bold"), url("/fonts/assistant-v1-latin-700.eot?#iefix") format("embedded-opentype"), url("/fonts/assistant-v1-latin-700.woff2") format("woff2"), url("/fonts/assistant-v1-latin-700.woff") format("woff"), url("/fonts/assistant-v1-latin-700.ttf") format("truetype"), url("/fonts/assistant-v1-latin-700.svg#Assistant") format("svg");
-  /* Legacy iOS */ }
-
 body {
   font-family: 'Assistant', sans-serif;
   padding-top: 80px;
   color: #262261;
   min-width: 320px;
   -webkit-overflow-scrolling: touch; }
+
+table {
+  width: 100%; }
 
 .plus-circle,
 .plus-circle-light {
@@ -35,7 +18,8 @@ body {
   right: 20px; }
 
 input[disabled] {
-  border: none; }
+  border: none;
+  padding-left: 0; }
 
 .notification {
   position: fixed;
@@ -539,6 +523,12 @@ footer {
     display: none;
     z-index: 2;
     position: relative; }
+    .news .news-item .body p,
+    .news .news-item .link p {
+      display: none; }
+    .news .news-item .body p:first-child,
+    .news .news-item .link p:first-child {
+      display: block; }
   .news .news-item:nth-child(1n+2) {
     background: #484C56;
     color: #fff; }
@@ -563,7 +553,8 @@ table.user-activity {
   display: table;
   width: 100%; }
 
-table.user-activity thead, table.user-activity tbody {
+table.user-activity tbody,
+table.user-activity thead {
   float: left;
   width: 100%; }
 
@@ -576,7 +567,8 @@ table.user-activity tr {
   display: table;
   text-align: left; }
 
-table.user-activity th, table.user-activity td {
+table.user-activity td,
+table.user-activity th {
   width: 33%; }
 
 .date {
