@@ -476,7 +476,7 @@ module.exports = {
       role: req.body.jobrole,
       admin: req.body.administrator,
       phonenumber: req.body.phonenumber,
-      passwordReset: true
+      passwordReset: false
     };
 
     return new UserModel(userObj)
