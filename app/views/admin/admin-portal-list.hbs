@@ -5,17 +5,24 @@
       <button id="searchButton">Search</button>
     </form>
     <h1>Dashboard</h1>
-    {{#each pageContent.results}}
-    <ul class="user-item row">
-      <li class="four columns">
-        {{text this 'adminitem.title'}}
-      </li>
-      <li class="four columns">
-        {{dateFormat firstPublicationDate}}
-      </li>
-      <li class="four columns"><a class="button view-item" href="/admin/{{uid}}">View</a></li>
-    </ul>
-    {{/each}}
+
+    <table>
+      <tbody>
+        {{#each pageContent.results}}
+        <tr>
+          <td>
+            <h4>{{text this 'adminitem.title'}}</h4>
+          </td>
+          <td>
+            {{dateFormat firstPublicationDate}}
+          </td>
+          <td>
+            <a class="button view-item" href="/admin/{{uid}}">View</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
     <p id="load-more-articles" class="link larger">Load More +</p>
   </div>
 </main>
