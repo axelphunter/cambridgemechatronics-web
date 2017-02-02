@@ -1,4 +1,9 @@
 <main class="create-user">
+  {{#if password}}
+  <script>
+  window.prompt("The new users temporary password is in the input below. Please write this down and keep it in a safe place.","{{password}}");
+  </script>
+  {{/if}}
     <div class="container">
 
         {{#if edit}}

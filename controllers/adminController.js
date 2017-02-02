@@ -307,15 +307,22 @@ module.exports = {
       return res.redirect(backURL);
     }
     const backURL = req.header('Referer') || '/';
+    const password = generatePassword.generate({
+      length: 8,
+      numbers: true,
+      symbols: false,
+      uppercase: true
+    });
     return UserModel
       .findById(req.params.userId)
       .exec()
       .then((user) => {
-        user.passwordReset = true;
+        user.password = password;
         return user.save();
       })
       .then(() => {
         req.flash('success', 'Force password request successful.');
+        req.flash('password', password);
         return res.redirect(backURL);
       })
       .catch(() => {
@@ -378,6 +385,7 @@ module.exports = {
           authUser: req.session.user,
           error: req.flash('error')[0],
           success: req.flash('success')[0],
+          password: req.flash('password')[0],
           edit: true,
           userActivity,
           user,
