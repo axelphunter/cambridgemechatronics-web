@@ -459,7 +459,7 @@ module.exports = {
     const password = generatePassword.generate({
       length: 8,
       numbers: true,
-      symbols: true,
+      symbols: false,
       uppercase: true
     });
 

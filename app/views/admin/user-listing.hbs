@@ -1,7 +1,7 @@
 <main class="view-users">
   {{#if password}}
   <script>
-  window.alert('The new users temporary password is: {{password}} Please write this down and keep it in a safe place.')
+  window.prompt("The new users temporary password is in the input below. Please write this down and keep it in a safe place.","{{password}}");
   </script>
   {{/if}}
     <div class="container">
