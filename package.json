@@ -51,7 +51,7 @@
   "scripts": {
     "bower": "bower install",
     "build": "gulp build",
-    "postinstall": "npm install bcrypt --save node-sass && npm rebuild node-sass && npm run bower && npm run build",
+    "postinstall": "npm rebuild node-sass && npm run bower && npm run build",
     "start": "node index.js"
   },
   "repository": {
