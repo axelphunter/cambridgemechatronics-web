@@ -5,7 +5,6 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   cleanCSS = require('gulp-clean-css'),
   gulpIf = require('gulp-if'),
-  imagemin = require('gulp-imagemin'),
   cache = require('gulp-cache'),
   minifyHTML = require('gulp-minify-html'),
   del = require('del'),
@@ -54,7 +53,6 @@ gulp.task('minify-html', function() {
 gulp.task('images', function() {
   return gulp
     .src(config.appDir + '/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
-    // .pipe(imagemin({interlaced: true}))
     .pipe(gulp.dest(config.distDir + '/images'))
 });
 
