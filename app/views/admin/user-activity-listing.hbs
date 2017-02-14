@@ -1,0 +1,32 @@
+<main class="view-users">
+  <div class="container">
+      <h1>User Activity Listing</h1>
+      <div class="pull-right searchbar">
+        <form method="get">
+          <label>Date filter</label>
+          <input type="text" placeholder="Date from" name="date-from" class="datepicker" required="true" value="{{dateFrom}}">
+          <input type="text" placeholder="Date to" name="date-to" class="datepicker" required="true" value="{{dateTo}}">
+          <input type="submit" value="Search" />
+        </form>
+
+      </div>
+      <table class="user-table">
+        <thead>
+          <tr>
+              <th>User</th>
+              <th>Last Activity</th>
+              <th>Activity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each userActivity}}
+          <tr>
+              <td>{{getUser uid ../users}}</td>
+              <td>{{dateTimeFormat createdAt}}</td>
+              <td>{{activity}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+</main>

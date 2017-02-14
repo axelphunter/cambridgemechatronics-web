@@ -7,6 +7,7 @@ const UserModel = require('../models/userModel');
 const UserActivityModel = require('../models/userActivityModel');
 const generatePassword = require('generate-password');
 const _ = require('lodash');
+const moment = require('moment');
 
 // */ controllers
 module.exports = {
@@ -497,6 +498,59 @@ module.exports = {
       .catch((err) => {
         console.log(err);
         req.flash('error', 'This email address is already in use.');
+        return res.redirect(backURL);
+      });
+  },
+
+  getUserActivity(req, res) {
+    const dateFrom = req.query['date-from'];
+    const dateTo = req.query['date-to'];
+    console.log(dateFrom, dateTo);
+    const backURL = req.header('Referer') || '/';
+    if (!req.session.user.admin) {
+      req.flash('error', 'You are not authorised to access this page.');
+      return res.redirect(backURL);
+    }
+    const searchQuery = req.query.search || null;
+    let query = {};
+    let users;
+    let userActivity;
+
+    if (dateFrom || dateTo) {
+      query.createdAt = {
+        $gte: moment(dateFrom)
+          .toDate(),
+        $lt: moment(dateTo)
+          .toDate()
+      }
+    }
+    return UserActivityModel
+      .find(query)
+      .lean()
+      .then((response) => {
+        userActivity = response;
+        return UserModel.find({})
+          .lean();
+      })
+      .then((response) => {
+        users = response;
+        return res.render('admin/user-activity-listing', {
+          authUser: req.session.user,
+          error: req.flash('error')[0],
+          success: req.flash('success')[0],
+          password: req.flash('password')[0],
+          pageName: 'View Users',
+          metaData: config.metaData,
+          searchQuery,
+          dateFrom,
+          dateTo,
+          users,
+          userActivity
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        req.flash('error', 'There was a problem accessing users.');
         return res.redirect(backURL);
       });
   }

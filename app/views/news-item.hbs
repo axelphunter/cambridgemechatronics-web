@@ -7,9 +7,9 @@
     </div>
     <div class="padded">
       {{#if pageContent.data.[news.post-image]}}
+      <h2 class="wow fadeInDown">{{text pageContent 'news.title'}}</h2>
       <div class="row">
         <div class="six columns">
-          <h2 class="wow fadeInDown">{{text pageContent 'news.title'}}</h2>
           <p class="date">
             {{dateFormat pageContent.data.[news.post-date].value}}
           </p>

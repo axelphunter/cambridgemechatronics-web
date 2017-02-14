@@ -3,6 +3,7 @@
 const Handlebars = require('handlebars');
 const moment = require('moment');
 const prismic = require('../configuration/prismic');
+const _ = require('lodash');
 
 module.exports = {
   dateFormat(date) {
@@ -16,6 +17,13 @@ module.exports = {
     }
     return moment(date)
       .format('DD/MM/YYYY HH:mm:ss');
+  },
+
+  getUser(uid, users) {
+    const user = _.find(JSON.parse(JSON.stringify(users)), function(o) {
+      return o._id === uid;
+    })
+    return user ? user.emailaddress : 'User not found';
   },
 
   isOnline(date) {

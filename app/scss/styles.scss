@@ -228,8 +228,8 @@ nav {
   padding: 10px 20px;
 
   .logo {
-    font-size: 35px;
     line-height: 60px;
+    height: 60px;
     display: inline-block;
   }
 
@@ -1470,3 +1470,24 @@ table.user-activity th {
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 320px) {}
+@media print {
+  body {
+    padding-top: 0;
+  }
+
+  nav {
+    position: relative;
+
+    .sitenavigation {
+      display: none;
+    }
+  }
+
+  footer {
+    display: none;
+  }
+
+  .searchbar {
+    display: none;
+  }
+}

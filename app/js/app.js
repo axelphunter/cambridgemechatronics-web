@@ -3,34 +3,34 @@ var app = {
     document
       .querySelector('.hamburger')
       .onclick = function() {
-      this
-        .classList
-        .toggle('is-active');
-      var sitenavigation = document.querySelector('.sitenavigation');
-      if (sitenavigation.classList.contains('fadeInRight')) {
-        sitenavigation
+        this
           .classList
-          .remove('fadeInRight');
-        sitenavigation
-          .classList
-          .add('fadeOutRight');
-        window.setTimeout(function() {
+          .toggle('is-active');
+        var sitenavigation = document.querySelector('.sitenavigation');
+        if (sitenavigation.classList.contains('fadeInRight')) {
           sitenavigation
             .classList
-            .remove('active');
-        }, 500);
-        return;
-      }
-      sitenavigation
-        .classList
-        .add('active');
-      sitenavigation
-        .classList
-        .remove('fadeOutRight');
-      sitenavigation
-        .classList
-        .add('fadeInRight')
-    };
+            .remove('fadeInRight');
+          sitenavigation
+            .classList
+            .add('fadeOutRight');
+          window.setTimeout(function() {
+            sitenavigation
+              .classList
+              .remove('active');
+          }, 500);
+          return;
+        }
+        sitenavigation
+          .classList
+          .add('active');
+        sitenavigation
+          .classList
+          .remove('fadeOutRight');
+        sitenavigation
+          .classList
+          .add('fadeInRight')
+      };
 
     if (window.location.hash) {
       var i = 0;
@@ -52,7 +52,7 @@ var app = {
       var maxItems = 9,
         hiddenClass = 'visually-hidden';
       []
-        .forEach
+      .forEach
         .call(newsItems, function(item, idx) {
           if (idx > maxItems - 1) {
             item
@@ -64,7 +64,7 @@ var app = {
       loadMoreBtn.addEventListener('click', function() {
 
         []
-          .forEach
+        .forEach
           .call(document.querySelectorAll('.' + hiddenClass), function(item, idx) {
             if (idx < maxItems) {
               item
@@ -72,7 +72,8 @@ var app = {
                 .remove(hiddenClass);
             }
 
-            if (document.querySelectorAll('.' + hiddenClass).length === 0) {
+            if (document.querySelectorAll('.' + hiddenClass)
+              .length === 0) {
               loadMoreBtn.style.display = 'none';
             }
 
@@ -81,12 +82,13 @@ var app = {
       });
     }
 
-    new WOW().init();
+    new WOW()
+      .init();
 
     var textToggle = document.querySelectorAll('.toggle-text');
     if (textToggle.length > 0) {
       []
-        .forEach
+      .forEach
         .call(textToggle, function(toggle) {
           // do whatever
           toggle.onclick = function() {
@@ -117,7 +119,9 @@ var app = {
     if (document.querySelector('.js_percentage')) {
       var percentage = document.querySelector('.js_percentage');
 
-      lory(percentage, {infinite: 1});
+      lory(percentage, {
+        infinite: 1
+      });
     }
     if (document.querySelector('.js_next')) {
       window
@@ -138,6 +142,15 @@ var app = {
     }
 
     app.removeNotifier(document.getElementById('notifier'));
+
+    if (document.querySelectorAll('.datepicker')) {
+      [].forEach.call(document.querySelectorAll('.datepicker'), (div) => {
+        console.log(div);
+        new Pikaday({
+          field: div
+        });
+      });
+    }
   },
 
   removeNotifier(el) {
@@ -157,9 +170,9 @@ var app = {
 
   updateQueryStringParameter(uri, key, value) {
     const re = new RegExp(`([?&])${key}=.*?(&|$)`, 'i');
-    const separator = uri.indexOf('?') !== -1
-      ? '&'
-      : '?';
+    const separator = uri.indexOf('?') !== -1 ?
+      '&' :
+      '?';
     if (uri.match(re)) {
       return uri.replace(re, `$1${key}=${value}$2`);
     }

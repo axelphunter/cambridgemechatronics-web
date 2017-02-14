@@ -1,9 +1,6 @@
 {
   "name": "cambridgemechatronics-web",
   "version": "1.0.0",
-  "engines": {
-    "node": "6.9.1"
-  },
   "description": "Cambridge Mechatronics is a high technology design and engineering company based in Cambridge, UK. We specialise in mechatronic systems - combining the complementary disciplines of mechanical, electronic, control and software engineering.",
   "main": "index.js",
   "dependencies": {
