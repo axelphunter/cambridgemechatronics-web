@@ -9,7 +9,7 @@ var gulp = require('gulp'),
   minifyHTML = require('gulp-minify-html'),
   del = require('del'),
   runSequence = require('run-sequence'),
-  sass = require('gulp-sass'),
+  // sass = require('gulp-sass'),
   minHtmlOpts = {
     conditionals: true, // do not remove conditional comments
     quotes: true // do not remove attribute quotes
@@ -70,10 +70,10 @@ gulp.task('sass', function() {
     .pipe(sass())
     .pipe(gulp.dest(config.appDir + '/css'));
 });
-
-gulp.task('watch', ['sass'], function() {
-  return gulp.watch(config.appDir + '/scss/*.scss', ['sass']);
-});
+//
+// gulp.task('watch', ['sass'], function() {
+//   return gulp.watch(config.appDir + '/scss/*.scss', ['sass']);
+// });
 
 gulp.task('clean', function() {
   return del(config.distDir);
