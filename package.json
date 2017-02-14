@@ -6,7 +6,7 @@
   "engines" : { "node" : "6.9.5" },
   "dependencies": {
     "app-root-path": "^2.0.1",
-    "bcrypt": "^1.0.2",
+    "bcrypt": "1.0.2",
     "body-parser": "^1.15.0",
     "bower": "^1.7.9",
     "commander": "^2.9.0",
