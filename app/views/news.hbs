@@ -15,10 +15,12 @@
         {{else}}
         <a class="image" href="/news/{{uid}}"></a>
         {{/if}}
+        <a href="/news/{{uid}}">
         {{structuredText this 'news.title' ../ctx}}
-        <p class="date">
-          {{dateFormat data.[news.post-date].value}}
-        </p>
+          <p class="date">
+            {{dateFormat data.[news.post-date].value}}
+          </p>
+        </a>
         <div class="body">
           {{structuredText this 'news.body' ../ctx}}
         </div>
