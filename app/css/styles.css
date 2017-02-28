@@ -472,6 +472,11 @@ footer {
   background: url("/images/icons/tel.svg") #C4BFB6 center/contain no-repeat;
   background-size: 50%; }
 
+.news-item .news-content img {
+  float: right;
+  max-width: 50%;
+  padding: 10px; }
+
 .news .row {
   display: block; }
 
@@ -523,8 +528,18 @@ footer {
     display: none;
     z-index: 2;
     position: relative; }
+    .news .news-item .body h1,
+    .news .news-item .body h2,
+    .news .news-item .body h3,
+    .news .news-item .body h4,
     .news .news-item .body p,
-    .news .news-item .link p {
+    .news .news-item .body ul,
+    .news .news-item .link h1,
+    .news .news-item .link h2,
+    .news .news-item .link h3,
+    .news .news-item .link h4,
+    .news .news-item .link p,
+    .news .news-item .link ul {
       display: none; }
     .news .news-item .body p:first-child,
     .news .news-item .link p:first-child {

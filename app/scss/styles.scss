@@ -664,6 +664,17 @@ footer {
   background-size: 50%;
 }
 
+.news-item {
+  .news-content {
+    img {
+      float: right;
+      max-width: 50%;
+      padding: 10px;
+    }
+  }
+
+}
+
 .news {
   .row {
     display: block;
@@ -730,7 +741,12 @@ footer {
       z-index: 2;
       position: relative;
 
-      p {
+      h1,
+      h2,
+      h3,
+      h4,
+      p,
+      ul {
         display: none;
       }
 
